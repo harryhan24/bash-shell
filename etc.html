@@ -1353,7 +1353,7 @@ net.ipv4.icmp_<span class="hljs-built_in">echo</span>_ignore_all = <span class="
 <span class="hljs-comment"># &#xC7AC;&#xBD80;&#xD305; &#xD6C4;&#xC5D0;&#xB3C4; &#xC801;&#xC6A9;&#xB418;&#xAC8C; &#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD30C;&#xC77C;&#xB85C; &#xC800;&#xC7A5;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># &#xC774;&#xB54C; /etc/sysctl.d/ &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC800;&#xC7A5;&#xB418;&#xB294; &#xD30C;&#xC77C;&#xC774;&#xB984;&#xC740; &#xC784;&#xC758;&#xB85C; &#xC0AC;&#xC6A9;&#xD560;&#xC218; &#xC788;&#xACE0;</span>
 <span class="hljs-comment"># &#xD655;&#xC7A5;&#xC790;&#xB9CC; .conf &#xC73C;&#xB85C; &#xB9DE;&#xC73C;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</span>
-$ sudo sh -c <span class="hljs-string">&apos;echo &quot;net.ipv4.icmp_echo_ignore_all = 1&quot; &gt; /etc/sysctl.d/icmp-ignore.conf&apos;</span>
+$ <span class="hljs-built_in">echo</span> net.ipv4.icmp_<span class="hljs-built_in">echo</span>_ignore_all = <span class="hljs-number">1</span> | sudo tee /etc/sysctl.d/icmp-ignore.conf
 </code></pre>
 <blockquote>
 <p>/proc &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xAD6C;&#xC870;&#xC5D0; &#xB300;&#xD55C; &#xC790;&#xC138;&#xD55C; &#xC124;&#xBA85;&#xC740; <code>man 5 proc</code> &#xB85C; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xC2DC;&#xC2A4;&#xD15C; &#xC804;&#xCCB4; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xAD6C;&#xC870;&#xC5D0; &#xB300;&#xD55C; &#xC124;&#xBA85;&#xC740; <code>man 7 hier</code> &#xC785;&#xB2C8;&#xB2E4;.</p>
