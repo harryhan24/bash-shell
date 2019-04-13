@@ -1662,6 +1662,29 @@ e805c26ff46c6e138e3<span class="hljs-built_in">cd</span>198cff281ea <span class=
 <span class="hljs-variable">$2</span> : hello <span class="hljs-variable">$world</span> &#x2665;
 <span class="hljs-variable">$3</span> : <span class="hljs-number">33</span>
 </code></pre>
+<h1 id="quiz">Quiz</h1>
+<p>gcc &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xCEF4;&#xD30C;&#xC77C;&#xC744; &#xD560;&#xB54C; <code>-D</code> &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xBA85;&#xB839; &#xB77C;&#xC778;&#xC5D0;&#xC11C; &#xB9E4;&#xD06C;&#xB85C; &#xAC12;&#xC744; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB9E4;&#xD06C;&#xB85C; &#xAC12;&#xC774; &#xC22B;&#xC790;&#xC77C; &#xACBD;&#xC6B0;&#xB294; &#xC0C1;&#xAD00;&#xC5C6;&#xC9C0;&#xB9CC; &#xC2A4;&#xD2B8;&#xB9C1;&#xC77C; &#xACBD;&#xC6B0;&#xB294; double quotes &#xC744; &#xD574;&#xC918;&#xC57C; &#xD558;&#xB294;&#xB370;&#xC694;.
+&#xB9E4;&#xD06C;&#xB85C; &#xAC12;&#xC73C;&#xB85C; &#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xC804;&#xB2EC;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
+<p>&#xBA85;&#xB839; &#xB77C;&#xC778;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; quotes &#xC740; shell &#xC5D0;&#xC758;&#xD574; &#xD574;&#xC11D;&#xB41C; &#xD6C4;&#xC5D0; &#xCD5C;&#xC885;&#xC801;&#xC73C;&#xB85C; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB420; &#xB54C;&#xB294;
+&#xC81C;&#xAC70;&#xB429;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; &#xB2E4;&#xC74C; &#xCCAB;&#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xC740; &#xB450;&#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xC758; &#xACB0;&#xACFC;&#xC640; &#xAC19;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xC5B4; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ gcc -DMESSAGE=<span class="hljs-string">&quot;hello&quot;</span> foo.c
+...: error: &#x2018;hello&#x2019; undeclared (first use <span class="hljs-keyword">in</span> this <span class="hljs-keyword">function</span>); did you mean &#x2018;ftello&#x2019;?
+
+$ <span class="hljs-built_in">echo</span> gcc -DMESSAGE=<span class="hljs-string">&quot;hello&quot;</span> foo.c
+gcc -DMESSAGE=hello foo.c
+</code></pre>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; quotes &#xC744; escape &#xD574;&#xC8FC;&#xBA74; &#xB9E4;&#xD06C;&#xB85C; &#xAC12;&#xC73C;&#xB85C; quotes &#xC744; &#xD568;&#xAED8; &#xC804;&#xB2EC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ gcc -DMESSAGE=\<span class="hljs-string">&quot;hello\&quot; foo.c
+OK
+
+$ gcc -DMESSAGE=&quot;</span>\<span class="hljs-string">&quot;hello world\&quot;&quot;</span> foo.c
+OK
+
+$ <span class="hljs-built_in">echo</span> gcc -DMESSAGE=\<span class="hljs-string">&quot;hello\&quot; foo.c
+gcc -DMESSAGE=&quot;</span>hello<span class="hljs-string">&quot; foo.c
+</span></code></pre>
 
                     
                     </section>
