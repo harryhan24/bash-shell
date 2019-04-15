@@ -1299,37 +1299,6 @@ source &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xB294;
 <p>&#xD30C;&#xC77C; &#xD06C;&#xAE30;&#xC21C;&#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xD558;&#xACE0; &#xC2F6;&#xC73C;&#xBA74; <code>-lS</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ ls <span class="hljs-operator">-l</span>S
 </code></pre>
-<h1 id="2">2.</h1>
-<p><code>stat</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; file &#xC774;&#xB098; directory &#xC758; &#xC0C1;&#xD0DC; &#xC815;&#xBCF4;&#xB97C; &#xC870;&#xD68C;&#xD574; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xC5EC;&#xAE30;&#xC5D0;&#xB294; Access time, Modify time, Change time &#xC815;&#xBCF4;&#xAC00; &#xC788;&#xB294;&#xB370;&#xC694;.
-&#xAC01;&#xAC01; &#xC5B4;&#xB5A4; &#xACBD;&#xC6B0;&#xC5D0; &#xBCC0;&#xACBD;&#xC774; &#xB420;&#xAE4C;&#xC694;?</p>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">stat</span> foo.sh
-  File: foo.sh
-  Size: <span class="hljs-number">215</span>             Blocks: <span class="hljs-number">8</span>          IO Block: <span class="hljs-number">4096</span>   regular file
-Device: <span class="hljs-number">801</span>h/<span class="hljs-number">2049</span>d      Inode: <span class="hljs-number">11277303</span>    Links: <span class="hljs-number">1</span>
-Access: (<span class="hljs-number">0664</span>/-rw-rw-r--)  Uid: ( <span class="hljs-number">1000</span>/  mug896)   Gid: ( <span class="hljs-number">1000</span>/  mug896)
-Access: <span class="hljs-number">2019</span>-<span class="hljs-number">04</span>-<span class="hljs-number">15</span> <span class="hljs-number">19</span>:<span class="hljs-number">21</span>:<span class="hljs-number">25.540166670</span> +<span class="hljs-number">0900</span>
-Modify: <span class="hljs-number">2019</span>-<span class="hljs-number">04</span>-<span class="hljs-number">15</span> <span class="hljs-number">19</span>:<span class="hljs-number">21</span>:<span class="hljs-number">25.540166670</span> +<span class="hljs-number">0900</span>
-Change: <span class="hljs-number">2019</span>-<span class="hljs-number">04</span>-<span class="hljs-number">15</span> <span class="hljs-number">19</span>:<span class="hljs-number">21</span>:<span class="hljs-number">25.540166670</span> +<span class="hljs-number">0900</span>
- Birth: -
-</code></pre>
-<h5 id="access-time--atime-">Access time ( atime )</h5>
-<ul>
-<li>file : cat, more &#xAC19;&#xC740; &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xB0B4;&#xC6A9;&#xC744; &#xC77D;&#xC5C8;&#xC744; &#xB54C;</li>
-<li>directory : ls &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xB0B4;&#xC6A9;&#xC744; &#xC77D;&#xC5C8;&#xC744; &#xB54C;</li>
-</ul>
-<blockquote>
-<p>atime &#xC740; &#xD6A8;&#xC728;&#xC131;&#xC744; &#xC704;&#xD574; &#xB9E4;&#xBC88; &#xBC14;&#xB00C;&#xC9C0; &#xC54A;&#xACE0; mtime &#xC774;&#xB098; ctime &#xBCF4;&#xB2E4; old &#xD560; &#xACBD;&#xC6B0;&#xB9CC; &#xBCC0;&#xACBD;&#xB429;&#xB2C8;&#xB2E4;.</p>
-</blockquote>
-<h5 id="modify-time--mtime-">Modify time ( mtime )</h5>
-<ul>
-<li>file : &#xD30C;&#xC77C; &#xB0B4;&#xC6A9;&#xC774; &#xC218;&#xC815;&#xB418;&#xC5C8;&#xC744; &#xB54C; ( echo hello &gt;&gt; foo.sh )</li>
-<li>directory : &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xC5D0;&#xC11C; &#xD30C;&#xC77C;&#xC774; &#xC0C8;&#xB85C; &#xC0DD;&#xC131;&#xB418;&#xAC70;&#xB098; &#xC0AD;&#xC81C;&#xB418;&#xC5C8;&#xC744; &#xB54C; ( &#xD30C;&#xC77C;&#xC774; &#xC218;&#xC815;&#xB418;&#xB294; &#xAC83;&#xC740; &#xC81C;&#xC678; )</li>
-</ul>
-<h5 id="change-time--ctime-">Change time ( ctime )</h5>
-<p>change time &#xC740; &#xD30C;&#xC77C; &#xB0B4;&#xC6A9;&#xC744; &#xB9D0;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC544;&#xB2C8;&#xACE0; access &#xBAA8;&#xB4DC;, uid, gid &#xAC19;&#xC740; &#xC0C1;&#xD0DC; &#xC815;&#xBCF4;&#xB97C; &#xB9D0;&#xD569;&#xB2C8;&#xB2E4;.
-&#xADF8;&#xB7EC;&#xB2C8;&#xAE4C; chmod, chown &#xAC19;&#xC740; &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC8C; &#xB418;&#xBA74; &#xBCC0;&#xACBD;&#xB418;&#xACA0;&#xC8E0;.
-&#xB610;&#xD55C; &#xD30C;&#xC77C; &#xB0B4;&#xC6A9;&#xC774; &#xC218;&#xC815;&#xB420; &#xACBD;&#xC6B0; size &#xC815;&#xBCF4;&#xAC00; &#xBCC0;&#xACBD;&#xB418;&#xBBC0;&#xB85C; ctime &#xB3C4; &#xD568;&#xAED8; &#xBCC0;&#xACBD;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 
                     
                     </section>
