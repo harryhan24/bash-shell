@@ -1475,6 +1475,12 @@ $ dd <span class="hljs-keyword">if</span>=/dev/zero of=/dev/&lt;destination part
 &#xC77D;&#xC744;&#xACBD;&#xC6B0; &#xC5F0;&#xC18D;&#xB41C; NUL &#xBB38;&#xC790;&#xAC00; &#xC81C;&#xACF5;&#xB429;&#xB2C8;&#xB2E4;.</p>
 </li>
 </ul>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &gt; /dev/full
+bash: <span class="hljs-built_in">echo</span>: write error: No space left on device
+
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+</code></pre>
 <h4 id="architectural-view-of-the-linux-file-system-components">Architectural view of the Linux file system components</h4>
 <p><img src="images/linux_filesystem.png" alt=""></p>
 
