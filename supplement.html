@@ -1837,6 +1837,35 @@ minor number &#xAC00; &#xBAA8;&#xB450; &#xB2E4;&#xB978; &#xAC83;&#xC744; &#xC54C
 &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC81C;&#xC791;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <p><a href="https://en.wikipedia.org/wiki/File:Linux_API.svg" target="_blank"><img src="images/Linux_API2.png" alt=""></a></p>
 <h1 id="2">2.</h1>
+<p>&#xD2B9;&#xC815; &#xC2DC;&#xC2A4;&#xD15C;&#xCF5C; &#xD568;&#xC218;&#xAC00; frequently &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0; shared library &#xD615;&#xD0DC;&#xB85C; &#xC81C;&#xACF5;&#xD558;&#xC5EC;
+&#xC624;&#xBC84;&#xD5E4;&#xB4DC;&#xB97C; &#xC904;&#xC774;&#xB294; &#xBC29;&#xBC95;&#xC774; vDSO ( virtual dynamic shared object ) &#xC785;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; &#xBAA8;&#xB4E0; &#xC2E4;&#xD589; &#xC911;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xB294; &#xCEE4;&#xB110;&#xC5D0; &#xC758;&#xD574; vDSO &#xAC00; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xB9F5;&#xD551;&#xB418;&#xB294;&#xB370;&#xC694;.
+&#xC5EC;&#xAE30;&#xC5D0;&#xB294; &#xC5B4;&#xB5A4; &#xD568;&#xC218;&#xB4E4;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<p>vDSO &#xB294; ELF &#xD615;&#xC2DD;&#xC758; &#xC774;&#xBBF8;&#xC9C0; &#xC774;&#xBBC0;&#xB85C; binutils &#xD328;&#xD0A4;&#xC9C0;&#xC5D0; &#xD3EC;&#xD568;&#xB41C; &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xC870;&#xD68C;&#xD574; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xBA3C;&#xC800; &#xD604;&#xC7AC; bash &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xBA54;&#xBAA8;&#xB9AC; &#xB9F5;&#xC744; &#xC870;&#xD68C;&#xD574; &#xB364;&#xD504;&#xD560; &#xC8FC;&#xC18C;&#xB97C; &#xAD6C;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ grep vdso /proc/$$/maps
+<span class="hljs-number">7</span>ffc33de3000-<span class="hljs-number">7</span>ffc33de5000 r-xp <span class="hljs-number">00000000</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-number">0</span>                          [vdso]
+
+<span class="hljs-comment"># gdb &#xC758; dump memory &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; vdso.dump &#xD30C;&#xC77C;&#xB85C; &#xB364;&#xD504;</span>
+$ gdb -p $$ -batch -ex <span class="hljs-string">&quot;dump memory vdso.dump 0x7ffc33de3000 0x7ffc33de5000&quot;</span> &amp;&gt; /dev/null  
+
+<span class="hljs-comment"># &#xB364;&#xD504;&#xD55C; &#xC774;&#xBBF8;&#xC9C0;&#xB294; ELF64 shared object &#xD615;&#xC2DD;&#xC778; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+$ file vdso.dump
+vdso.dump: ELF <span class="hljs-number">64</span>-bit LSB shared object, x86-<span class="hljs-number">64</span>, version <span class="hljs-number">1</span> (SYSV), dynamically linked,
+BuildID[sha1]=<span class="hljs-number">2101</span>c1a4fa3c753961aeaf5f9a736262b7f86ccb, stripped
+
+$ nm -D vdso.dump
+<span class="hljs-number">0000000000000</span>a00 W clock_gettime
+<span class="hljs-number">0000000000000</span>ef0 W getcpu
+<span class="hljs-number">0000000000000</span>d30 W gettimeofday
+<span class="hljs-number">0000000000000000</span> A LINUX_2.<span class="hljs-number">6</span>
+<span class="hljs-number">0000000000000</span>ee0 W time
+<span class="hljs-number">0000000000000</span>a00 T __vdso_clock_gettime
+<span class="hljs-number">0000000000000</span>ef0 T __vdso_getcpu
+<span class="hljs-number">0000000000000</span>d30 T __vdso_gettimeofday
+<span class="hljs-number">0000000000000</span>ee0 T __vdso_time
+</code></pre>
+<h1 id="3">3.</h1>
 <p>&#xBA85;&#xB839;&#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xC778;&#xC218;&#xC758; &#xD06C;&#xAE30;&#xB294; &#xC5BC;&#xB9C8;&#xAE4C;&#xC9C0; &#xAC00;&#xB2A5;&#xD560;&#xAE4C;&#xC694;?</p>
 <p>xargs &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xAC04;&#xB2E8;&#xD788; &#xC870;&#xD68C;&#xD574;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ xargs --show-limits
