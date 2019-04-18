@@ -1483,6 +1483,18 @@ $ <span class="hljs-built_in">echo</span> $?
 </code></pre>
 <h4 id="architectural-view-of-the-linux-file-system-components">Architectural view of the Linux file system components</h4>
 <p><img src="images/linux_filesystem.png" alt=""></p>
+<h1 id="quiz">Quiz</h1>
+<p>&#xD604;&#xC7AC; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;&#xD55C; cpu &#xAC1C;&#xC218;&#xB97C; &#xC54C;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-bash">$ nproc
+<span class="hljs-number">8</span>
+
+<span class="hljs-comment"># nproc &#xBA85;&#xB839;&#xC740; coreutils &#xD328;&#xD0A4;&#xC9C0;&#xC5D0; &#xD3EC;&#xD568;&#xB41C; &#xBA85;&#xB839;&#xC785;&#xB2C8;&#xB2E4;.</span>
+$ dpkg -S /usr/bin/nproc
+coreutils: /usr/bin/nproc
+
+<span class="hljs-comment"># coreutils &#xD328;&#xD0A4;&#xC9C0;&#xC5D0; &#xD3EC;&#xD568;&#xB41C; &#xBA85;&#xB839;&#xB4E4;&#xC744; &#xBCF4;&#xB824;&#xBA74;</span>
+$ dpkg -L coreutils
+</code></pre>
 
                     
                     </section>

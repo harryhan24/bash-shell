@@ -1316,10 +1316,6 @@ SID &#xAC00; &#xBC14;&#xB00C;&#xBBC0;&#xB85C; controlling terminal &#xC5D0;&#xC1
 </blockquote>
 <pre><code class="lang-bash">$ setsid daemon.sh &gt; /dev/null <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &lt; /dev/null
 </code></pre>
-<p>&#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC2E4;&#xD589;&#xC2DC; &#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C; setsid &#xC2DC;&#xC2A4;&#xD15C;&#xCF5C;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; visual studio code </p>
-<pre><code class="lang-bash">$ strace -qq <span class="hljs-operator">-f</span> <span class="hljs-operator">-e</span> setsid code . |&amp; grep setsid
-[pid  <span class="hljs-number">6006</span>] setsid()                    = <span class="hljs-number">6006</span>
-</code></pre>
 <h3 id="pgid-&#xB97C;-&#xBCC0;&#xACBD;&#xD558;&#xC5EC;-child-process-&#xC2E4;&#xD589;">PGID &#xB97C; &#xBCC0;&#xACBD;&#xD558;&#xC5EC; child process &#xC2E4;&#xD589;</h3>
 <p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; a.sh -&gt; b.sh -&gt; c.sh -&gt; d.sh  &#xC21C;&#xC11C;&#xB85C; &#xC2E4;&#xD589;&#xD558;&#xC5EC; &#xD604;&#xC7AC; sleep &#xC0C1;&#xD0DC;&#xC5D0; &#xC788;&#xB2E4;&#xBA74;
 Ctrl-c &#xB97C; &#xB204;&#xB97C;&#xACBD;&#xC6B0; <a href="tty.html#tty_driver">tty driver</a> &#xC5D0; &#xC758;&#xD574; 
