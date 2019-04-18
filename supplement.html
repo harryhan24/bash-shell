@@ -1848,6 +1848,10 @@ $ grep vdso /proc/$$/maps
 
 <span class="hljs-comment"># gdb &#xC758; dump memory &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; vdso.dump &#xD30C;&#xC77C;&#xB85C; &#xB364;&#xD504;</span>
 $ gdb -p $$ -batch -ex <span class="hljs-string">&quot;dump memory vdso.dump 0x7ffc33de3000 0x7ffc33de5000&quot;</span> &amp;&gt; /dev/null  
+<span class="hljs-comment"># &#xB610;&#xB294; /proc/$pid/mem &#xC744; &#xC774;&#xC6A9;</span>
+$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">0</span>x7ffc33de3000 - <span class="hljs-number">0</span>x7ffc33de5000 ))
+-<span class="hljs-number">8192</span>
+$ dd skip=$((<span class="hljs-number">0</span>x7ffc33de3000)) bs=<span class="hljs-number">1</span> count=<span class="hljs-number">8192</span> <span class="hljs-keyword">if</span>=/proc/$$/mem of=vdso.dump <span class="hljs-number">2</span>&gt; /dev/null
 
 <span class="hljs-comment"># &#xB364;&#xD504;&#xD55C; &#xC774;&#xBBF8;&#xC9C0;&#xB294; ELF64 shared object &#xD615;&#xC2DD;&#xC778; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ file vdso.dump
@@ -1951,4 +1955,3 @@ require(["gitbook"], function(gitbook) {
     </body>
     
 </html>
-
