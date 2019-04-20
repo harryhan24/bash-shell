@@ -1240,7 +1240,7 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="test-operators">Test Operators</h2>
-<p>&#xC774; &#xC5F0;&#xC0B0;&#xC790;&#xB4E4;&#xC740;  <code>test</code>, <code>[</code> builtin &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xAC83;&#xC73C;&#xB85C; <code>[[ ]]</code> &#xC5D0;&#xC11C;&#xB3C4; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>( &#xB2E8; <code>-a</code>, <code>-o</code> &#xC5F0;&#xC0B0;&#xC790;&#xB294; &#xC81C;&#xC678;.  <code>[[ ]]</code> &#xC5D0;&#xC11C;&#xB294; &#xC790;&#xCCB4; <code>&amp;&amp;</code> , <code>||</code> &#xC5F0;&#xC0B0;&#xC790;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.)</p>
+<p>&#xC774; &#xC5F0;&#xC0B0;&#xC790;&#xB4E4;&#xC740;  <code>test</code>, <code>[</code>  &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xAC83;&#xC73C;&#xB85C; <code>[[ ]]</code> &#xC5D0;&#xC11C;&#xB3C4; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>( &#xB2E8; <code>-a</code>, <code>-o</code> &#xC5F0;&#xC0B0;&#xC790;&#xB294; &#xC81C;&#xC678;.  <code>[[ ]]</code> &#xC5D0;&#xC11C;&#xB294; &#xC790;&#xCCB4; <code>&amp;&amp;</code> , <code>||</code> &#xC5F0;&#xC0B0;&#xC790;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.)</p>
 <h3 id="file-tests">File Tests</h3>
 <p>&#xD30C;&#xC77C;&#xC774; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC778;&#xC9C0; &#xD14C;&#xC2A4;&#xD2B8;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; <code>-x</code> &#xB098; <code>-r</code>, <code>-w</code> &#xC5F0;&#xC0B0;&#xC790;&#xB294; 
 &#xD30C;&#xC77C;&#xC758; <code>drwxrwxr-x</code> &#xBAA8;&#xB4DC; &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xD310;&#xB2E8;&#xD569;&#xB2C8;&#xB2E4;.
@@ -1474,9 +1474,9 @@ $ readlink <span class="hljs-operator">-e</span> /lib64/ld-linux-x86-<span class
 <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">$num</span>&quot;</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">0</span> <span class="hljs-number">2</span>&gt; /dev/null;
 
 <span class="hljs-keyword">if</span> [ $? <span class="hljs-operator">-lt</span> <span class="hljs-number">2</span> ]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;It&apos;s integer&quot;</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;It&apos;s an integer&quot;</span>
 <span class="hljs-keyword">else</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;It&apos;s not integer&quot;</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;It&apos;s not an integer&quot;</span>
 <span class="hljs-keyword">fi</span>
 </code></pre>
 <h3 id="misc-syntax">Misc Syntax</h3>
@@ -1522,10 +1522,10 @@ $ readlink <span class="hljs-operator">-e</span> /lib64/ld-linux-x86-<span class
 <p>&#xD14C;&#xC2A4;&#xD2B8; &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xBCC0;&#xC218;&#xAC12;&#xC774; &#xC5F0;&#xC0B0;&#xC790;&#xC640; &#xAC19;&#xC740; &#xC2A4;&#xD2B8;&#xB9C1;&#xC77C; &#xACBD;&#xC6B0;
 &#xC61B;&#xB0A0; &#xBC84;&#xC804;&#xC758; test &#xBA85;&#xB839;&#xC5D0;&#xC11C;&#xB294; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD55C;&#xB2E4;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.
 &#xB530;&#xB77C;&#xC11C; &#xBB38;&#xC81C;&#xB97C; &#xD574;&#xACB0;&#xD558;&#xAE30; &#xC704;&#xD574; &#xBCC0;&#xC218; &#xC55E;&#xC5D0; &#xD2B9;&#xC815; &#xBB38;&#xC790;&#xB97C; &#xD3EC;&#xD568;&#xD574;&#xC11C; &#xC791;&#xC131;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># $var &#xAC12;&#xC774; -a &#xC774;&#xB77C;&#xBA74; [ -a = &quot;&quot; ] &#xAC00; &#xB418;&#xC5B4; &#xC61B;&#xB0A0; &#xBC84;&#xC804;&#xC758; test &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC624;&#xB958; &#xBC1C;&#xC0DD;</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># $var &#xAC12;&#xC774; -n &#xC774;&#xB77C;&#xBA74; [ -n = &quot;&quot; ] &#xAC00; &#xB418;&#xC5B4; &#xC61B;&#xB0A0; &#xBC84;&#xC804;&#xC758; test &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC624;&#xB958; &#xBC1C;&#xC0DD;</span>
 $ <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$var</span>&quot;</span> = <span class="hljs-string">&quot;&quot;</span> ]; <span class="hljs-keyword">then</span> ...
 
-<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC791;&#xC131;&#xD558;&#xBA74; [ x-a = x ] &#xAC00; &#xB418;&#xBBC0;&#xB85C; &#xBB38;&#xC81C;&#xAC00; &#xC0DD;&#xAE30;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC791;&#xC131;&#xD558;&#xBA74; [ x-n = x ] &#xAC00; &#xB418;&#xBBC0;&#xB85C; &#xBB38;&#xC81C;&#xAC00; &#xC0DD;&#xAE30;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
 $ <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;x<span class="hljs-variable">$var</span>&quot;</span> = x ]; <span class="hljs-keyword">then</span> ...
 </code></pre>
 <h1 id="quiz">Quiz</h1>
