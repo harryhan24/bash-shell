@@ -1510,6 +1510,21 @@ tmpfs           <span class="hljs-number">7.8</span>G  <span class="hljs-number"
 tmpfs           <span class="hljs-number">5.0</span>M  <span class="hljs-number">4.0</span>K  <span class="hljs-number">5.0</span>M   <span class="hljs-number">1</span>% /run/lock
 tmpfs           <span class="hljs-number">7.8</span>G     <span class="hljs-number">0</span>  <span class="hljs-number">7.8</span>G   <span class="hljs-number">0</span>% /sys/fs/cgroup
 tmpfs           <span class="hljs-number">1.6</span>G   <span class="hljs-number">32</span>K  <span class="hljs-number">1.6</span>G   <span class="hljs-number">1</span>% /run/user/<span class="hljs-number">1000</span>
+------------------------------------------------------
+
+$ grep Shmem: /proc/meminfo
+Shmem:            <span class="hljs-number">543796</span> kB
+
+<span class="hljs-comment"># /dev/shm &#xC5D0; 100M &#xD06C;&#xAE30; &#xD30C;&#xC77C; &#xC0DD;&#xC131;</span>
+$ dd bs=$(( <span class="hljs-number">2</span>**<span class="hljs-number">20</span> )) count=<span class="hljs-number">100</span> <span class="hljs-keyword">if</span>=/dev/urandom of=/dev/shm/hello <span class="hljs-number">2</span>&gt; /dev/null
+
+$ grep Shmem: /proc/meminfo
+Shmem:            <span class="hljs-number">646196</span> kB
+
+$ rm <span class="hljs-operator">-f</span> /dev/shm/hello 
+
+$ grep Shmem: /proc/meminfo
+Shmem:            <span class="hljs-number">541804</span> kB
 </code></pre>
 <h1 id="2">2.</h1>
 <p>&#xD604;&#xC7AC; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;&#xD55C; cpu &#xAC1C;&#xC218;&#xB97C; &#xC54C;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
