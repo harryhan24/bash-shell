@@ -1515,7 +1515,7 @@ tmpfs           <span class="hljs-number">1.6</span>G   <span class="hljs-number
 $ grep Shmem: /proc/meminfo
 Shmem:            <span class="hljs-number">543796</span> kB
 
-<span class="hljs-comment"># /dev/shm &#xC5D0; 100M &#xD06C;&#xAE30; &#xD30C;&#xC77C; &#xC0DD;&#xC131;</span>
+<span class="hljs-comment"># /dev/shm &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; 100M &#xD06C;&#xAE30; &#xD30C;&#xC77C; &#xC0DD;&#xC131;</span>
 $ dd bs=$(( <span class="hljs-number">2</span>**<span class="hljs-number">20</span> )) count=<span class="hljs-number">100</span> <span class="hljs-keyword">if</span>=/dev/urandom of=/dev/shm/hello <span class="hljs-number">2</span>&gt; /dev/null
 
 $ grep Shmem: /proc/meminfo
