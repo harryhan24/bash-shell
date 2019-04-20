@@ -1484,6 +1484,34 @@ $ <span class="hljs-built_in">echo</span> $?
 <h4 id="architectural-view-of-the-linux-file-system-components">Architectural view of the Linux file system components</h4>
 <p><img src="images/linux_filesystem.png" alt=""></p>
 <h1 id="quiz">Quiz</h1>
+<p>&#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC758; &#xAD8C;&#xD55C;&#xC774; <code>drwxrwxrwx</code> &#xC774;&#xBA74; &#xB204;&#xAD6C;&#xB098; &#xB4E4;&#xC5B4;&#xC640;&#xC11C; &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD558;&#xACE0; &#xC4F8; &#xC218;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xD558;&#xC9C0;&#xB9CC; &#xB2E4;&#xB978; &#xC0AC;&#xC6A9;&#xC790;&#xC758; &#xD30C;&#xC77C;&#xB3C4; &#xC0AD;&#xC81C;&#xD560; &#xC218;&#xAC00; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC784;&#xC2DC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xB9CC;&#xB4E4; &#xB54C;&#xB294; sticky bit &#xC744; &#xBD99;&#xC5EC;&#xC11C;
+&#xC0AD;&#xC81C;&#xB97C; &#xBC29;&#xC9C0;&#xD569;&#xB2C8;&#xB2E4;(<code>.......rwt</code>).
+shell &#xC5D0;&#xC11C; &#xC784;&#xC2DC;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0;&#xB294; <code>/tmp</code>, <code>/var/tmp</code>, <code>/dev/shm</code> &#xAC00; &#xC788;&#xB294;&#xB370;&#xC694;
+&#xAC01;&#xAC01; &#xC5B4;&#xB5A4; &#xCC28;&#xC774;&#xAC00; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xBAA8;&#xB450; sticky bit &#xC774; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xC5B4;&#xC11C; &#xB2E4;&#xB978; &#xC0AC;&#xC6A9;&#xC790;&#xC758; &#xD30C;&#xC77C;&#xC740; &#xC0AD;&#xC81C;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.</span>
+$ ls -ld /tmp /var/tmp /dev/shm
+drwxrwxrwt  <span class="hljs-number">2</span> root root   <span class="hljs-number">40</span> <span class="hljs-number">2019</span>-<span class="hljs-number">04</span>-<span class="hljs-number">20</span> <span class="hljs-number">18</span>:<span class="hljs-number">42</span> /dev/shm/
+drwxrwxrwt <span class="hljs-number">18</span> root root <span class="hljs-number">4096</span> <span class="hljs-number">2019</span>-<span class="hljs-number">04</span>-<span class="hljs-number">20</span> <span class="hljs-number">18</span>:<span class="hljs-number">41</span> /tmp/
+drwxrwxrwt  <span class="hljs-number">7</span> root root <span class="hljs-number">4096</span> <span class="hljs-number">2019</span>-<span class="hljs-number">04</span>-<span class="hljs-number">20</span> <span class="hljs-number">18</span>:<span class="hljs-number">22</span> /var/tmp/
+</code></pre>
+<p>&#xBA3C;&#xC800; <code>/tmp</code> &#xC640; <code>/var/tmp</code> &#xB294; disk &#xC5D0; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xC785;&#xB2C8;&#xB2E4;.
+&#xCC28;&#xC774;&#xC810;&#xC740; <code>/tmp</code> &#xB294; reboot &#xC774; &#xB418;&#xBA74; &#xB0B4;&#xC6A9;&#xC774; &#xC0AC;&#xB77C;&#xC9C0;&#xC9C0;&#xB9CC; <code>/var/tmp</code> &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC0AD;&#xC81C;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xB0A8;&#xC544; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; reboot &#xD6C4;&#xC5D0;&#xB3C4; &#xB370;&#xC774;&#xD130;&#xAC00; &#xB0A8;&#xC544;&#xC788;&#xC5B4;&#xC57C; &#xB420; &#xACBD;&#xC6B0;&#xB294; ( &#xC608;&#xB97C; &#xB4E4;&#xBA74; cache &#xB370;&#xC774;&#xD130; )
+<code>/var/tmp</code> &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB9C8;&#xC6B4;&#xD2B8; &#xD560; &#xB54C; &#xD30C;&#xC77C;&#xC2DC;&#xC2A4;&#xD15C; &#xD0C0;&#xC785;&#xC73C;&#xB85C; <code>tmpfs</code> &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xAC00;&#xC0C1;&#xC8FC;&#xC18C;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBA54;&#xBAA8;&#xB9AC;&#xB85C; &#xB9C8;&#xC6B4;&#xD2B8;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.
+<code>/dev/shm</code> &#xC758; &#xACBD;&#xC6B0; &#xBCF4;&#xD1B5; &#xBB3C;&#xB9AC; &#xBA54;&#xBAA8;&#xB9AC;&#xC758; 50% &#xD06C;&#xAE30;&#xB85C; &#xC124;&#xC815;&#xC774; &#xB418;&#xB294;&#xB370; ramdisk &#xAC19;&#xC774; &#xCC98;&#xC74C;&#xBD80;&#xD130; &#xC774; &#xD06C;&#xAE30;&#xAC00;
+&#xBAA8;&#xB450; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xAC83;&#xC774; &#xC544;&#xB2C8;&#xACE0; &#xAC00;&#xC0C1;&#xC8FC;&#xC18C; &#xC2DC;&#xC2A4;&#xD15C;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xD544;&#xC694;&#xD55C; &#xB9CC;&#xD07C;&#xB9CC; &#xC0AC;&#xC6A9;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+/dev/shm ( shared memory ) &#xC774;&#xB984;&#xC5D0;&#xC11C;&#xB3C4; &#xC54C; &#xC218; &#xC788;&#xB4EF;&#xC774; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xAC04;&#xC5D0; &#xBE60;&#xB978; &#xB370;&#xC774;&#xD130; &#xACF5;&#xC720;&#xAC00; &#xD544;&#xC694;&#xD560; &#xACBD;&#xC6B0;
+&#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xBA54;&#xBAA8;&#xB9AC;&#xC774;&#xBBC0;&#xB85C; reboot &#xD6C4;&#xC5D0;&#xB294; &#xC5C6;&#xC5B4;&#xC9C0;&#xACA0;&#xC8E0;.</p>
+<pre><code class="lang-bash">$ df -h | grep tmpfs
+tmpfs           <span class="hljs-number">1.6</span>G  <span class="hljs-number">1.6</span>M  <span class="hljs-number">1.6</span>G   <span class="hljs-number">1</span>% /run
+tmpfs           <span class="hljs-number">7.8</span>G  <span class="hljs-number">176</span>M  <span class="hljs-number">7.7</span>G   <span class="hljs-number">3</span>% /dev/shm
+tmpfs           <span class="hljs-number">5.0</span>M  <span class="hljs-number">4.0</span>K  <span class="hljs-number">5.0</span>M   <span class="hljs-number">1</span>% /run/lock
+tmpfs           <span class="hljs-number">7.8</span>G     <span class="hljs-number">0</span>  <span class="hljs-number">7.8</span>G   <span class="hljs-number">0</span>% /sys/fs/cgroup
+tmpfs           <span class="hljs-number">1.6</span>G   <span class="hljs-number">32</span>K  <span class="hljs-number">1.6</span>G   <span class="hljs-number">1</span>% /run/user/<span class="hljs-number">1000</span>
+</code></pre>
+<h1 id="2">2.</h1>
 <p>&#xD604;&#xC7AC; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;&#xD55C; cpu &#xAC1C;&#xC218;&#xB97C; &#xC54C;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
 <pre><code class="lang-bash">$ nproc
 <span class="hljs-number">8</span>
