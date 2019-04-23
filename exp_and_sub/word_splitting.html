@@ -1383,15 +1383,15 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${ARR[1]}<
 Ubuntu Linux
 </code></pre>
 <p>IFS &#xAC12;&#xC744; &apos;Q&apos; &#xB85C; &#xBCC0;&#xACBD;&#xD558;&#xC600;&#xC9C0;&#xB9CC; &#xC778;&#xC218;&#xAC00; &#xBD84;&#xB9AC;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xADF8;&#xB300;&#xB85C; &#xACF5;&#xBC31;&#xC5D0; &#xC758;&#xD574; &#xBD84;&#xB9AC;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;. </p>
-<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">f1</span></span>() {
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">fun</span></span>() {
     <span class="hljs-built_in">echo</span> \<span class="hljs-variable">$1</span> : <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
     <span class="hljs-built_in">echo</span> \<span class="hljs-variable">$2</span> : <span class="hljs-string">&quot;<span class="hljs-variable">$2</span>&quot;</span>
 }
 
 IFS=Q          <span class="hljs-comment"># IFS &#xAC12;&#xC744; &apos;Q&apos; &#xB85C; &#xC124;&#xC815;</span>
 
-f1 <span class="hljs-number">11</span>Q22
-f1 <span class="hljs-number">33</span> <span class="hljs-number">44</span>
+fun <span class="hljs-number">11</span>Q22
+fun <span class="hljs-number">33</span> <span class="hljs-number">44</span>
 ====== output ========
 
 <span class="hljs-variable">$1</span> : <span class="hljs-number">11</span>Q22     <span class="hljs-comment"># &apos;Q&apos; &#xC5D0; &#xC758;&#xD574; &#xC778;&#xC218;&#xAC00; &#xBD84;&#xB9AC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
@@ -1403,8 +1403,8 @@ f1 <span class="hljs-number">33</span> <span class="hljs-number">44</span>
 <pre><code class="lang-bash">IFS=Q     
 AA=<span class="hljs-string">&quot;11Q22&quot;</span>
 BB=<span class="hljs-string">&quot;33 44&quot;</span>
-f1 <span class="hljs-variable">$AA</span>
-f1 <span class="hljs-variable">$BB</span>
+fun <span class="hljs-variable">$AA</span>
+fun <span class="hljs-variable">$BB</span>
 ====== output ========
 
 <span class="hljs-variable">$1</span> : <span class="hljs-number">11</span>        <span class="hljs-comment"># &apos;Q&apos; &#xC5D0; &#xC758;&#xD574; &#xC778;&#xC218;&#xAC00; &#xBD84;&#xB9AC;&#xB41C;&#xB2E4;.</span>
