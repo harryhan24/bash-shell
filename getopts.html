@@ -1808,23 +1808,26 @@ object &#xD30C;&#xC77C;&#xC774;&#xB098; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC744;
 &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC774;&#xC6A9;&#xD574; C &#xC18C;&#xC2A4; &#xD30C;&#xC77C;&#xC744; &#xC9C1;&#xC811; objdump &#xD569;&#xB2C8;&#xB2E4;.
 &#xCD94;&#xAC00;&#xB85C; gcc-arm-linux-gnueabi, gcc-mips-linux-gnu, gcc-powerpc-linux-gnu ...
 &#xD328;&#xD0A4;&#xC9C0;&#xB3C4; &#xC124;&#xCE58;&#xD574;&#xC11C; &#xC5EC;&#xB7EC; &#xC544;&#xD0A4;&#xD14D;&#xCCD0; &#xBCC4;&#xB85C;&#xB3C4; &#xC870;&#xD68C;&#xD574;&#xBCFC; &#xC218; &#xC788;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<p>&#xB514;&#xD3F4;&#xD2B8; &#xC544;&#xD0A4;&#xD14D;&#xCCD0;&#xB294; x86 &#xC774;&#xACE0; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4; &#xB364;&#xD504; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>CISC &#xC778; x86 &#xC758; &#xACBD;&#xC6B0; &#xC778;&#xC2A4;&#xD2B8;&#xB7ED;&#xC158; &#xC0AC;&#xC774;&#xC988;&#xAC00; &#xAC00;&#xBCC0;&#xC778;&#xB370; &#xBC18;&#xD574; RISC &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC77C;&#xC815;&#xD55C; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<p>1 . &#xB514;&#xD3F4;&#xD2B8; &#xC544;&#xD0A4;&#xD14D;&#xCCD0;&#xB294; x86 &#xC774;&#xACE0; &#xC2E4;&#xD589;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4;&#xC5B4; &#xB364;&#xD504; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote>
 <p>$ objdump.sh hello.c</p>
 </blockquote>
-<p>&#xB9C1;&#xD06C;&#xB294; &#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xCEF4;&#xD30C;&#xC77C;&#xB9CC; &#xD574;&#xC11C; &#xC624;&#xBE0C;&#xC81D;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xB364;&#xD504; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>2 . &#xB9C1;&#xD06C;&#xB294; &#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xCEF4;&#xD30C;&#xC77C;&#xB9CC; &#xD574;&#xC11C; &#xC624;&#xBE0C;&#xC81D;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xB364;&#xD504; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote>
 <p>$ objdump.sh <code>-c</code> hello.c</p>
 </blockquote>
-<p>func1 &#xD568;&#xC218; &#xBD80;&#xBD84;&#xB9CC; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>3 . func1 &#xD568;&#xC218; &#xBD80;&#xBD84;&#xB9CC; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote>
 <p>$ objdump.sh <code>-f func1</code> hello.c</p>
 </blockquote>
-<p>arm cpu &#xC6A9;&#xC73C;&#xB85C; &#xCEF4;&#xD30C;&#xC77C;&#xD574;&#xC11C; &#xB364;&#xD504; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>4 . arm cpu &#xC6A9;&#xC73C;&#xB85C; &#xCEF4;&#xD30C;&#xC77C;&#xD574;&#xC11C; &#xB364;&#xD504; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote>
 <p>$ objdump.sh <code>-a arm</code> -f func1 hello.c</p>
 </blockquote>
-<p>&#xAE30;&#xD0C0; gcc &#xC635;&#xC158;&#xC744; &#xC8FC;&#xB824;&#xBA74; <code>--</code> &#xC640; &#xD568;&#xAED8; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &#xCD94;&#xAC00;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>5 . &#xAE30;&#xD0C0; gcc &#xC635;&#xC158;&#xC744; &#xC8FC;&#xB824;&#xBA74; <code>--</code> &#xC640; &#xD568;&#xAED8; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &#xCD94;&#xAC00;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <blockquote>
 <p>$ objdump.sh -a arm -f func1 hello.c -- <code>-O2</code></p>
 </blockquote>
