@@ -1418,8 +1418,11 @@ V6 V7 V8 V9 W0 W1 W2 W3 W4 W5 W6 W7 W8 W9 X0 X1 X2 X3 X4 X5 X6 X7 X8 X9 Y0 Y1 Y2
 Y3 Y4 Y5 Y6 Y7 Y8 Y9 Z0 Z1 Z2 Z3 Z4 Z5 Z6 Z7 Z8 Z9
 </code></pre>
 <p><code>{ }</code> &#xC548;&#xC5D0;&#xC11C; <code>,</code> &#xB85C; &#xBD84;&#xB9AC;&#xD558;&#xC5EC; nesting &#xC744; &#xD560;&#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> {{A..Z},{a..z}}
-A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> {{A..D},{a..d}}
+A B C D a b c d
+
+$ <span class="hljs-built_in">echo</span> {A..D},{a..d}
+A,a A,b A,c A,d B,a B,b B,c B,d C,a C,b C,c C,d D,a D,b D,c D,d
 </code></pre>
 <h3 id="range-&#xAC12;&#xC73C;&#xB85C;-&#xBCC0;&#xC218;&#xB97C;-&#xC0AC;&#xC6A9;&#xD558;&#xB824;&#xBA74;">Range &#xAC12;&#xC73C;&#xB85C; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB824;&#xBA74;?</h3>
 <p>eval &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; range &#xAC12;&#xC73C;&#xB85C; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
