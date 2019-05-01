@@ -1780,6 +1780,7 @@ $ clang -std=c++[tab]
 <p><code>COMPREPLY</code> &#xBCC0;&#xC218;&#xC5D0; &#xC785;&#xB825;&#xB418;&#xB294; <code>$WORDS</code> &#xAC12;&#xC774; null &#xC774;&#xBA74; complete &#xB4F1;&#xB85D;&#xC2DC; &#xC0AC;&#xC6A9;&#xB41C; <code>-o default</code> &#xC124;&#xC815;&#xC774; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">_clang</span></span>() 
 {
+    <span class="hljs-built_in">local</span> COMM=<span class="hljs-variable">$1</span>
     <span class="hljs-built_in">local</span> CUR=<span class="hljs-variable">${COMP_WORDS[COMP_CWORD]}</span>
     <span class="hljs-built_in">local</span> PREV=<span class="hljs-variable">${COMP_WORDS[COMP_CWORD-1]}</span> 
     <span class="hljs-built_in">local</span> PREV2=<span class="hljs-variable">${COMP_WORDS[COMP_CWORD-2]}</span> 
@@ -1787,14 +1788,14 @@ $ clang -std=c++[tab]
 
     <span class="hljs-keyword">case</span> <span class="hljs-variable">$CUR</span> <span class="hljs-keyword">in</span>
         --*)  <span class="hljs-comment"># &apos;--&apos; &#xB85C; &#xC2DC;&#xC791;&#xB418;&#xB294; &#xC635;&#xC158;</span>
-            WORDS=$( clang --autocomplete=<span class="hljs-string">&quot;<span class="hljs-variable">$CUR</span>&quot;</span> | awk <span class="hljs-string">&apos;$1 ~ /^--/{print $1}&apos;</span> )
+            WORDS=$( <span class="hljs-variable">$COMM</span> --autocomplete=<span class="hljs-string">&quot;<span class="hljs-variable">$CUR</span>&quot;</span> | awk <span class="hljs-string">&apos;$1 ~ /^--/{print $1}&apos;</span> )
             ;;
         -*)   <span class="hljs-comment"># &apos;-&apos; &#xB85C; &#xC2DC;&#xC791;&#xB418;&#xB294; &#xC635;&#xC158;</span>
-            WORDS=$( clang --autocomplete=<span class="hljs-string">&quot;<span class="hljs-variable">$CUR</span>&quot;</span> | awk <span class="hljs-string">&apos;$1 ~ /^-[^-]/{print $1}&apos;</span> )
+            WORDS=$( <span class="hljs-variable">$COMM</span> --autocomplete=<span class="hljs-string">&quot;<span class="hljs-variable">$CUR</span>&quot;</span> | awk <span class="hljs-string">&apos;$1 ~ /^-[^-]/{print $1}&apos;</span> )
             ;;
         =)
             <span class="hljs-comment"># current &#xAC12;&#xC774; &apos;=&apos; &#xBB38;&#xC790;&#xC77C; &#xACBD;&#xC6B0; &apos;$PREV=&apos; &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xAC12;&#xC744; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</span>
-            WORDS=$( clang --autocomplete=<span class="hljs-string">&quot;<span class="hljs-variable">$PREV</span>=&quot;</span> | awk <span class="hljs-string">&apos;{print $1}&apos;</span> )
+            WORDS=$( <span class="hljs-variable">$COMM</span> --autocomplete=<span class="hljs-string">&quot;<span class="hljs-variable">$PREV</span>=&quot;</span> | awk <span class="hljs-string">&apos;{print $1}&apos;</span> )
             <span class="hljs-comment"># &#xAC12;&#xC774; &#xD558;&#xB098;&#xB77C;&#xB294; &#xAC83;&#xC740; &#xC790;&#xAE30; &#xC790;&#xC2E0;&#xC744; &#xB9D0;&#xD558;&#xBBC0;&#xB85C; &#xCD94;&#xAC00; &#xC785;&#xB825;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBC29;&#xC9C0;&#xD558;&#xAE30; &#xC704;&#xD574; WORDS=&quot;&quot; &#xC124;&#xC815;</span>
             [ `<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$WORDS</span>&quot;</span> | wc <span class="hljs-operator">-l</span>` <span class="hljs-operator">-eq</span> <span class="hljs-number">1</span> ] &amp;&amp; WORDS=<span class="hljs-string">&quot;&quot;</span>
             COMPREPLY=( <span class="hljs-variable">$WORDS</span> )
@@ -1803,11 +1804,11 @@ $ clang -std=c++[tab]
         *)
             <span class="hljs-comment"># &#xD604;&#xC7AC; &apos;-std=c[tab]&apos; &#xC640;&#xAC19;&#xC740; &#xC0C1;&#xD0DC;&#xC77C; &#xACBD;&#xC6B0;,&apos;$PREV2&apos; &#xB294; &apos;-std&apos;</span>
             <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$PREV</span>&quot;</span> == <span class="hljs-string">&apos;=&apos;</span> ]; <span class="hljs-keyword">then</span>
-                WORDS=$( clang --autocomplete=<span class="hljs-string">&quot;<span class="hljs-variable">$PREV2</span>=&quot;</span> )
+                WORDS=$( <span class="hljs-variable">$COMM</span> --autocomplete=<span class="hljs-string">&quot;<span class="hljs-variable">$PREV2</span>=&quot;</span> )
             <span class="hljs-keyword">else</span> 
                 <span class="hljs-comment"># &#xADF8;&#xC678; &#xAC12;&#xB4E4; &#xC608;&#xB97C; &#xB4E4;&#xC5B4; &apos;-meabi [tab]&apos;</span>
                 <span class="hljs-comment"># exit &#xBD80;&#xBD84;&#xC740; &apos;-c [tab]&apos; &#xD588;&#xC744;&#xB54C; -c &#xAC12;&#xC774; &#xC911;&#xBCF5; &#xC785;&#xB825;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBC29;&#xC9C0;</span>
-                WORDS=$( clang --autocomplete=<span class="hljs-string">&quot;<span class="hljs-variable">$PREV</span>&quot;</span> | awk <span class="hljs-string">&apos;$1 ~ /^-/{exit}{print $1}&apos;</span> )
+                WORDS=$( <span class="hljs-variable">$COMM</span> --autocomplete=<span class="hljs-string">&quot;<span class="hljs-variable">$PREV</span>&quot;</span> | awk <span class="hljs-string">&apos;$1 ~ /^-/{exit}{print $1}&apos;</span> )
             <span class="hljs-keyword">fi</span>
             ;;
     <span class="hljs-keyword">esac</span>
