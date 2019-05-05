@@ -1313,6 +1313,23 @@ hello
 
 $ <span class="hljs-built_in">echo</span> hello | cat &lt;&lt;&lt; <span class="hljs-string">&quot;world&quot;</span>
 world
+-----------------------------
+
+$ cat test.sh
+<span class="hljs-built_in">echo</span> <span class="hljs-number">11111111</span> &gt;&amp;<span class="hljs-number">2</span>             <span class="hljs-comment"># &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; stderr &#xB85C; &#xCD9C;&#xB825;</span>
+
+$ ./test.sh | ./test.sh       <span class="hljs-comment"># &#xB450; &#xAC1C;&#xC758; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xBAA8;&#xB450; stderr &#xB85C; &#xCD9C;&#xB825;&#xB428;.</span>
+<span class="hljs-number">11111111</span>
+<span class="hljs-number">11111111</span>
+
+<span class="hljs-comment"># &#xB9CC;&#xC57D;&#xC5D0; &#xD30C;&#xC774;&#xD504;&#xAC00; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xC73C;&#xBA74; &#xB450;&#xAC1C;&#xC758; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xBAA8;&#xB450; /dev/null &#xB85C; &#xCD9C;&#xB825;&#xB418;&#xACA0;&#xC9C0;&#xB9CC; &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC73C;&#xBBC0;&#xB85C;</span>
+$ ./test.sh | ./test.sh <span class="hljs-number">2</span>&gt; /dev/null   <span class="hljs-comment"># &#xCCAB; &#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xC740; stderr &#xB85C; &#xCD9C;&#xB825;&#xC774; &#xB418;&#xACE0;</span>
+<span class="hljs-number">11111111</span>                               <span class="hljs-comment"># &#xB450; &#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xC740; /dev/null &#xB85C; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</span>
+
+$ ./test.sh <span class="hljs-number">2</span>&gt; /dev/null | ./test.sh <span class="hljs-number">2</span>&gt; /dev/null
+$
+$ { ./test.sh | ./test.sh ;} <span class="hljs-number">2</span>&gt; /dev/null
+$
 </code></pre>
 <h3 id="&#xD30C;&#xC774;&#xD504;&#xAC00;--&#xBCF4;&#xB2E4;-&#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00;-&#xB192;&#xB2E4;">&#xD30C;&#xC774;&#xD504;&#xAC00; &amp; &#xBCF4;&#xB2E4; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xB2E4;.</h3>
 <p>&#xD30C;&#xC774;&#xD504;&#xB294; &#xADF8;&#xB8F9;&#xC73C;&#xB85C; &#xD558;&#xB098;&#xC758; &#xBA85;&#xB839;&#xCC98;&#xB7FC; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C;
