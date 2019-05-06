@@ -1383,8 +1383,15 @@
 <pre><code class="lang-bash">$ ls
 address.class  address.java  read.c  read.h  write.c  write.h
 
-$ ls *.[ch]
+$ ls *.[ch]      <span class="hljs-comment"># &#xD655;&#xC7A5;&#xC790;&#xAC00; 1 &#xBB38;&#xC790; &#xC774;&#xACE0; &apos;c&apos; &#xB610;&#xB294; &apos;h&apos; &#xC778; &#xD30C;&#xC77C;</span>
+$ ls *.?         <span class="hljs-comment"># &#xD655;&#xC7A5;&#xC790;&#xAC00; 1 &#xBB38;&#xC790;&#xC778; &#xD30C;&#xC77C;</span>
 read.c  read.h  write.c  write.h
+
+$ ls *.[^c]      <span class="hljs-comment"># &#xD655;&#xC7A5;&#xC790;&#xAC00; 1 &#xBB38;&#xC790; &#xC774;&#xACE0; &apos;c&apos; &#xAC00; &#xC544;&#xB2CC; &#xD30C;&#xC77C;</span>
+read.h write.h
+
+$ ls *.??*       <span class="hljs-comment"># &#xD655;&#xC7A5;&#xC790;&#xAC00; 2 &#xBB38;&#xC790; &#xC774;&#xC0C1;&#xC778; &#xD30C;&#xC77C;</span>
+address.class  address.java
 .............................................................
 
 $ AA=<span class="hljs-string">&quot;inventory.tar.gz&quot;</span>
