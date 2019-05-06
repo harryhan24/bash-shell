@@ -1503,8 +1503,9 @@ default &#xB85C; enable &#xB429;&#xB2C8;&#xB2E4;.
 <p><code>set -o noglob</code> &#xC740; globbing &#xAE30;&#xB2A5;&#xC744; disable &#xD569;&#xB2C8;&#xB2E4;. globbing &#xC744; &#xD68C;&#xD53C;&#xD558;&#xACE0;&#xC790; &#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. globbing &#xACFC; &#xD328;&#xD134;&#xB9E4;&#xCE6D;&#xC740; &#xBCC4;&#xAC1C;&#xC758; &#xAE30;&#xB2A5;&#xC73C;&#xB85C; globbing &#xC744; disable &#xD55C;&#xB2E4;&#xACE0; &#xD574;&#xC11C; &#xD328;&#xD134;&#xB9E4;&#xCE6D;&#xC5D0; glob &#xBB38;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xAC83;&#xC740; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;.</p>
 <hr>
 <h4 id="nullglob">nullglob</h4>
-<p>glob &#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xB9E4;&#xCE6D;&#xC744; &#xC2DC;&#xB3C4;&#xD558;&#xC600;&#xC73C;&#xB098; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xD30C;&#xC77C;&#xC774; &#xC5C6;&#xC744; &#xACBD;&#xC6B0; &#xD328;&#xD134;&#xC744; &#xADF8;&#xB300;&#xB85C; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xAC83;&#xC740;
-&#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xD30C;&#xC77C;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC5D0;&#xC11C; &#xC624;&#xB958;&#xC758; &#xC6D0;&#xC778;&#xC774; &#xB420;&#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB54C; <code>shopt -s nullglob</code> &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD558;&#xBA74; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xD30C;&#xC77C;&#xC774; &#xC5C6;&#xC744; &#xACBD;&#xC6B0; &#xD328;&#xD134;&#xC744; &#xB9AC;&#xD134;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>glob &#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xB9E4;&#xCE6D;&#xC744; &#xC2DC;&#xB3C4;&#xD558;&#xC600;&#xC73C;&#xB098; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xD30C;&#xC77C;&#xC774; &#xC5C6;&#xC744; &#xACBD;&#xC6B0; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD328;&#xD134;&#xC744; &#xADF8;&#xB300;&#xB85C; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;. 
+&#xC774;&#xAC83;&#xC740; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xD30C;&#xC77C;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC5D0;&#xC11C; &#xC624;&#xB958;&#xC758; &#xC6D0;&#xC778;&#xC774; &#xB420;&#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB54C; <code>shopt -s nullglob</code> &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD558;&#xBA74; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xD30C;&#xC77C;&#xC774; &#xC5C6;&#xC744; &#xACBD;&#xC6B0; &#xD328;&#xD134;&#xC744; &#xB9AC;&#xD134;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ ls
 <span class="hljs-number">2013</span>-<span class="hljs-number">03</span>-<span class="hljs-number">19</span> <span class="hljs-number">154412</span>.csv  ReadObject.java         WriteObject.class
 ReadObject.class       &#xC258; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD14C;&#xC2A4;&#xD305;.txt  WriteObject.java
@@ -1550,7 +1551,7 @@ $ grep -r foo                  ---- (<span class="hljs-number">2</span>)
 
 ----------------------------------------------------------
 
-<span class="hljs-comment"># &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; array[1] &#xACFC; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xD30C;&#xC77C;&#xC774; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; null &#xC744; &#xB9AC;&#xD134;&#xD558;&#xAC8C; &#xB418;&#xC5B4; &#xB450; &#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xACFC; &#xAC19;&#xC544;&#xC9C4;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; array[1] &#xC640; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xD30C;&#xC77C;&#xC774; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; null &#xC744; &#xB9AC;&#xD134;&#xD558;&#xAC8C; &#xB418;&#xC5B4; &#xB450; &#xBC88;&#xC9F8; &#xBA85;&#xB839;&#xACFC; &#xAC19;&#xC544;&#xC9C4;&#xB2E4;.</span>
 $ array=(<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>)
 $ <span class="hljs-built_in">unset</span> array[<span class="hljs-number">1</span>]       ---- (<span class="hljs-number">1</span>)
 
