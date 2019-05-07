@@ -1631,6 +1631,8 @@ tmpFile=`mktemp -p .`
 
 <span class="hljs-comment"># tail &#xBA85;&#xB839;&#xC73C;&#xB85C; append &#xB41C; binary file &#xC744; &#xCD94;&#xCD9C;</span>
 tail -c <span class="hljs-number">512</span> <span class="hljs-string">&quot;<span class="hljs-variable">$scriptFile</span>&quot;</span> &gt; <span class="hljs-string">&quot;<span class="hljs-variable">$tmpFile</span>&quot;</span>
+<span class="hljs-comment"># &#xB9CC;&#xC57D;&#xC5D0; append &#xB41C; &#xD30C;&#xC77C;&#xC774; tar &#xC555;&#xCD95; &#xD30C;&#xC77C;&#xC774;&#xB77C;&#xBA74; ( &apos;-&apos; &#xBB38;&#xC790;&#xB294; stdin )</span>
+<span class="hljs-comment"># tail -c 512 &quot;$scriptFile&quot; | tar xzvf -</span>
 
 ( chmod +x <span class="hljs-string">&quot;<span class="hljs-variable">$tmpFile</span>&quot;</span>; <span class="hljs-built_in">exec</span> <span class="hljs-string">&quot;<span class="hljs-variable">$tmpFile</span>&quot;</span> )
 
