@@ -1557,6 +1557,22 @@ $ { timeout <span class="hljs-number">10</span> strace <span class="hljs-operato
 <h2 id="&#xC815;&#xB9AC;&#xD558;&#xBA74;">&#xC815;&#xB9AC;&#xD558;&#xBA74;</h2>
 <p>subshell &#xC0DD;&#xC131;&#xC2DC;&#xC5D0; parent &#xD658;&#xACBD;&#xC744; &#xADF8;&#xB300;&#xB85C; &#xAC16;&#xAC8C; &#xB418;&#xC9C0;&#xB9CC; subshell &#xC548;&#xC5D0;&#xC11C; &#xBCC4;&#xB3C4;&#xB85C; &#xC874;&#xC7AC;&#xD55C;&#xB2E4;&#xACE0; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB798;&#xC11C; subshell &#xB0B4;&#xC5D0;&#xC11C; &#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD574;&#xB3C4; &#xADF8; &#xAC12;&#xC774; parent &#xC5D0; &#xC801;&#xC6A9;&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xB610;&#xD55C; subshell &#xC0DD;&#xC131; &#xD6C4;&#xC5D0; parent &#xC5D0;&#xC11C; &#xD2B9;&#xC815; &#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD574;&#xB3C4; &#xADF8; &#xAC12;&#xC774; subshell &#xC5D0; &#xBC18;&#xC601;&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h1 id="quiz">Quiz</h1>
+<p>bash &#xC5D0;&#xC11C;&#xB294; <code>$BASHPID</code> &#xBCC0;&#xC218;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xBA74; subshell &#xC758; PID &#xC815;&#xBCF4;&#xB97C; &#xAD6C;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xD558;&#xC9C0;&#xB9CC; <code>sh</code> &#xC5D0;&#xC11C;&#xB294; &#xD574;&#xB2F9; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xB370;&#xC694;.
+<code>sh</code> &#xC5D0;&#xC11C; subshell &#xC758; PID &#xAC12;&#xC744; &#xD504;&#xB9B0;&#xD2B8;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
+<p><code>cd</code> &#xBA85;&#xB839;&#xC740; shell &#xC758; builtin &#xBA85;&#xB839;&#xC774;&#xBBC0;&#xB85C; &#xC544;&#xB798; cd &#xBA85;&#xB839;&#xC5D0; &#xC0AC;&#xC6A9;&#xB41C; /proc/self &#xB294; subshell &#xC790;&#xC2E0;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.
+/proc/self &#xB294; PID  &#xBC88;&#xD638; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC758; symbolic link &#xC774;&#xBBC0;&#xB85C; <code>-P</code> &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD574; cd &#xD55C; &#xD6C4;
+<code>$PWD</code> &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; PID &#xAC12;&#xC744; &#xCD9C;&#xB825;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">sh$ <span class="hljs-built_in">cd</span> -P /proc/self
+
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PWD</span>
+/proc/<span class="hljs-number">19482</span>
+
+sh$ <span class="hljs-built_in">echo</span> $$; ( <span class="hljs-built_in">cd</span> -P /proc/self &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">${PWD##*/}</span> )
+<span class="hljs-number">20693</span>
+<span class="hljs-number">20736</span>    <span class="hljs-comment"># subshell PID</span>
+</code></pre>
 
                     
                     </section>
