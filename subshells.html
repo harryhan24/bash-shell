@@ -1572,6 +1572,11 @@ sh$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PWD</sp
 sh$ <span class="hljs-built_in">echo</span> $$; ( <span class="hljs-built_in">cd</span> -P /proc/self &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">${PWD##*/}</span> )
 <span class="hljs-number">20693</span>
 <span class="hljs-number">20736</span>    <span class="hljs-comment"># subshell PID</span>
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xC740; subshell PID &#xAC12;&#xC744; &#xBCC0;&#xC218;&#xC5D0; &#xB300;&#xC785;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC785;&#xB2C8;&#xB2E4;.</span>
+sh$ <span class="hljs-built_in">echo</span> $$; ( PID=$( <span class="hljs-built_in">exec</span> sh -c <span class="hljs-string">&apos;echo $PPID&apos;</span> ); <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PID</span> )
+<span class="hljs-number">24608</span>
+<span class="hljs-number">24611</span>    <span class="hljs-comment"># subshell PID</span>
 </code></pre>
 
                     
