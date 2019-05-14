@@ -1374,18 +1374,18 @@ Usage: time [-apvV] [<span class="hljs-operator">-f</span> format] [-o file] [--
 <h2 id="no-quotes">No quotes</h2>
 <p>&#xC704;&#xC5D0;&#xC11C; &#xC0B4;&#xD3B4;&#xBCF8; &#xBC14;&#xC640; &#xAC19;&#xC774; no quotes &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C;&#xB294; shell &#xD0A4;&#xC6CC;&#xB4DC;, &#xBA54;&#xD0C0;&#xBB38;&#xC790;, alias, glob &#xBB38;&#xC790;, quotes, space, tab, newline &#xBAA8;&#xB450;&#xB97C; escape &#xD558;&#xC5EC; &#xD574;&#xB2F9; &#xAE30;&#xB2A5;&#xC744; disable &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p>&#xBA85;&#xB839;&#xD589; &#xC0C1;&#xC5D0;&#xC11C; &#xACF5;&#xBC31;&#xC740; &#xC778;&#xC218;&#xB97C; &#xAD6C;&#xBD84;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;. &#xB458; &#xC774;&#xC0C1;&#xC758; &#xACF5;&#xBC31;&#xC740; &#xC758;&#xBBF8;&#xAC00; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; &#xD558;&#xB098;&#xC758; &#xACF5;&#xBC31;&#xC73C;&#xB85C; &#xB300;&#xCCB4;&#xB429;&#xB2C8;&#xB2E4;. no quotes &#xC5D0;&#xC11C;&#xB294; &#xACF5;&#xBC31;&#xB3C4; escape &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xACF5;&#xBC31;&#xC744; escape &#xD558;&#xBA74; &#xB450; &#xAC1C;&#xC758; &#xC778;&#xC218;&#xAC00; &#xD558;&#xB098;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;. </p>
-<pre><code class="lang-bash">----------- test.sh -----------
+<pre><code class="lang-bash">----------- args.sh -----------
 <span class="hljs-shebang">#!/bin/bash
 </span>
 <span class="hljs-built_in">echo</span> arg1 : <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
 <span class="hljs-built_in">echo</span> arg2 : <span class="hljs-string">&quot;<span class="hljs-variable">$2</span>&quot;</span>
 -------------------------------
 
-$ ./test.sh hello world           <span class="hljs-comment"># &#xC778;&#xC218;&#xAC00; 2&#xAC1C;</span>
+$ ./args.sh hello world           <span class="hljs-comment"># &#xC778;&#xC218;&#xAC00; 2&#xAC1C;</span>
 arg1 : hello
 arg2 : world
 
-$ ./test.sh hello\ world          <span class="hljs-comment"># &#xACF5;&#xBC31;&#xC744; escape &#xD558;&#xC5EC; &#xC778;&#xC218;&#xAC00; &#xD558;&#xB098;&#xAC00; &#xB418;&#xC5C8;&#xB2E4;.</span>
+$ ./args.sh hello\ world          <span class="hljs-comment"># &#xACF5;&#xBC31;&#xC744; escape &#xD558;&#xC5EC; &#xC778;&#xC218;&#xAC00; &#xD558;&#xB098;&#xAC00; &#xB418;&#xC5C8;&#xB2E4;.</span>
 arg1 : hello world
 arg2 : 
 
