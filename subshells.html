@@ -1576,14 +1576,14 @@ $ { timeout <span class="hljs-number">10</span> strace <span class="hljs-operato
 sh$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PWD</span>
 /proc/<span class="hljs-number">19482</span>
 
-sh$ <span class="hljs-built_in">echo</span> $$; ( <span class="hljs-built_in">cd</span> -P /proc/self &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">${PWD##*/}</span> )
-<span class="hljs-number">20693</span>
-<span class="hljs-number">20736</span>    <span class="hljs-comment"># subshell PID</span>
-
-------------------------------------------------------
+sh$ (( <span class="hljs-built_in">cd</span> -P /proc/self &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">${PWD##*/}</span> ); <span class="hljs-built_in">cd</span> -P /proc/self &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">${PWD##*/}</span>); <span class="hljs-built_in">echo</span> $$
+<span class="hljs-number">24890</span>    <span class="hljs-comment"># subshell PID</span>
+<span class="hljs-number">24889</span>    <span class="hljs-comment"># subshell PID</span>
+<span class="hljs-number">24850</span>
+-------------------------------------------------------------------------
 
 <span class="hljs-comment"># &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; $PPID &#xAC12;&#xC740; parent shell &#xC5D0;&#xC11C; &#xC0C1;&#xC18D;&#xB418;&#xBBC0;&#xB85C; subshell &#xC5D0;&#xC11C; &#xAC19;&#xC740; &#xAC12;&#xC744; &#xAC00;&#xC9C4;&#xB2E4;.</span>
-sh$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PPID</span>; (( <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PPID</span> ); <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PPID</span> )
+sh$ (( <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PPID</span> ); <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PPID</span> ); <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PPID</span>
 <span class="hljs-number">19482</span>
 <span class="hljs-number">19482</span>
 <span class="hljs-number">19482</span>
@@ -1592,6 +1592,27 @@ sh$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PPID</s
 sh$ <span class="hljs-built_in">echo</span> $$; ( PID=$( sh -c <span class="hljs-string">&apos;echo $PPID&apos;</span> ); <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PID</span> )
 <span class="hljs-number">24608</span>
 <span class="hljs-number">24611</span>    <span class="hljs-comment"># subshell PID</span>
+
+sh$ (( <span class="hljs-built_in">echo</span> $( sh -c <span class="hljs-string">&apos;echo $PPID&apos;</span> )); <span class="hljs-built_in">echo</span> $( sh -c <span class="hljs-string">&apos;echo $PPID&apos;</span> )); <span class="hljs-built_in">echo</span> $$
+<span class="hljs-number">24852</span>    <span class="hljs-comment"># subshell PID</span>
+<span class="hljs-number">24851</span>    <span class="hljs-comment"># subshell PID</span>
+<span class="hljs-number">24850</span>
+</code></pre>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC791;&#xC131;&#xD558;&#xBA74; &#xAC01; &#xB2E8;&#xACC4;&#xC758; subshell &#xC774; &#xBA85;&#xB839; &#xB9AC;&#xC2A4;&#xD2B8; &#xC911;&#xC5D0;&#xC11C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xBA85;&#xB839;&#xC5D0; &#xD574;&#xB2F9;&#xB418;&#xC5B4;
+subshell optimization &#xC73C;&#xB85C;&#xC778;&#xD574; &#xAC19;&#xC740; &#xAC12;&#xC774; &#xCD9C;&#xB825;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">sh$ ( <span class="hljs-built_in">cd</span> -P /proc/self &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">${PWD##*/}</span>; \
+        ( <span class="hljs-built_in">cd</span> -P /proc/self &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">${PWD##*/}</span>; \
+            ( <span class="hljs-built_in">cd</span> -P /proc/self &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">${PWD##*/}</span> )))
+<span class="hljs-number">25731</span>
+<span class="hljs-number">25731</span>
+<span class="hljs-number">25731</span>
+
+sh$ ( <span class="hljs-built_in">echo</span> $( sh -c <span class="hljs-string">&apos;echo $PPID&apos;</span>); \
+        ( <span class="hljs-built_in">echo</span> $( sh -c <span class="hljs-string">&apos;echo $PPID&apos;</span>); \
+            ( <span class="hljs-built_in">echo</span> $( sh -c <span class="hljs-string">&apos;echo $PPID&apos;</span> ))))
+<span class="hljs-number">25433</span>
+<span class="hljs-number">25433</span>
+<span class="hljs-number">25433</span>
 </code></pre>
 
                     
