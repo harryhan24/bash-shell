@@ -1433,12 +1433,17 @@ main.c:int <span class="hljs-function"><span class="hljs-title">main</span></spa
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xCCAB; &#xBC88;&#xC9F8; &apos;cache 0&apos; &#xC2A4;&#xD2B8;&#xB9C1; &#xB9E4;&#xCE6D;&#xC5D0;&#xC11C; &#xC774;&#xD6C4; 70 &#xB77C;&#xC778;&#xC744; &#xD504;&#xB9B0;&#xD2B8;&#xD558;&#xACE0; &#xC885;&#xB8CC;</span>
 $ cpuid | grep -m1 -A70 <span class="hljs-string">&apos;cache 0&apos;</span>
 </code></pre>
-<h4 id="&#xB9E4;&#xCE6D;-&#xB77C;&#xC778;-&#xB118;&#xBC84;-&#xD504;&#xB9B0;&#xD2B8;">&#xB9E4;&#xCE6D; &#xB77C;&#xC778; &#xB118;&#xBC84; &#xD504;&#xB9B0;&#xD2B8;</h4>
+<h4 id="&#xB77C;&#xC778;-&#xB118;&#xBC84;-&#xD504;&#xB9B0;&#xD2B8;">&#xB77C;&#xC778; &#xB118;&#xBC84; &#xD504;&#xB9B0;&#xD2B8;</h4>
 <blockquote>
 <p><b><i> -n, --line-number </i></b></p>
 </blockquote>
-<p>&#xB9E4;&#xCE6D; &#xB77C;&#xC778;&#xC744; &#xD504;&#xB9B0;&#xD2B8;&#xD560; &#xB54C; &#xD574;&#xB2F9; &#xB77C;&#xC778; &#xB118;&#xBC84;&#xB3C4; &#xD568;&#xAED8; &#xD504;&#xB9B0;&#xD2B8;&#xB429;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ grep -n foo *.c
+<p>&#xB9E4;&#xCE6D; &#xB77C;&#xC778;&#xC744; &#xD504;&#xB9B0;&#xD2B8;&#xD560; &#xB54C; &#xB77C;&#xC778; &#xB118;&#xBC84;&#xB3C4; &#xD568;&#xAED8; &#xD504;&#xB9B0;&#xD2B8;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ grep -nA2 foo test.c
+<span class="hljs-number">190</span>:int foo()
+<span class="hljs-number">191</span>-{
+<span class="hljs-number">192</span>-    int arr[] = { <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">300</span> };
+
+$ grep -n foo *.c
 best.c:<span class="hljs-number">40</span>:int foo()
 err.c:<span class="hljs-number">12</span>:int <span class="hljs-function"><span class="hljs-title">foo</span></span>() {
 main.c:<span class="hljs-number">9</span>:int <span class="hljs-function"><span class="hljs-title">foo</span></span>() {
