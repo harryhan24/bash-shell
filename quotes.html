@@ -1353,7 +1353,7 @@ $  find * -type f <span class="hljs-string">&apos;(&apos;</span> -name <span cla
 $ <span class="hljs-built_in">echo</span> hello <span class="hljs-string">&apos;&amp;&apos;</span>
 hello &amp;
 
-<span class="hljs-comment"># &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xC778; \ &#xC744; quote &#xD558;&#xC5EC; &#xAE30;&#xB2A5;&#xC744; &#xC0C1;&#xC2E4;. &#xACB0;&#xACFC;&#xC801;&#xC73C;&#xB85C; \n &#xAC00; &#xB418;&#xC5C8;&#xB2E4;.</span>
+<span class="hljs-comment"># escape &#xBB38;&#xC790;&#xC778; \ &#xB97C; quote &#xD558;&#xC5EC; &#xAE30;&#xB2A5;&#xC744; &#xC0C1;&#xC2E4;. &#xACB0;&#xACFC;&#xC801;&#xC73C;&#xB85C; \n &#xAC00; &#xB418;&#xC5C8;&#xB2E4;.</span>
 <span class="hljs-comment">#  \\n &#xD55C;&#xAC83;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">echo</span> hello world | tr <span class="hljs-string">&apos; &apos;</span> <span class="hljs-string">&apos;\&apos;</span>n
 hello
@@ -1372,7 +1372,10 @@ Usage: time [-apvV] [<span class="hljs-operator">-f</span> format] [-o file] [--
        [--quiet] [--help] <span class="hljs-built_in">command</span> [arg...]
 </code></pre>
 <h2 id="no-quotes">No quotes</h2>
-<p>&#xC704;&#xC5D0;&#xC11C; &#xC0B4;&#xD3B4;&#xBCF8; &#xBC14;&#xC640; &#xAC19;&#xC774; no quotes &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C;&#xB294; shell &#xD0A4;&#xC6CC;&#xB4DC;, &#xBA54;&#xD0C0;&#xBB38;&#xC790;, alias, glob &#xBB38;&#xC790;, quotes, space, tab, newline &#xBAA8;&#xB450;&#xB97C; escape &#xD558;&#xC5EC; &#xD574;&#xB2F9; &#xAE30;&#xB2A5;&#xC744; disable &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC704;&#xC5D0;&#xC11C; &#xC0B4;&#xD3B4;&#xBCF8; &#xBC14;&#xC640; &#xAC19;&#xC774; no quotes &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C;&#xB294; shell &#xD0A4;&#xC6CC;&#xB4DC;, &#xBA54;&#xD0C0;&#xBB38;&#xC790;, alias, glob &#xBB38;&#xC790;, quotes, whitespace &#xBB38;&#xC790; &#xBAA8;&#xB450;&#xB97C; escape &#xD558;&#xC5EC; &#xD574;&#xB2F9; &#xAE30;&#xB2A5;&#xC744; disable &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>whitespace &#xBB38;&#xC790;&#xB294; space, tab, newline &#xC744; &#xB9D0;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
 <p>&#xBA85;&#xB839;&#xD589; &#xC0C1;&#xC5D0;&#xC11C; &#xACF5;&#xBC31;&#xC740; &#xC778;&#xC218;&#xB97C; &#xAD6C;&#xBD84;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;. &#xB458; &#xC774;&#xC0C1;&#xC758; &#xACF5;&#xBC31;&#xC740; &#xC758;&#xBBF8;&#xAC00; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; &#xD558;&#xB098;&#xC758; &#xACF5;&#xBC31;&#xC73C;&#xB85C; &#xB300;&#xCCB4;&#xB429;&#xB2C8;&#xB2E4;. no quotes &#xC5D0;&#xC11C;&#xB294; &#xACF5;&#xBC31;&#xB3C4; escape &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xACF5;&#xBC31;&#xC744; escape &#xD558;&#xBA74; &#xB450; &#xAC1C;&#xC758; &#xC778;&#xC218;&#xAC00; &#xD558;&#xB098;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;. </p>
 <pre><code class="lang-bash">----------- args.sh -----------
 <span class="hljs-shebang">#!/bin/bash
@@ -1389,8 +1392,8 @@ $ ./args.sh hello\ world          <span class="hljs-comment"># &#xACF5;&#xBC31;&
 arg1 : hello world
 arg2 : 
 
-$ <span class="hljs-built_in">echo</span> hello             world    <span class="hljs-comment"># &#xB458; &#xC774;&#xC0C1;&#xC758; &#xACF5;&#xBC31;&#xC740; &#xD558;&#xB098;&#xB85C; &#xC904;&#xC5B4;&#xB4E0;&#xB2E4;.</span>
-hello world                       
+$ <span class="hljs-built_in">echo</span> hello             world    <span class="hljs-comment"># &#xB458; &#xC774;&#xC0C1;&#xC758; whitespace &#xBB38;&#xC790;&#xB294; single space &#xB85C; &#xC904;&#xC5B4;&#xB4E0;&#xB2E4;.</span>
+hello world                       <span class="hljs-comment"># tab &#xBB38;&#xC790;&#xC77C; &#xACBD;&#xC6B0; space &#xB85C; &#xBCC0;&#xACBD;&#xB428;</span>
 
 $ <span class="hljs-built_in">echo</span> hello\ \ \ \ \ \ \world    <span class="hljs-comment"># &#xACF5;&#xBC31;&#xC774; &#xC720;&#xC9C0;&#xB41C;&#xB2E4;.</span>
 hello      world
@@ -1452,8 +1455,8 @@ winter       and         snow
 $ AA=<span class="hljs-string">&quot;this          is
 two          lines&quot;</span>
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>              <span class="hljs-comment"># &#xACF5;&#xBC31;&#xACFC; &#xAC1C;&#xD589;&#xC774; &#xC720;&#xC9C0;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
-this is two lines
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>              <span class="hljs-comment"># whitespace &#xBB38;&#xC790;&#xAC00; single space &#xB85C; &#xBCC0;&#xACBD;&#xB418;&#xC5B4;</span>
+this is two lines       <span class="hljs-comment"># &#xACF5;&#xBC31;&#xACFC; &#xAC1C;&#xD589;&#xC774; &#xC720;&#xC9C0;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>            <span class="hljs-comment"># &#xACF5;&#xBC31;&#xACFC; &#xAC1C;&#xD589;&#xC774; &#xC720;&#xC9C0;&#xB41C;&#xB2E4;.</span>
 this          is

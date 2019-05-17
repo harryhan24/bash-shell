@@ -1301,6 +1301,8 @@ sh$ IFS=$(<span class="hljs-built_in">echo</span> <span class="hljs-string">&quo
 <span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># tab &#xBB38;&#xC790; &#xC785;&#xB825;&#xC740; ctrl-v &#xD55C;&#xD6C4; tab &#xD0A4;</span>
 sh$ tab=<span class="hljs-string">&apos;    &apos;</span>            
+<span class="hljs-comment"># &#xB610;&#xB294;</span>
+sh$ tab=`<span class="hljs-built_in">printf</span> <span class="hljs-string">&apos;\011&apos;</span>`
 sh$ nl=<span class="hljs-string">&apos;
 &apos;</span>
 sh$ IFS=<span class="hljs-string">&quot; <span class="hljs-variable">$tab</span><span class="hljs-variable">$nl</span>&quot;</span>
