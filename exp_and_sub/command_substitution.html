@@ -1358,11 +1358,11 @@ $ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<sp
 
 $ AA=$(<span class="hljs-built_in">echo</span> -en <span class="hljs-string">&quot;hello\n\n\n&quot;</span>)
 $ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span> | od <span class="hljs-operator">-a</span>
-<span class="hljs-number">0000000</span>   h   e   l   l   o                <span class="hljs-comment"># &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC740; newline &#xC774; &#xBAA8;&#xB450; &#xC81C;&#xAC70;&#xB41C;&#xB2E4;.</span>
+<span class="hljs-number">0000000</span>   h   e   l   l   o                <span class="hljs-comment"># &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC740; newline &#xB4E4;&#xC774; &#xBAA8;&#xB450; &#xC81C;&#xAC70;&#xB41C;&#xB2E4;.</span>
 
 ---------------------------------------
 
-$ cat file         <span class="hljs-comment"># &#xD30C;&#xC77C;&#xC758; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; 4 &#xAC1C;&#xC758; newline &#xC774; &#xC874;&#xC7AC;.</span>
+$ cat file         <span class="hljs-comment"># &#xD30C;&#xC77C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; 4 &#xAC1C;&#xC758; newline &#xC774; &#xC874;&#xC7AC;.</span>
 <span class="hljs-number">111</span>
 <span class="hljs-number">222</span>
 
@@ -1372,7 +1372,7 @@ $ cat file | od <span class="hljs-operator">-a</span>
 <span class="hljs-number">0000000</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>  nl   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>  nl  nl  nl  nl
 <span class="hljs-number">0000013</span>
 
-$ <span class="hljs-built_in">echo</span> -n $(cat file) | od <span class="hljs-operator">-a</span>              <span class="hljs-comment"># &#xD30C;&#xC77C;&#xC758; &#xB9C8;&#xC9C0;&#xB9C9; newline &#xC774; &#xBAA8;&#xB450; &#xC81C;&#xAC70; &#xB418;&#xC5C8;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> -n $(cat file) | od <span class="hljs-operator">-a</span>              <span class="hljs-comment"># &#xB9C8;&#xC9C0;&#xB9C9; newline &#xB4E4;&#xC774; &#xBAA8;&#xB450; &#xC81C;&#xAC70; &#xB418;&#xC5C8;&#xB2E4;.</span>
 <span class="hljs-number">0000000</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>  nl   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>
 <span class="hljs-number">0000007</span>
 </code></pre>
