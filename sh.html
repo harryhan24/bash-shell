@@ -1462,31 +1462,31 @@ sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;X\tX
 X       X
 
 sh$ <span class="hljs-built_in">echo</span> X\\tX        <span class="hljs-comment"># no quotes &#xC5D0;&#xC11C;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xBAA8;&#xB4E0; &#xBB38;&#xC790;&#xAC00; escape &#xB41C;&#xB2E4;.</span>
-X       X
-sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;X\\tX&apos;</span>
+X       X             <span class="hljs-comment"># \\t -&gt; \t -&gt; tab</span>
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;X\\tX&apos;</span>      <span class="hljs-comment"># \\ -&gt; \</span>
 X\tX
-sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;X\\tX&quot;</span>      <span class="hljs-comment"># double quotes &#xC5D0;&#xC11C;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; </span>
-X       X             <span class="hljs-comment"># ( &quot; ),( $ ),( ` ),( \ ),( newline ) &#xBB38;&#xC790;&#xAC00; escape &#xB41C;&#xB2E4;.</span>
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;X\\tX&quot;</span>      <span class="hljs-comment"># double quotes &#xC5D0;&#xC11C;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; ( &quot; , $ , ` , \ , newline )</span>
+X       X             <span class="hljs-comment"># &#xBB38;&#xC790;&#xAC00; escape &#xB41C;&#xB2E4;. &#xB530;&#xB77C;&#xC11C;  \\t -&gt; \t -&gt; tab </span>
 
-sh$ <span class="hljs-built_in">echo</span> X\\\tX
+sh$ <span class="hljs-built_in">echo</span> X\\\tX       <span class="hljs-comment"># \\ -&gt; \ , \t -&gt; t &#xB85C;&#xB418;&#xACE0;; \t -&gt; tab </span>
 X       X
-sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;X\\\tX&apos;</span>
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;X\\\tX&apos;</span>     <span class="hljs-comment"># \\ -&gt; \ , \t -&gt; tab </span>
 X\      X
-sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;X\\\tX&quot;</span>
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;X\\\tX&quot;</span>     <span class="hljs-comment"># \\ -&gt; \ , \\t -&gt; \t</span>
 X\tX
 
-sh$ <span class="hljs-built_in">echo</span> X\\\\tX
+sh$ <span class="hljs-built_in">echo</span> X\\\\tX      <span class="hljs-comment"># \\ -&gt; \ , \\ -&gt; \ &#xB85C;&#xB418;&#xACE0;; \\t -&gt; \t</span>
 X\tX
-sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;X\\\\tX&apos;</span>
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;X\\\\tX&apos;</span>    <span class="hljs-comment"># \\ -&gt; \ , \\ -&gt; \</span>
 X\\tX
-sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;X\\\\tX&quot;</span>
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;X\\\\tX&quot;</span>    <span class="hljs-comment"># \\ -&gt; \ ,  \\ -&gt; \ &#xB85C;&#xB418;&#xACE0;; \\t -&gt; \t</span>
 X\tX
 
-sh$ <span class="hljs-built_in">echo</span> X\\\\\tX
+sh$ <span class="hljs-built_in">echo</span> X\\\\\tX     <span class="hljs-comment"># \\ -&gt; \ , \\ -&gt; \ , \t -&gt; t &#xB85C;&#xB418;&#xACE0;; \\t -&gt; \t</span>
 X\tX
-sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;X\\\\\tX&apos;</span>
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;X\\\\\tX&apos;</span>   <span class="hljs-comment"># \\ -&gt; \ , \\ -&gt; \ , \t -&gt; tab</span>
 X\\     X
-sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;X\\\\\tX&quot;</span>
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;X\\\\\tX&quot;</span>   <span class="hljs-comment"># \\ -&gt; \ , \\ -&gt; \ &#xB85C;&#xB418;&#xACE0;; \\\t -&gt; \tab</span>
 X\      X
 </code></pre>
 
