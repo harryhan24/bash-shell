@@ -1488,7 +1488,8 @@ $ <span class="hljs-built_in">echo</span> &#xC624;&#xB298;&#xC740; <span class="
 <blockquote>
 <p>shift [n]</p>
 </blockquote>
-<p>shift &#xBA85;&#xB839;&#xC740; &#xD604;&#xC7AC; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB294; positional parameters &#xB97C; &#xC88C;&#xCE21;&#xC73C;&#xB85C; <code>n</code> &#xB9CC;&#xD07C; &#xC774;&#xB3D9;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;.<br>&#xACB0;&#xACFC;&#xB85C; <code>n</code> &#xAC1C;&#xC758; positional parameters &#xAC00; &#xC0AD;&#xC81C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>shift &#xBA85;&#xB839;&#xC740; &#xD604;&#xC7AC; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB294; positional parameters &#xB97C; &#xC88C;&#xCE21;&#xC73C;&#xB85C; <code>n</code> &#xB9CC;&#xD07C; &#xC774;&#xB3D9;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;.<br>&#xACB0;&#xACFC;&#xB85C; <code>n</code> &#xAC1C;&#xC758; positional parameters &#xAC00; &#xC0AD;&#xC81C; &#xB429;&#xB2C8;&#xB2E4;.
+<code>n</code> &#xAC12;&#xC744; &#xC8FC;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xB514;&#xD3F4;&#xD2B8;&#xB294; 1 &#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">set</span> -- <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$@</span>
@@ -1498,6 +1499,17 @@ $ <span class="hljs-built_in">shift</span> <span class="hljs-number">2</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$@</span>
 <span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>
+</code></pre>
+<p>shift &#xD55C; &#xD6C4;&#xC5D0; <code>$1</code> &#xB294; &#xB2E4;&#xC74C; &#xAC12;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">set</span> -- <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$1</span>
+<span class="hljs-number">11</span>
+
+$ <span class="hljs-built_in">shift</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$1</span>
+<span class="hljs-number">22</span>
 </code></pre>
 <h2 id="ifs">$IFS</h2>
 <p><code>$IFS</code> &#xBCC0;&#xC218;&#xC640; <code>set</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xC2A4;&#xD2B8;&#xB9C1;&#xC5D0;&#xC11C; &#xD544;&#xB4DC;&#xB97C; &#xBD84;&#xB9AC;&#xD574;&#xB0BC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
