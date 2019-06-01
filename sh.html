@@ -1269,6 +1269,21 @@ ABC
 sh$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;\x41\x42\x43&apos;</span>             <span class="hljs-comment"># \x&lt;HH&gt; 16 &#xC9C4;&#xC218; &#xD615;&#xC2DD; &#xC548;&#xB428;</span>
 \x41\x42\x43
 </code></pre>
+<h4 id="test-&#xBA85;&#xB839;&#xC5D0;&#xC11C;-&#xC2A4;&#xD2B8;&#xB9C1;-equal-&#xC5F0;&#xC0B0;&#xC790;">test &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC2A4;&#xD2B8;&#xB9C1; equal &#xC5F0;&#xC0B0;&#xC790;</h4>
+<p>sh &#xC758; builtin &#xBA85;&#xB839;&#xC778; test &#xC758; &#xACBD;&#xC6B0; bash &#xC640;&#xB2EC;&#xB9AC; &#xC2A4;&#xD2B8;&#xB9C1; equal &#xC5F0;&#xC0B0;&#xC790;&#xB85C; <code>==</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.<br><code>=</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. ( <code>!=</code> &#xC740; &#xB3D9;&#xC77C; )</p>
+<pre><code class="lang-bash">bash$ <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;foo&quot;</span> == <span class="hljs-string">&quot;foo&quot;</span>; <span class="hljs-built_in">echo</span> $?        <span class="hljs-comment"># bash &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xAC00;&#xB2A5;</span>
+<span class="hljs-number">0</span>
+
+$ /usr/bin/<span class="hljs-built_in">test</span> <span class="hljs-string">&quot;foo&quot;</span> == <span class="hljs-string">&quot;foo&quot;</span>; <span class="hljs-built_in">echo</span> $?   <span class="hljs-comment"># /usr/bin/test &#xC678;&#xBD80; &#xBA85;&#xB839;&#xB3C4; &#xC0AC;&#xC6A9;&#xAC00;&#xB2A5;</span>
+<span class="hljs-number">0</span>
+
+sh$ <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;foo&quot;</span> == <span class="hljs-string">&quot;foo&quot;</span>; <span class="hljs-built_in">echo</span> $?          <span class="hljs-comment"># sh &#xC5D0;&#xC11C;&#xB294; &#xC624;&#xB958;</span>
+sh: <span class="hljs-number">1</span>: <span class="hljs-built_in">test</span>: foo: unexpected operator
+<span class="hljs-number">2</span>
+
+sh$ <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;foo&quot;</span> = <span class="hljs-string">&quot;foo&quot;</span>; <span class="hljs-built_in">echo</span> $?           <span class="hljs-comment"># sh &#xC5D0;&#xC11C;&#xB294; &apos;=&apos; &#xC5F0;&#xC0B0;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD55C;&#xB2E4;.</span>
+<span class="hljs-number">0</span>
+</code></pre>
 <h3 id="ifs-&#xAC12;&#xC758;-&#xC124;&#xC815;">IFS &#xAC12;&#xC758; &#xC124;&#xC815;</h3>
 <p>sh &#xC5D0;&#xB294; <code>$&apos; &apos;</code> &#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xBBC0;&#xB85C; IFS &#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># IFS &#xAC12;&#xC744; newline &#xC73C;&#xB85C; &#xC124;&#xC815;</span>
