@@ -1715,6 +1715,16 @@ Change: <span class="hljs-number">2019</span>-<span class="hljs-number">04</span
 <span class="hljs-comment"># -m : preserve-modification-time</span>
 <span class="hljs-comment"># -v : verbose</span>
 $ find -name <span class="hljs-string">&apos;*.html&apos;</span> | cpio -pdmv /destination/dir
+
+------------------------------------------------------
+
+<span class="hljs-comment"># -o : copy-out &#xBAA8;&#xB4DC;&#xB85C; stdout &#xC2A4;&#xD2B8;&#xB9BC;&#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ find -name <span class="hljs-string">&apos;*.html&apos;</span> | cpio -ov &gt; html_only.cpio
+<span class="hljs-comment"># -H : tar &#xD30C;&#xC77C; &#xD615;&#xC2DD;&#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ find -name <span class="hljs-string">&apos;*.html&apos;</span> | cpio -ov -H tar &gt; html_only.tar
+
+<span class="hljs-comment"># -i : copy-in &#xBAA8;&#xB4DC;&#xB85C; stdin &#xC2A4;&#xD2B8;&#xB9BC;&#xC73C;&#xB85C;&#xBD80;&#xD130; cpio &#xD30C;&#xC77C;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC5EC; extract &#xD569;&#xB2C8;&#xB2E4;.</span>
+$ cpio -idmv &lt; html_only.cpio
 </code></pre>
 
                     
