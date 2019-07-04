@@ -1267,7 +1267,7 @@ abcdefg
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${#AA}</span>
 <span class="hljs-number">11</span>
 </code></pre>
-<p>Array &#xC758; &#xACBD;&#xC6B0;</p>
+<p><b>Array &#xC758; &#xACBD;&#xC6B0;</b></p>
 <pre><code class="lang-bash">$ BB=( Arch Ubuntu Fedora Suse )
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${#BB[1]}</span>     <span class="hljs-comment"># [1] &#xBC88;&#xC9F8; &#xC6D0;&#xC18C; Ubuntu &#xC758; &#xBB38;&#xC790; &#xC218;</span>
 <span class="hljs-number">6</span>
@@ -1336,7 +1336,7 @@ Workspace/<span class="hljs-built_in">test</span>                     <span clas
     var=linux
 <span class="hljs-keyword">fi</span>
 </code></pre>
-<p><code>${AA-linux}</code> : AA &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7F0;&#xB370; AA &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xACBD;&#xC6B0; linux &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC2DC; &#xB9D0;&#xD574; &#xC774; &#xD45C;&#xD604;&#xC2DD;&#xC740; AA &#xAC12;&#xC73C;&#xB85C; null &#xB3C4; &#xD5C8;&#xC6A9;&#xD558;&#xB294;&#xAC83; &#xC785;&#xB2C8;&#xB2E4;.</p>
+<p><code>${AA-linux}</code> : AA &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7F0;&#xB370; AA &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xACBD;&#xC6B0; linux &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC2DC; &#xB9D0;&#xD574; &#xC774; &#xD45C;&#xD604;&#xC2DD;&#xC740; AA &#xAC12;&#xC73C;&#xB85C; null &#xB3C4; &#xD5C8;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># var=${AA-linux} &#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-keyword">if</span> [ -v AA ]; <span class="hljs-keyword">then</span>
     var=<span class="hljs-variable">$AA</span>
@@ -1344,9 +1344,9 @@ Workspace/<span class="hljs-built_in">test</span>                     <span clas
     var=linux
 <span class="hljs-keyword">fi</span>
 </code></pre>
-<p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; test &#xBA85;&#xB839;( <code>[</code> ) &#xC5D0;&#xC11C; &#xBCC0;&#xC218; &#xC874;&#xC7AC; &#xC5EC;&#xBD80;&#xB97C; &#xCCB4;&#xD06C;&#xD558;&#xB294;<code>-v</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD560;&#xC218; &#xC5C6;&#xB294;&#xB370;
+<p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; test &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xBCC0;&#xC218; &#xC874;&#xC7AC; &#xC5EC;&#xBD80;&#xB97C; &#xCCB4;&#xD06C;&#xD558;&#xB294;<code>-v</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xB370;
 &#xC774; &#xD45C;&#xD604;&#xC2DD;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; &#xAC04;&#xC811;&#xC801;&#xC73C;&#xB85C; &#xCCB4;&#xD06C; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xC608;&#xB97C;&#xB4E4;&#xC5B4; <code>var=${AA-linux}</code> &#xB300;&#xC785;&#xC5F0;&#xC0B0;&#xC5D0;&#xC11C; var &#xBCC0;&#xC218;&#xAC00; linux &#xB85C; &#xC124;&#xC815; &#xB410;&#xB2E4;&#xBA74;
+&#xC608;&#xB97C; &#xB4E4;&#xC5B4; <code>var=${AA-linux}</code> &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC5D0;&#xC11C; var &#xBCC0;&#xC218;&#xAC00; linux &#xB85C; &#xC124;&#xC815;&#xB410;&#xB2E4;&#xBA74;
 &#xD604;&#xC7AC; &#xBCC0;&#xC218; AA &#xB294; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xC0C1;&#xD0DC;&#xC8E0;</p>
 <pre><code class="lang-bash">$ AA=ubuntu
 
@@ -1383,7 +1383,7 @@ $ AA=<span class="hljs-variable">${FCEDIT:-${EDITOR:-vi}</span>}
 <p>&#xCC38;&#xACE0;&#xB85C; <code>:-</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xC744;&#xAC83; &#xAC19;&#xC740;&#xACF3;&#xC5D0; <code>-</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xB97C; &#xBCFC; &#xC218;&#xAC00; &#xC788;&#xB294;&#xB370;&#xC694;.
 &#xC774;&#xAC83;&#xC740; 4.3BSD &#xC640; &#xC608;&#xC804; shell &#xC5D0;&#xC11C; <code>:-</code> &#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xC9C0; &#xBABB;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB77C;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<p>Array &#xC758; &#xACBD;&#xC6B0; </p>
+<p><b>Array &#xC758; &#xACBD;&#xC6B0;</b></p>
 <pre><code class="lang-bash">$ AA=( <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> )
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[@]:-44 55 66}</span>    <span class="hljs-comment"># AA &#xC5D0; &#xAC12;&#xC774; &#xC788;&#xC73C;&#xBA74; AA &#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;</span>
@@ -1507,7 +1507,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA+linux
 <p>${AA?error message} : AA &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB7F0;&#xB370; AA &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; error message &#xB97C; &#xCD9C;&#xB825;&#xD558;&#xACE0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC2E4;&#xD589;&#xC774; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.
 &#xC774;&#xB54C; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC73C;&#xB85C; 1 (bash) or 2 (sh) &#xAC00; &#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.</p>
-<p>error message &#xB97C; &#xC0DD;&#xB7B5;&#xD558;&#xBA74;  &apos;parameter null or not set&apos; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>error message &#xB97C; &#xC0DD;&#xB7B5;&#xD558;&#xBA74;  <code>parameter null or not set</code> &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ AA=hello
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA:?null or not set}</span>      <span class="hljs-comment"># AA &#xC5D0; &#xAC12;&#xC774; &#xC788;&#xC73C;&#xBBC0;&#xB85C; AA &#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;</span>
@@ -1575,7 +1575,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA:1:-1}</span>&quot;</span>   <span class="hljs-comment"># &#xC591; &#xB05D;&#xBB38;&#xC790; &#xC81C;&#xAC70;</span>
 foobar
 </code></pre>
-<p>Array &#xC758; &#xACBD;&#xC6B0;  ( length &#xC5D0; &#xC74C;&#xC218; &#xC0AC;&#xC6A9;&#xBD88;&#xAC00; )</p>
+<p><b>Array &#xC758; &#xACBD;&#xC6B0;</b>  ( length &#xC5D0; &#xC74C;&#xC218; &#xC0AC;&#xC6A9;&#xBD88;&#xAC00; )</p>
 <pre><code class="lang-bash">$ ARR=(<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>)
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${ARR[@]:1:2}</span>
