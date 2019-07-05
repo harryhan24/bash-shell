@@ -1708,11 +1708,21 @@ curl -O <span class="hljs-string">&quot;<span class="hljs-variable">$hostname</s
 <li>words &#xAC1C;&#xC218;&#xB9CC;&#xD07C; &#xBC18;&#xBCF5;&#xD558;&#xACE0; &#xB9E4; &#xBC18;&#xBCF5; &#xB54C;&#xB9C8;&#xB2E4; name &#xAC12;&#xC774; &#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.</li>
 <li><code>in words</code> &#xBD80;&#xBD84;&#xC744; &#xC0DD;&#xB7B5;&#xD558;&#xBA74; <code>in &quot;$@&quot;</code> &#xC640; &#xAC19;&#xAC8C;&#xB429;&#xB2C8;&#xB2E4;.</li>
 </ul>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>; IFS=$<span class="hljs-string">&apos;\n&apos;</span>
+<pre><code class="lang-bash">$ <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-number">100</span> <span class="hljs-number">200</span> <span class="hljs-number">300</span>                       $ <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>.{<span class="hljs-number">0</span>..<span class="hljs-number">5</span>} 
+<span class="hljs-keyword">do</span>                                           <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$v</span>                                      <span class="hljs-built_in">echo</span> <span class="hljs-variable">$v</span>
+<span class="hljs-keyword">done</span>                                         <span class="hljs-keyword">done</span>
+
+<span class="hljs-number">100</span>                                          <span class="hljs-number">1.0</span>
+<span class="hljs-number">200</span>                                          <span class="hljs-number">1.1</span>
+<span class="hljs-number">300</span>                                          <span class="hljs-number">1.2</span>
+--------------------------                   <span class="hljs-number">1.3</span>
+                                             <span class="hljs-number">1.4</span>
+$ <span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>; IFS=$<span class="hljs-string">&apos;\n&apos;</span>                          <span class="hljs-number">1.5</span>
 
 $ <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> $(find -type f)
 <span class="hljs-keyword">do</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>
 <span class="hljs-keyword">done</span>
 
 ./WriteObject.java
