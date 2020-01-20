@@ -1713,7 +1713,7 @@ complete -F _<span class="hljs-built_in">kill</span>2 <span class="hljs-built_in
         <span class="hljs-comment"># current &#xADF8;&#xB7EC;&#xB2C8;&#xAE4C; &#xD604;&#xC7AC; &#xCEE4;&#xC11C;&#xAC00; &#xC704;&#xCE58;&#xD55C; &#xACF3;&#xC758; &#xAC12;&#xC774; &#xC22B;&#xC790;&#xC778; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; tab &#xD0A4;&#xB97C; &#xB20C;&#xB800;&#xC744;&#xACBD;&#xC6B0;</span>
         <span class="hljs-comment"># &#xC774;&#xC804;&#xC5D0; $_kill3 &#xBCC0;&#xC218;&#xC5D0; &#xC124;&#xC815;&#xD574; &#xB193;&#xC740; &#xBAA9;&#xB85D;&#xC744; &#xC774;&#xC6A9;&#xD574; PID &#xC640; &#xBA85;&#xB839;&#xC774;&#xB984;&#xC744; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</span>
         [<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]|[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>][<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]|[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>][<span class="hljs-number">0</span>-<span class="hljs-number">9</span>][<span class="hljs-number">0</span>-<span class="hljs-number">9</span>])
-            COMPREPLY=( <span class="hljs-string">&quot;<span class="hljs-variable">$(echo &quot;$_kill3&quot; | awk &apos;/^&apos;&quot;$CUR&quot;&apos;)</span>/{print <span class="hljs-variable">$2</span>,<span class="hljs-variable">$4</span>; exit}&apos;)&quot;</span> )
+            COMPREPLY=( <span class="hljs-string">&quot;<span class="hljs-variable">$(echo &quot;$_kill3&quot; | awk $CUR&apos; == $1+0 {print $2,$4; exit}&apos;)</span>&quot;</span> )
             ;;
 
         *)
