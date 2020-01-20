@@ -1423,7 +1423,7 @@ $ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<sp
 
 $ var=$(<span class="hljs-built_in">echo</span> -en <span class="hljs-string">&quot;AA\x00\x00BB&quot;</span>)    <span class="hljs-comment"># \x00 &#xB300;&#xC2E0; \0 &#xB85C; &#xD574;&#xB3C4;&#xB428;</span>
 $ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$var</span>&quot;</span> | od <span class="hljs-operator">-a</span>
-<span class="hljs-number">0000000</span>   A   A   B   B             <span class="hljs-comment"># null &#xBB38;&#xC790;&#xB294; &#xBAA8;&#xB450; &#xC81C;&#xAC70;&#xB418;&#xC5C8;&#xB2E4;.</span>
+<span class="hljs-number">0000000</span>   A   A   B   B             <span class="hljs-comment"># NUL &#xBB38;&#xC790;&#xB294; &#xBAA8;&#xB450; &#xC81C;&#xAC70;&#xB418;&#xC5C8;&#xB2E4;.</span>
 <span class="hljs-number">0000004</span>
 
 --------------------------------
