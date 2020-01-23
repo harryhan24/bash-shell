@@ -1686,13 +1686,39 @@ Sat Aug  <span class="hljs-number">8</span> <span class="hljs-number">03</span>:
 $ cat x
 cat: x: No such file or directory
 </code></pre>
-<h3 id="&#xD568;&#xC218;&#xB97C;-&#xC815;&#xC758;&#xD560;&#xB54C;-redirection-&#xC758;-&#xC0AC;&#xC6A9;">&#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560;&#xB54C; redirection &#xC758; &#xC0AC;&#xC6A9;</h3>
-<p>&#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560;&#xB54C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; redirection &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xD568;&#xAED8; &#xC815;&#xC758;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.
-&#xB2E4;&#xC74C; color &#xD568;&#xC218;&#xB294; &#xBA85;&#xB839; &#xC2E4;&#xD589;&#xACB0;&#xACFC; stderr &#xB85C; &#xCD9C;&#xB825;&#xB418;&#xB294; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; stdout &#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xB418;&#xB294; &#xBA54;&#xC2DC;&#xC9C0;&#xC640; &#xBD84;&#xB958;&#xD558;&#xC5EC; &#xBE68;&#xAC04;&#xC0C9;&#xC73C;&#xB85C; &#xD45C;&#xC2DC;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xBA85;&#xB839;-&#xADF8;&#xB8F9;&#xC5D0;-redirection-&#xC758;-&#xC801;&#xC6A9;">&#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xC5D0; redirection &#xC758; &#xC801;&#xC6A9;</h3>
+<p><code>{ ... ;}</code> &#xB098; <code>( ... )</code> &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBA85;&#xB839; &#xADF8;&#xB8F9;, &#xADF8;&#xB9AC;&#xACE0; &#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560; &#xB54C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0;
+redirection &#xC744; &#xD568;&#xAED8; &#xC815;&#xC758;&#xD560; &#xC218;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xADF8;&#xB7EC;&#xBA74; &#xD574;&#xB2F9; &#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xC5D0;&#xB9CC; &#xC801;&#xC6A9;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ cat test.sh 
+<span class="hljs-shebang">#!/bin/bash
+</span>
+{
+    ls <span class="hljs-operator">-l</span> /dev/fd/
+} <span class="hljs-number">9</span>&lt; <span class="hljs-string">&quot;<span class="hljs-variable">$0</span>&quot;</span>              <span class="hljs-comment"># { ;} &#xBA85;&#xB839; &#xADF8;&#xB8F9; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; redirection &#xC744; &#xC815;&#xC758;</span>
+
+ls <span class="hljs-operator">-l</span> /dev/fd/
+------------------------
+
+$ ./test.sh 
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> Jan <span class="hljs-number">23</span> <span class="hljs-number">14</span>:<span class="hljs-number">18</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">15</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> Jan <span class="hljs-number">23</span> <span class="hljs-number">14</span>:<span class="hljs-number">18</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">15</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> Jan <span class="hljs-number">23</span> <span class="hljs-number">14</span>:<span class="hljs-number">18</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">15</span>
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> Jan <span class="hljs-number">23</span> <span class="hljs-number">14</span>:<span class="hljs-number">18</span> <span class="hljs-number">3</span> -&gt; /proc/<span class="hljs-number">13434</span>/fd
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> Jan <span class="hljs-number">23</span> <span class="hljs-number">14</span>:<span class="hljs-number">18</span> <span class="hljs-number">9</span> -&gt; /home/mug896/test.sh   <span class="hljs-comment"># fd 9 &#xBC88;&#xC774; &#xC815;&#xC758;&#xB428;</span>
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> Jan <span class="hljs-number">23</span> <span class="hljs-number">14</span>:<span class="hljs-number">18</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">15</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> Jan <span class="hljs-number">23</span> <span class="hljs-number">14</span>:<span class="hljs-number">18</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">15</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> Jan <span class="hljs-number">23</span> <span class="hljs-number">14</span>:<span class="hljs-number">18</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">15</span>
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> Jan <span class="hljs-number">23</span> <span class="hljs-number">14</span>:<span class="hljs-number">18</span> <span class="hljs-number">3</span> -&gt; /proc/<span class="hljs-number">13435</span>/fd
+</code></pre>
+<p>&#xB2E4;&#xC74C;&#xC740; &#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560; &#xB54C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; redirection &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;.
+color &#xD568;&#xC218;&#xB294; &#xBA85;&#xB839; &#xC2E4;&#xD589;&#xACB0;&#xACFC; stderr &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; stdout &#xBA54;&#xC2DC;&#xC9C0;&#xC640; &#xBD84;&#xB958;&#xD558;&#xC5EC; &#xBE68;&#xAC04;&#xC0C9;&#xC73C;&#xB85C; &#xD45C;&#xC2DC;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">color() ( 
     <span class="hljs-built_in">set</span> -o pipefail 
     <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> <span class="hljs-number">1</span>&gt;&amp;<span class="hljs-number">3</span> | sed $<span class="hljs-string">&apos;s/.*/\e[31m &amp; \e[m/&apos;</span> &gt;&amp;<span class="hljs-number">2</span>    <span class="hljs-comment"># &#xD30C;&#xC774;&#xD504; subshell &#xD504;&#xB85C;&#xC138;&#xC2A4;</span>
-) <span class="hljs-number">3</span>&gt;&amp;<span class="hljs-number">1</span>                                                 <span class="hljs-comment"># &#xD604;&#xC7AC; shell &#xD504;&#xB85C;&#xC138;&#xC2A4;</span>
+) <span class="hljs-number">3</span>&gt;&amp;<span class="hljs-number">1</span>                                                 <span class="hljs-comment"># color &#xD568;&#xC218;&#xC5D0; &#xC801;&#xC6A9;</span>
 
 <span class="hljs-comment"># 1. &#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560;&#xB54C; { ;} &#xB300;&#xC2E0;&#xC5D0; ( ) subshell &#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xAC83;&#xC740; </span>
 <span class="hljs-comment">#    pipefail &#xC635;&#xC158;&#xC124;&#xC815;&#xC744; &#xD568;&#xC218;&#xC5D0; &#xAD6D;&#xD55C;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xC785;&#xB2C8;&#xB2E4;.</span>
