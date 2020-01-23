@@ -1316,7 +1316,7 @@ lockfile=/var/lock/$(basename <span class="hljs-string">&quot;<span class="hljs-
 <span class="hljs-built_in">command</span>2 ...
 <span class="hljs-built_in">command</span>3 ...
 </code></pre>
-<h2 id="flock">flock</h2>
+<h2 id="flock---file-lock-">flock  ( file lock )</h2>
 <p>&#xB450;&#xBC88;&#xC9F8; &#xC608;&#xB294; &#xC778;&#xD130;&#xB137;&#xC5D0;&#xC11C; &#xBCF4;&#xAC8C;&#xB41C; &#xB0B4;&#xC6A9;&#xC778;&#xB370; &#xC791;&#xC5C5; &#xCC98;&#xB9AC; &#xACFC;&#xC815;&#xC744; &#xAC04;&#xB2E8;&#xD788; &#xC815;&#xB9AC;&#xD574;&#xBCF4;&#xBA74; &#xC774;&#xB807;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
 <ol>
 <li>tasks.txt &#xD30C;&#xC77C;&#xC5D0;&#xB294; &#xCC98;&#xB9AC;&#xD574;&#xC57C; &#xB420; task id &#xB9AC;&#xC2A4;&#xD2B8;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
@@ -1329,7 +1329,7 @@ lockfile=/var/lock/$(basename <span class="hljs-string">&quot;<span class="hljs-
 &#xB450; &#xBD80;&#xBD84;&#xC73C;&#xB85C; &#xB418;&#xC5B4;&#xC788;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB2C8;&#xAE4C; &#xD504;&#xB85C;&#xC138;&#xC2A4; A &#xAC00; tasks.txt &#xC5D0;&#xC11C; task id &#xB97C; &#xD558;&#xB098; &#xC77D;&#xC5B4;&#xB4E4;&#xC778; &#xD6C4;&#xC5D0;
 &#xC0AD;&#xC81C;&#xD558;&#xB294; &#xACFC;&#xC815;&#xC5D0; &#xC788;&#xC744;&#xB54C; &#xB2E4;&#xB978; &#xD504;&#xB85C;&#xC138;&#xC2A4; B &#xAC00; &#xB3D9;&#xC77C;&#xD55C; task id &#xB97C; &#xC77D;&#xC744; &#xC218; &#xC788;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <p>&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; task id &#xB97C; &#xC77D;&#xACE0;, &#xC0AD;&#xC81C;&#xD558;&#xB294; &#xCF54;&#xB4DC;&#xAD6C;&#xAC04;&#xC744; &#xD558;&#xB098;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB9CC; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD558;&#xB294;&#xAC83;&#xC774; &#xD544;&#xC694;&#xD55C;&#xB370;&#xC694;.
-&#xC774;&#xAC83;&#xC744; &#xC55E;&#xC11C; &#xC0AC;&#xC6A9;&#xD588;&#xB358; mkdir &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xD55C;&#xB2E4;&#xBA74; &#xD504;&#xB85C;&#xC138;&#xC2A4; A &#xAC00; &#xC2E4;&#xD589;&#xC911;&#xC5D0; &#xC788;&#xC744;&#xB54C; &#xC774;&#xC5B4;&#xC9C0;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4; B &#xB294;
+&#xC774;&#xAC83;&#xC744; &#xC55E;&#xC11C; &#xC0AC;&#xC6A9;&#xD588;&#xB358; mkdir &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xD55C;&#xB2E4;&#xBA74; &#xD504;&#xB85C;&#xC138;&#xC2A4; A &#xAC00; &#xC2E4;&#xD589;&#xC911;&#xC5D0; &#xC788;&#xC744;&#xB54C; &#xB4A4; &#xC774;&#xC5B4;&#xC9C0;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4; B &#xB294;
 task id &#xB97C; &#xC5BB;&#xC9C0; &#xBABB;&#xD558;&#xACE0; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&#xD574; &#xBC84;&#xB9AC;&#xAC8C; &#xB418;&#xBBC0;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xB2E4;&#xC2DC;&#xB9D0;&#xD574;&#xC11C; &#xD504;&#xB85C;&#xC138;&#xC2A4; A &#xAC00; &#xC2E4;&#xD589;&#xC911;&#xC5D0; &#xC788;&#xC744;&#xB54C; &#xC774;&#xC5B4;&#xC9C0;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4; B &#xB294; &#xB300;&#xAE30;&#xC0C1;&#xD0DC;&#xC5D0; &#xC788;&#xB2E4;&#xAC00; A &#xAC00; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xB418;&#xBA74;
 &#xC9C4;&#xC785;&#xD574;&#xC11C; &#xC2E4;&#xD589;&#xD558;&#xB294; &#xAC83;&#xC774; &#xD544;&#xC694;&#xD55C;&#xB370;&#xC694;. &#xC774;&#xC640; &#xAC19;&#xC740; &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xAC83;&#xC774; flock &#xBA85;&#xB839;&#xC785;&#xB2C8;&#xB2E4;. </p>
