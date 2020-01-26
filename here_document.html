@@ -1567,10 +1567,10 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
 <p>&#xC258; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC5D0; &#xBC14;&#xC774;&#xB108;&#xB9AC; &#xD30C;&#xC77C;&#xC744; &#xC800;&#xC7A5;&#xD558;&#xC5EC; &#xC2E4;&#xD589;&#xD558;&#xB824;&#xBA74;?</p>
 <h4 id="base64-&#xB97C;-&#xC774;&#xC6A9;&#xD558;&#xB294;-&#xBC29;&#xBC95;">base64 &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;</h4>
 <p>base64 &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; binary &#xD30C;&#xC77C;&#xC774; &#xD14D;&#xC2A4;&#xD2B8;&#xB85C; &#xBCC0;&#xD658;&#xB418;&#xBBC0;&#xB85C; &#xC774; &#xBC29;&#xBC95;&#xC740; binary &#xD30C;&#xC77C;&#xC744; &#xC804;&#xC1A1;&#xD560; &#xC218; &#xC5C6;&#xB294; &#xD658;&#xACBD;&#xC5D0;&#xC11C; &#xC774;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<p>1 . &#xBA3C;&#xC800; base64 &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; binary &#xD30C;&#xC77C;&#xC744; &#xD14D;&#xC2A4;&#xD2B8;&#xB85C; &#xBCC0;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p><b>1</b> . &#xBA3C;&#xC800; base64 &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; binary &#xD30C;&#xC77C;&#xC744; &#xD14D;&#xC2A4;&#xD2B8;&#xB85C; &#xBCC0;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ base64 binaryCommand &gt; test.sh
 </code></pre>
-<p>2 . test.sh &#xD30C;&#xC77C;&#xC744; &#xD14D;&#xC2A4;&#xD2B8; &#xC5D0;&#xB514;&#xD130;&#xB85C; &#xC5F4;&#xC5B4; &#xBCF4;&#xBA74; base64 &#xB85C; &#xC778;&#xCF54;&#xB529;&#xB41C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC800;&#xC7A5;&#xB418;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<p><b>2</b> . test.sh &#xD30C;&#xC77C;&#xC744; &#xD14D;&#xC2A4;&#xD2B8; &#xC5D0;&#xB514;&#xD130;&#xB85C; &#xC5F4;&#xC5B4; &#xBCF4;&#xBA74; base64 &#xB85C; &#xC778;&#xCF54;&#xB529;&#xB41C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC800;&#xC7A5;&#xB418;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC218;&#xC815;&#xD558;&#xC5EC; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash</span>
 <span class="hljs-comment"># &#xBA3C;&#xC800; &#xC2DC;&#xC2A4;&#xD15C;&#xC774; &#xBC14;&#xC774;&#xB108;&#xB9AC; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xB294;&#xC9C0; &#xCCB4;&#xD06C;&#xD569;&#xB2C8;&#xB2E4;.</span>
@@ -1609,11 +1609,11 @@ base64 &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xACE0; hex &#xB85C; &
 <p>&#xC774; &#xBC29;&#xBC95;&#xC740; base64 &#xC778;&#xCF54;&#xB529;&#xC744; &#xAC70;&#xCE58;&#xC9C0; &#xC54A;&#xACE0; binary &#xD30C;&#xC77C;&#xC744; &#xC9C1;&#xC811; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC5D0; append &#xD569;&#xB2C8;&#xB2E4;.
 binary &#xD30C;&#xC77C;&#xC740; &#xC555;&#xCD95;&#xD30C;&#xC77C;, &#xC2E4;&#xD589;&#xD30C;&#xC77C;, &#xC774;&#xBBF8;&#xC9C0;, &#xB3D9;&#xC601;&#xC0C1; &#xC5B4;&#xB5A4; &#xC885;&#xB958;&#xB358; &#xC0C1;&#xAD00;&#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC778;&#xCF54;&#xB529;&#xC5D0; &#xC758;&#xD574; &#xD30C;&#xC77C; &#xC0AC;&#xC774;&#xC988;&#xAC00; &#xCEE4;&#xC9C0;&#xC9C0; &#xC54A;&#xC73C;&#xBBC0;&#xB85C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC258; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xBC30;&#xD3EC;&#xD560;&#xB54C; &#xC8FC;&#xB85C; &#xC774; &#xBC29;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<p>1 . &#xBA3C;&#xC800; append &#xD560; binary &#xD30C;&#xC77C;&#xC758; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xAD6C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p><b>1</b> . &#xBA3C;&#xC800; append &#xD560; binary &#xD30C;&#xC77C;&#xC758; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xAD6C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">stat</span> -c %s binaryFile
 <span class="hljs-number">512</span>
 </code></pre>
-<p>2 . &#xADF8;&#xB2E4;&#xC74C; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC740;  &#xB0B4;&#xC6A9;&#xC758; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xBA3C;&#xC800; &#xC791;&#xC131;&#xD569;&#xB2C8;&#xB2E4;.
+<p><b>2</b> . &#xADF8;&#xB2E4;&#xC74C; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC740;  &#xB0B4;&#xC6A9;&#xC758; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xBA3C;&#xC800; &#xC791;&#xC131;&#xD569;&#xB2C8;&#xB2E4;.
 &#xC774;&#xBC88;&#xC5D0;&#xB294; <code>sh</code> &#xB85C; &#xC791;&#xC131;&#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;.
 base64 &#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC5D0;&#xC11C;&#xB294; &#xC5C6;&#xC5C8;&#xB358; tail &#xBA85;&#xB839;&#xC774; &#xC0AC;&#xC6A9;&#xB41C; &#xAC78; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC774; &#xBD80;&#xBD84;&#xC774; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC5D0; append &#xB41C; binary &#xD30C;&#xC77C;&#xC744; &#xCD94;&#xCD9C;&#xD558;&#xB294; &#xACFC;&#xC815;&#xC785;&#xB2C8;&#xB2E4;.
@@ -1632,14 +1632,14 @@ tmpFile=`mktemp -p .`
 <span class="hljs-comment"># tail &#xBA85;&#xB839;&#xC73C;&#xB85C; append &#xB41C; binary file &#xC744; &#xCD94;&#xCD9C;</span>
 tail -c <span class="hljs-number">512</span> <span class="hljs-string">&quot;<span class="hljs-variable">$scriptFile</span>&quot;</span> &gt; <span class="hljs-string">&quot;<span class="hljs-variable">$tmpFile</span>&quot;</span>
 <span class="hljs-comment"># &#xB9CC;&#xC57D;&#xC5D0; append &#xB41C; &#xD30C;&#xC77C;&#xC774; tar &#xC555;&#xCD95; &#xD30C;&#xC77C;&#xC774;&#xB77C;&#xBA74; ( &apos;-&apos; &#xBB38;&#xC790;&#xB294; stdin )</span>
-<span class="hljs-comment"># tail -c 512 &quot;$scriptFile&quot; | tar xzvf -</span>
+<span class="hljs-comment"># tail -c 512 &quot;$scriptFile&quot; | tar xvfz -</span>
 
 ( chmod +x <span class="hljs-string">&quot;<span class="hljs-variable">$tmpFile</span>&quot;</span>; <span class="hljs-built_in">exec</span> <span class="hljs-string">&quot;<span class="hljs-variable">$tmpFile</span>&quot;</span> )
 
 <span class="hljs-comment"># &#xB9C8;&#xC9C0;&#xB9C9;&#xC740; &#xBC18;&#xB4DC;&#xC2DC; exit &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC885;&#xB8CC;</span>
 <span class="hljs-built_in">exit</span>
 </code></pre>
-<p>3 . &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC791;&#xC131;&#xC744; &#xC644;&#xB8CC;&#xD558;&#xC600;&#xC73C;&#xBA74; &#xC800;&#xC7A5;&#xD558;&#xACE0; &#xB098;&#xC640;&#xC11C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; binary &#xD30C;&#xC77C;&#xC744; append &#xD569;&#xB2C8;&#xB2E4;.</p>
+<p><b>3</b> . &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC791;&#xC131;&#xC744; &#xC644;&#xB8CC;&#xD558;&#xC600;&#xC73C;&#xBA74; &#xC800;&#xC7A5;&#xD558;&#xACE0; &#xB098;&#xC640;&#xC11C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; binary &#xD30C;&#xC77C;&#xC744; append &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ cat binaryFile &gt;&gt; test.sh
 </code></pre>
 <p>&#xD55C;&#xAC00;&#xC9C0; &#xCC38;&#xACE0; &#xD574;&#xC57C;&#xB420; &#xC0AC;&#xD56D;&#xC740; &#xD30C;&#xC77C;&#xC744; append &#xD558;&#xACE0; &#xB098;&#xC11C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xB2E4;&#xC2DC; &#xC218;&#xC815;&#xD574;&#xC57C;&#xB420; &#xACBD;&#xC6B0;&#xAC00; &#xC0DD;&#xAE38;&#xC218; &#xC788;&#xB294;&#xB370;
