@@ -1348,7 +1348,7 @@ bash: syntax error near unexpected token <span class="hljs-string">&apos;do&apos
 $ <span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> YES; <span class="hljs-built_in">break</span>; <span class="hljs-keyword">done</span> &gt; /dev/null
 $ OK
 </code></pre>
-<p>&#xB300;&#xC785; &#xC5F0;&#xC0B0; &#xC5D0;&#xB294; redirection &#xC744; &#xC801;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xBA85;&#xB839; &#xCE58;&#xD658;&#xC5D0;&#xB294;  redirection &#xC744; &#xC801;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ NUM=$( expr a + <span class="hljs-number">2</span> ) <span class="hljs-number">2</span>&gt;/dev/null   
 expr: non-integer argument
 
@@ -1687,8 +1687,8 @@ $ cat x
 cat: x: No such file or directory
 </code></pre>
 <h3 id="&#xBA85;&#xB839;-&#xADF8;&#xB8F9;&#xC5D0;-redirection-&#xC758;-&#xC801;&#xC6A9;">&#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xC5D0; redirection &#xC758; &#xC801;&#xC6A9;</h3>
-<p><code>{ ... ;}</code> &#xB098; <code>( ... )</code> &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBA85;&#xB839; &#xADF8;&#xB8F9;, &#xADF8;&#xB9AC;&#xACE0; &#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560; &#xB54C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0;
-redirection &#xC744; &#xD568;&#xAED8; &#xC815;&#xC758;&#xD560; &#xC218;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<p><code>{ ... ;}</code> &#xB098; <code>( ... )</code> &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBA85;&#xB839; &#xADF8;&#xB8F9; compound commands &#xADF8;&#xB9AC;&#xACE0; 
+&#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560; &#xB54C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; redirection &#xC744; &#xD568;&#xAED8; &#xC815;&#xC758;&#xD560; &#xC218;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB7EC;&#xBA74; &#xD574;&#xB2F9; &#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xC5D0;&#xB9CC; &#xC801;&#xC6A9;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ cat test.sh 
 <span class="hljs-shebang">#!/bin/bash
