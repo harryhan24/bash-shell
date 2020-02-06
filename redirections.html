@@ -1323,7 +1323,7 @@ $ &lt;&lt;END cat
 hello
 END
 </code></pre>
-<p><code>( )</code>, <code>{ ;}</code> &#xBA85;&#xB839;&#xADF8;&#xB8F9;,  compound commands &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xB4A4;&#xC5D0; &#xC640;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<p><code>( ... )</code>, <code>{ ... ;}</code> &#xBA85;&#xB839;&#xADF8;&#xB8F9;,  compound commands &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xB4A4;&#xC5D0; &#xC640;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-number">2</span>&gt; /dev/null ( expr a + <span class="hljs-number">2</span> ) 
 bash: syntax error near unexpected token <span class="hljs-string">&apos;(&apos;</span>
 
@@ -1687,7 +1687,7 @@ $ cat x
 cat: x: No such file or directory
 </code></pre>
 <h3 id="&#xBA85;&#xB839;-&#xADF8;&#xB8F9;&#xC5D0;-redirection-&#xC758;-&#xC801;&#xC6A9;">&#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xC5D0; redirection &#xC758; &#xC801;&#xC6A9;</h3>
-<p><code>{ ... ;}</code> &#xB098; <code>( ... )</code> &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBA85;&#xB839; &#xADF8;&#xB8F9; compound commands &#xADF8;&#xB9AC;&#xACE0; 
+<p><code>{ ... ;}</code>, <code>( ... )</code> &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBA85;&#xB839; &#xADF8;&#xB8F9;, compound commands &#xADF8;&#xB9AC;&#xACE0; 
 &#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560; &#xB54C; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; redirection &#xC744; &#xD568;&#xAED8; &#xC815;&#xC758;&#xD560; &#xC218;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB7EC;&#xBA74; &#xD574;&#xB2F9; &#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xC5D0;&#xB9CC; &#xC801;&#xC6A9;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ cat test.sh 
