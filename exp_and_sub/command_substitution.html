@@ -1376,6 +1376,17 @@ $ <span class="hljs-built_in">echo</span> -n $(cat file) | od <span class="hljs-
 <span class="hljs-number">0000000</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>   <span class="hljs-number">1</span>  nl   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>   <span class="hljs-number">2</span>
 <span class="hljs-number">0000007</span>
 </code></pre>
+<p>&#xB9CC;&#xC57D;&#xC5D0; trailing newlines &#xC774; &#xBCF4;&#xC874;&#xB418;&#xC5B4;&#xC57C; &#xD560;&#xACBD;&#xC6B0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ GET=$(cat &lt;&lt;EOF
+GET / HTTP/<span class="hljs-number">1.1</span>
+Host: <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">80</span>
+
+.
+EOF
+)
+
+$ GET=<span class="hljs-variable">${GET%.}</span>   <span class="hljs-comment"># remove period</span>
+</code></pre>
 <h3 id="&#xBA85;&#xB839;&#xBB38;&#xC5D0;&#xC11C;-redirection-&#xBB38;&#xC790;&#xBCF4;&#xB2E4;&#xB3C4;-&#xBA3C;&#xC800;-&#xCC98;&#xB9AC;&#xB41C;&#xB2E4;">&#xBA85;&#xB839;&#xBB38;&#xC5D0;&#xC11C; redirection &#xBB38;&#xC790;&#xBCF4;&#xB2E4;&#xB3C4; &#xBA3C;&#xC800; &#xCC98;&#xB9AC;&#xB41C;&#xB2E4;.</h3>
 <p>redirection &#xBB38;&#xC790;&#xB294; shell &#xBA54;&#xD0C0;&#xBB38;&#xC790; &#xC911;&#xC5D0;&#xC11C; &#xCC98;&#xB9AC;&#xB418;&#xB294; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xC81C;&#xC77C; &#xB192;&#xC740;&#xB370;
 &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC740; &#xADF8;&#xBCF4;&#xB2E4; &#xBA3C;&#xC800; &#xCC98;&#xB9AC;&#xB429;&#xB2C8;&#xB2E4;.</p>
