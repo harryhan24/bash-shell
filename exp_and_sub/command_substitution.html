@@ -1378,13 +1378,12 @@ $ <span class="hljs-built_in">echo</span> -n $(cat file) | od <span class="hljs-
 <span class="hljs-number">0000007</span>
 </code></pre>
 <p>&#xB9CC;&#xC57D;&#xC5D0; trailing newlines &#xC774; &#xBCF4;&#xC874;&#xB418;&#xC5B4;&#xC57C; &#xD560;&#xACBD;&#xC6B0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ GET=$(cat &lt;&lt;EOF
-GET / HTTP/<span class="hljs-number">1.1</span>
-Host: <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">80</span>
+<pre><code class="lang-bash">$ GET=$( <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;
+GET / HTTP/1.1
+Host: 127.0.0.1:80
 
-.
-EOF
-)
+
+.&quot;</span>)
 
 $ GET=<span class="hljs-variable">${GET%.}</span>   <span class="hljs-comment"># remove period</span>
 </code></pre>
