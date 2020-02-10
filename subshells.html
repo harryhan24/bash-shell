@@ -1478,7 +1478,7 @@ index=<span class="hljs-number">30</span>
 
 <span class="hljs-function"><span class="hljs-title">change_index</span></span>() {
   index=<span class="hljs-number">40</span>
-  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;changed to 40&quot;</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-variable">$index</span>
 }
 
 result=$(change_index)
@@ -1488,10 +1488,11 @@ result=$(change_index)
 
 <span class="hljs-comment">########### output ###########</span>
 
-changed to <span class="hljs-number">40</span>
+<span class="hljs-number">40</span>
 <span class="hljs-number">30</span>
 </code></pre>
-<p>&#xACB0;&#xACFC;&#xAC12;&#xC73C;&#xB85C; &quot;changed to 40&quot;, 40 &#xC744; &#xAE30;&#xB300;&#xD558;&#xC600;&#xC73C;&#xB098; &quot;changed to 40&quot;, 30 &#xC774; &#xB098;&#xC654;&#xC2B5;&#xB2C8;&#xB2E4;.<br><code>change_index</code> &#xD568;&#xC218;&#xAC00; <code>( )</code> &#xC548;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB410;&#xC73C;&#xBBC0;&#xB85C; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC5B4; parent &#xBCC0;&#xC218;&#xC778; index &#xAC12;&#xC744; &#xAC31;&#xC2E0;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
+<p>&#xACB0;&#xACFC;&#xAC12;&#xC73C;&#xB85C; 40, 40 &#xC744; &#xAE30;&#xB300;&#xD558;&#xC600;&#xC73C;&#xB098; 40, 30 &#xC774; &#xB098;&#xC654;&#xC2B5;&#xB2C8;&#xB2E4;.
+<code>change_index</code> &#xD568;&#xC218;&#xAC00; <code>$( )</code> &#xC548;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB410;&#xC73C;&#xBBC0;&#xB85C; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC5B4; parent &#xBCC0;&#xC218;&#xC778; index &#xAC12;&#xC744; &#xAC31;&#xC2E0;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
 <h4 id="&#xC608;&#xC81C;-2">&#xC608;&#xC81C; .2</h4>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> hello | <span class="hljs-built_in">read</span> var; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
 $
@@ -1517,7 +1518,7 @@ cat datafile | <span class="hljs-keyword">while</span> <span class="hljs-built_i
 
 Finished writing <span class="hljs-number">0</span> keys
 </code></pre>
-<p>&#xACB0;&#xACFC;&#xAC12;&#xC73C;&#xB85C; while &#xBB38;&#xC73C;&#xB85C; &#xC778;&#xD574; &#xC99D;&#xAC00;&#xD55C; nkeys &#xAC12;&#xC744; &#xAE30;&#xB300;&#xD558;&#xC600;&#xC73C;&#xB098; &#xB9C8;&#xC9C0;&#xB9C9; &#xBB38;&#xC7A5;&#xC758; $nkeys &#xAC12;&#xC740; 0 &#xC774; &#xD45C;&#xC2DC; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. while &#xBB38;&#xC774; &#xD30C;&#xC774;&#xD504; <code>|</code> &#xB85C; &#xC778;&#xD574; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC5B4; parent &#xBCC0;&#xC218;&#xC778; nkeys &#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC218;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xACB0;&#xACFC;&#xAC12;&#xC73C;&#xB85C; while &#xBB38;&#xC73C;&#xB85C; &#xC778;&#xD574; &#xC99D;&#xAC00;&#xD55C; $nkeys &#xAC12;&#xC744; &#xAE30;&#xB300;&#xD558;&#xC600;&#xC73C;&#xB098; &#xB9C8;&#xC9C0;&#xB9C9; &#xBB38;&#xC7A5;&#xC758; $nkeys &#xAC12;&#xC740; 0 &#xC774; &#xD45C;&#xC2DC; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. while &#xBB38;&#xC774; &#xD30C;&#xC774;&#xD504; <code>|</code> &#xB85C; &#xC778;&#xD574; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC5B4; parent &#xBCC0;&#xC218;&#xC778; nkeys &#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC218;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
 </span>
 nKeys=<span class="hljs-number">0</span>
