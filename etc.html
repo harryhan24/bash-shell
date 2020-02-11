@@ -1519,7 +1519,10 @@ $ grep Shmem: /proc/meminfo
 Shmem:            <span class="hljs-number">543796</span> kB
 
 <span class="hljs-comment"># /dev/shm &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; 100M &#xD06C;&#xAE30; &#xD30C;&#xC77C; &#xC0DD;&#xC131;</span>
-$ dd bs=$(( <span class="hljs-number">2</span>**<span class="hljs-number">20</span> )) count=<span class="hljs-number">100</span> status=none &lt; /dev/zero &gt; /dev/shm/hello
+$ dd bs=$(( <span class="hljs-number">2</span>**<span class="hljs-number">20</span> )) count=<span class="hljs-number">100</span> &lt; /dev/zero &gt; /dev/shm/hello
+<span class="hljs-number">100</span>+<span class="hljs-number">0</span> records <span class="hljs-keyword">in</span>
+<span class="hljs-number">100</span>+<span class="hljs-number">0</span> records out
+<span class="hljs-number">104857600</span> bytes (<span class="hljs-number">105</span> MB, <span class="hljs-number">100</span> MiB) copied, <span class="hljs-number">0.043056</span> s, <span class="hljs-number">2.4</span> GB/s
 
 $ grep Shmem: /proc/meminfo
 Shmem:            <span class="hljs-number">646196</span> kB
