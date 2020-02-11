@@ -1260,7 +1260,7 @@ $ geturl http://example.com/excitingstuff.jpg
 <span class="hljs-built_in">alias</span> name3=<span class="hljs-string">&apos;{ command1; command2; command3 ;}&apos;</span>
 </code></pre>
 <ul>
-<li><p>shell &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C;&#xB9CC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>non-interactive shell &#xC778; script &#xD30C;&#xC77C;&#xC5D0;&#xC11C;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; alias &#xAC00; disable &#xB429;&#xB2C8;&#xB2E4;.<br>( <code>shopt -s expand_aliases</code> &#xC635;&#xC158;&#xC73C;&#xB85C; &#xCEE8;&#xD2B8;&#xB864;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. )</p>
+<li><p>shell &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C;&#xB9CC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>non-interactive shell &#xC778; script &#xD30C;&#xC77C;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xB54C;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; alias &#xAC00; disable &#xB429;&#xB2C8;&#xB2E4;.<br>( <code>shopt -s expand_aliases</code> &#xC635;&#xC158;&#xC73C;&#xB85C; &#xCEE8;&#xD2B8;&#xB864;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. )</p>
 </li>
 <li><p>&#xC124;&#xC815;&#xD55C; alias &#xB294; subshell &#xC5D0;&#xC11C;&#xB3C4; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
 </li>
@@ -1291,14 +1291,15 @@ ps fo user,ppid,pid,pgid,sid,tty,<span class="hljs-built_in">stat</span>,args
 <ul>
 <li><p>alias &#xC5D0;&#xB294; &#xD568;&#xC218;&#xCC98;&#xB7FC; &#xC778;&#xC218;&#xB97C; &#xC804;&#xB2EC;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 </li>
-<li><p>&#xC124;&#xC815;&#xD55C; alias &#xB97C; escape &#xD558;&#xB824;&#xBA74; &#xC774;&#xB984; &#xC55E;&#xC5D0; <code>\</code> &#xB97C; &#xBD99;&#xC774;&#xAC70;&#xB098; quote &#xC744; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C; <code>command</code>, <code>builtin</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098; &#xBA85;&#xB839;&#xC744; &#xBCC0;&#xC218;&#xC5D0; &#xB300;&#xC785;&#xD574; &#xC2E4;&#xD589;&#xD558;&#xBA74; alias &#xC801;&#xC6A9;&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<li><p>&#xC124;&#xC815;&#xD55C; alias &#xB97C; escape &#xD558;&#xB824;&#xBA74; &#xC774;&#xB984; &#xC55E;&#xC5D0; <code>\</code> &#xB97C; &#xBD99;&#xC774;&#xAC70;&#xB098; quote &#xC744; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C; <code>command</code>, <code>builtin</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098; &#xBA85;&#xB839; &#xC774;&#xB984;&#xC744; &#xBCC0;&#xC218;&#xC5D0; &#xB300;&#xC785;&#xD574; &#xC2E4;&#xD589;&#xD558;&#xBA74; alias &#xC801;&#xC6A9;&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 </li>
 <li><p>&#xC124;&#xC815;&#xD55C; alias &#xB97C; &#xC0AD;&#xC81C;&#xD560; &#xB54C;&#xB294; unalias &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
 </li>
 </ul>
 <h4 id="alias-&#xB294;-shell-&#xD658;&#xACBD;&#xC5D0;&#xC11C;&#xB9CC;-&#xC0AC;&#xC6A9;&#xD560;-&#xC218;-&#xC788;&#xB2E4;">Alias &#xB294; shell &#xD658;&#xACBD;&#xC5D0;&#xC11C;&#xB9CC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.</h4>
 <p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xACBD;&#xC6B0; ls &#xBA85;&#xB839;&#xC774; alias &#xB418;&#xC5B4; &#xC788;&#xC5B4;&#xB3C4; shell &#xD658;&#xACBD;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xAC83;&#xC774; &#xC544;&#xB2C8;&#xBBC0;&#xB85C; alias  &#xC801;&#xC6A9;&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># ls &#xBA85;&#xB839;&#xC740; shell &#xD658;&#xACBD;&#xC774; &#xC544;&#xB2CC; find, xargs &#xBA85;&#xB839;&#xC5D0; &#xC758;&#xD574; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xAC83;&#xC73C;&#xB85C; alias &#xC801;&#xC6A9;&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xB2E4;&#xC74C;&#xC758; ls &#xBA85;&#xB839; &#xC2A4;&#xD2B8;&#xB9C1;&#xC740; shell &#xD658;&#xACBD;&#xC774; &#xC544;&#xB2CC; find, xargs &#xBA85;&#xB839;&#xC5D0; &#xC804;&#xB2EC;&#xB418;&#xC5B4; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xAC83;&#xC73C;&#xB85C; </span>
+<span class="hljs-comment"># alias &#xC801;&#xC6A9;&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
 
 $ find -type f -exec ls <span class="hljs-operator">-l</span> {} \;
 
