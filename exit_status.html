@@ -1396,7 +1396,7 @@ pipefail &#xC635;&#xC158;&#xC740; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xAC
 )
 </code></pre>
 <p><code>sh</code> &#xC758; &#xACBD;&#xC6B0;&#xB294; pipefail &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xBA85;&#xB839;&#xC744; &#xBD84;&#xB9AC;&#xD574; &#xC791;&#xC131;&#xD558;&#xAC70;&#xB098;
-<a href="redirections.html#quiz2">redirections &#xC608;&#xC81C;</a> &#xC640; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC744; &#xC774;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<a href="redirections.html#quiz2">redirections &#xC608;&#xC81C;</a> &#xC640; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xBA85;&#xB839;&#xC744; &#xB450;&#xAC1C;&#xB85C; &#xBD84;&#xB9AC;&#xD574;&#xC11C; &#xC791;&#xC131;</span>
 <span class="hljs-built_in">command</span>1 arg1 arg2 &gt; <span class="hljs-variable">$tmpfile</span>
 status=$?
@@ -1407,12 +1407,12 @@ sed -n <span class="hljs-string">&apos;/&lt;main&gt;:/,/^$/p&apos;</span> <span 
 <h3 id="null-&#xAC12;&#xC778;-&#xBCC0;&#xC218;&#xB294;-&#xCC38;&#xC77C;&#xAE4C;-&#xAC70;&#xC9D3;&#xC77C;&#xAE4C;">null &#xAC12;&#xC778; &#xBCC0;&#xC218;&#xB294; &#xCC38;&#xC77C;&#xAE4C; &#xAC70;&#xC9D3;&#xC77C;&#xAE4C;?</h3>
 <p>&#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xBCC0;&#xC218;&#xB098; null &#xAC12;&#xC778; &#xBCC0;&#xC218;&#xB294; quote &#xD558;&#xC9C0; &#xC54A;&#xC744;&#xACBD;&#xC6B0; &#xCC38;&#xC774; &#xB418;&#xBBC0;&#xB85C; &#xC8FC;&#xC758;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ asdf=<span class="hljs-string">&quot;&quot;</span>
-$ <span class="hljs-keyword">if</span> <span class="hljs-variable">$asdf</span>; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span>; <span class="hljs-keyword">fi</span>
-<span class="hljs-number">111</span>
+$ <span class="hljs-keyword">if</span> <span class="hljs-variable">$asdf</span>; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">false</span>; <span class="hljs-keyword">fi</span>
+<span class="hljs-literal">true</span>
 
 $ <span class="hljs-built_in">unset</span> asdf
-$ <span class="hljs-variable">$asdf</span> &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span>
-<span class="hljs-number">111</span>
+$ <span class="hljs-variable">$asdf</span> &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-literal">true</span>
+<span class="hljs-literal">true</span>
 </code></pre>
 <h3 id="&#xB300;&#xC785;-&#xC5F0;&#xC0B0;&#xC758;-&#xC885;&#xB8CC;-&#xC0C1;&#xD0DC;-&#xAC12;&#xC740;">&#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740;?</h3>
 <p><code>=</code> , <code>+=</code> &#xBA54;&#xD0C0;&#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xC2DD;&#xC740; &#xBA85;&#xB839;&#xBB38;&#xC774; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;. &#xADF8;&#xB798;&#xC11C; <code>;</code> &#xB85C; &#xAD6C;&#xBD84;&#xC5C6;&#xC774; &#xD55C;&#xC904;&#xC5D0; &#xC5EC;&#xB7EC;&#xAC1C;&#xB97C; &#xC4F8; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD56D;&#xC0C1; <code>0</code> &#xC774;&#xC9C0;&#xB9CC; &#xBA85;&#xB839;&#xCE58;&#xD658;&#xACFC; &#xD568;&#xAED8; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;&#xB294; &#xBA85;&#xB839;&#xCE58;&#xD658; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</p>
