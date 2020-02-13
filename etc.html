@@ -1312,7 +1312,11 @@ lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-nu
 lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2017</span>-<span class="hljs-number">02</span>-<span class="hljs-number">18</span> <span class="hljs-number">05</span>:<span class="hljs-number">06</span> <span class="hljs-number">255</span> -&gt; /dev/pts/<span class="hljs-number">2</span>
 </code></pre>
 <p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774;&#xD558;&#xBA74; &#xD604;&#xC7AC; libcairo.so &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB97C; &#xC0AC;&#xC6A9; &#xC911;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xBAA9;&#xB85D;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ sudo grep libcairo.so /proc/*/maps
+<pre><code class="lang-bash">$ sudo grep libcairo.so /proc/[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]*/maps
+</code></pre>
+<p>&#xD604;&#xC7AC; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC0DD;&#xC131;&#xB418;&#xC5B4; &#xC788;&#xB294; &#xC804;&#xCCB4; &#xC2A4;&#xB808;&#xB4DC; &#xAC1C;&#xC218;</p>
+<pre><code class="lang-bash">$ grep -i <span class="hljs-string">&apos;threads&apos;</span> /proc/[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]*/status | awk <span class="hljs-string">&apos;{sum += $2} END{ print sum}&apos;</span> 
+<span class="hljs-number">2225</span>
 </code></pre>
 <h4 id="procself">/proc/self</h4>
 <p>/proc/self &#xB294; &#xC2EC;&#xBCFC;&#xB9AD;&#xB9C1;&#xD06C; &#xC778;&#xB370; &#xD56D;&#xC0C1; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC790;&#xC2E0;&#xC758; pid &#xBC88;&#xD638;&#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
