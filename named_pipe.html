@@ -1479,54 +1479,86 @@ fifo_even, fifo_odd &#xB85C; &#xAC01;&#xAC01; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#
     END { print &quot;end...&quot; }&apos;</span> fifo_even
 </code></pre>
 <h3 id="multiple-writers-and-readers">Multiple writers and readers</h3>
-<p>Pipe &#xB294; &#xB370;&#xC774;&#xD130; &#xC190;&#xC2E4; &#xC5C6;&#xC774; multiple writers, multiple readers &#xB97C; &#xAC00;&#xC9C8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xC774;&#xB54C; &#xC785;&#xB825;&#xB418;&#xB294; &#xC21C;&#xC11C;, &#xCD9C;&#xB825;&#xB418;&#xB294; &#xC21C;&#xC11C;&#xB294; &#xC608;&#xCE21;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xB2E4;&#xC74C;&#xC740; multiple writers, single reader &#xC758; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.   </p>
+<p>&#xB2E4;&#xC74C;&#xC740; multiple writers, single reader &#xC758; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.
+2 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74; 1 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00;
+&#xD30C;&#xC774;&#xD504;&#xB97C; &#xC77D;&#xC5B4;&#xC11C; &#xD30C;&#xC77C;&#xB85C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB54C; &#xD30C;&#xC77C;&#xB85C; &#xC800;&#xC7A5;&#xB418;&#xB294; &#xC21C;&#xC11C;&#xB294; &#xC608;&#xCE21;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;</p>
 <pre><code class="lang-bash">$ mkfifo mypipe
 
-$ <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span>  $(( i++ )); sleep <span class="hljs-number">1</span>; <span class="hljs-keyword">done</span> &gt; mypipe &amp;
-[<span class="hljs-number">1</span>] <span class="hljs-number">23084</span>
+<span class="hljs-comment"># 2 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; 10,000 &#xB77C;&#xC778;&#xC529; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC4F0;&#xAE30; &#xD569;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10000</span>; i++ )) <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span> &gt; mypipe &amp; 
+[<span class="hljs-number">1</span>] <span class="hljs-number">20134</span>
 
-$ <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span>  --- $(( i++ )); sleep <span class="hljs-number">1</span>; <span class="hljs-keyword">done</span> &gt; mypipe &amp;
-[<span class="hljs-number">2</span>] <span class="hljs-number">23097</span>
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10000</span>; i++ )) <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> --- <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span> &gt; mypipe &amp;
+[<span class="hljs-number">2</span>] <span class="hljs-number">20151</span>
 
-$ cat mypipe
-<span class="hljs-number">0</span>
+<span class="hljs-comment"># single reader : &#xD30C;&#xC774;&#xD504;&#xB97C; &#xC77D;&#xC5B4;&#xC11C; &#xD30C;&#xC77C; x1 &#xB85C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> v; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>; <span class="hljs-keyword">done</span> &lt; mypipe &gt; x1
+[<span class="hljs-number">1</span>]-  Done                    <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10000</span>; i++ ))
+<span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span>;
+<span class="hljs-keyword">done</span> &gt; mypipe
+[<span class="hljs-number">2</span>]+  Done                    <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10000</span>; i++ ))
+<span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> --- <span class="hljs-variable">$i</span>;
+<span class="hljs-keyword">done</span> &gt; mypipe
+
+$ wc <span class="hljs-operator">-l</span> x1     <span class="hljs-comment"># &#xD569;&#xACC4; 20,000 &#xB77C;&#xC778;</span>
+<span class="hljs-number">20000</span> x1
+
+$ head x1      <span class="hljs-comment"># &#xC800;&#xC7A5;&#xB418;&#xB294; &#xC21C;&#xC11C;&#xB294; &#xC608;&#xCE21;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.</span>
 <span class="hljs-number">1</span>
-<span class="hljs-number">2</span>
---- <span class="hljs-number">0</span>
-<span class="hljs-number">3</span>
 --- <span class="hljs-number">1</span>
-<span class="hljs-number">4</span>
+<span class="hljs-number">2</span>
 --- <span class="hljs-number">2</span>
-<span class="hljs-number">5</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">4</span>
 --- <span class="hljs-number">3</span>
-<span class="hljs-number">6</span>
+<span class="hljs-number">5</span>
 --- <span class="hljs-number">4</span>
-<span class="hljs-number">7</span>
 --- <span class="hljs-number">5</span>
-...
 </code></pre>
-<p>&#xB2E4;&#xC74C;&#xC740; mutiple readers, single writer &#xC785;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ cat mypipe &gt; x1 &amp;       <span class="hljs-comment"># reader 1</span>
-[<span class="hljs-number">1</span>] <span class="hljs-number">10797</span>
+<p>&#xB2E4;&#xC74C;&#xC740; multiple readers, single writer &#xC758; &#xC608;&#xC778;&#xB370; &#xC774; &#xACBD;&#xC6B0;&#xC5D0;&#xB294;
+&#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xD30C;&#xC774;&#xD504;&#xC5D0;&#xC11C; &#xC77D;&#xAE30;&#xAC00; &#xB418;&#xC9C0; &#xC54A;&#xB294; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># 2 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xD558;&#xB098;&#xC758; &#xD30C;&#xC774;&#xD504;&#xC5D0;&#xC11C; &#xC77D;&#xAE30;&#xB97C; &#xD558;&#xC5EC; &#xAC01;&#xAC01; &#xD30C;&#xC77C;&#xB85C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;. </span>
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> v; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>; <span class="hljs-keyword">done</span> &lt; mypipe &gt; x1 &amp;        
+[<span class="hljs-number">1</span>] <span class="hljs-number">20445</span>
 
-$ cat mypipe &gt; x2 &amp;       <span class="hljs-comment"># reader 2</span>
-[<span class="hljs-number">2</span>] <span class="hljs-number">10814</span>
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> v; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>; <span class="hljs-keyword">done</span> &lt; mypipe &gt; x2 &amp;
+[<span class="hljs-number">2</span>] <span class="hljs-number">20460</span>
 
-<span class="hljs-comment"># &#xC804;&#xCCB4; 10&#xB9CC; &#xB77C;&#xC778; &#xC785;&#xB825;</span>
-$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">100000</span>; i++ )) <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span> &gt; mypipe
-[<span class="hljs-number">1</span>]-  Done                    cat mypipe &gt; x1
-[<span class="hljs-number">2</span>]+  Done                    cat mypipe &gt; x2
-
-$ ls <span class="hljs-operator">-l</span> x1 x2
--rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">262006</span> <span class="hljs-number">2019</span>-<span class="hljs-number">03</span>-<span class="hljs-number">04</span> <span class="hljs-number">12</span>:<span class="hljs-number">43</span> x1
--rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">326889</span> <span class="hljs-number">2019</span>-<span class="hljs-number">03</span>-<span class="hljs-number">04</span> <span class="hljs-number">12</span>:<span class="hljs-number">43</span> x2
+<span class="hljs-comment"># single writer : &#xC804;&#xCCB4; 20,000 &#xB77C;&#xC778;&#xC744; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC4F0;&#xAE30;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">20000</span>; i++ )) <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span> &gt; mypipe
+$ [<span class="hljs-number">2</span>]+  Done                    <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> v; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>;
+<span class="hljs-keyword">done</span> &lt; mypipe &gt; x2
+[<span class="hljs-number">1</span>]-  Done                    <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> v; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>;
+<span class="hljs-keyword">done</span> &lt; mypipe &gt; x1
 
 $ wc <span class="hljs-operator">-l</span> x1 x2
- <span class="hljs-number">44354</span> x1
- <span class="hljs-number">55646</span> x2
-<span class="hljs-number">100000</span> total         <span class="hljs-comment"># &#xC804;&#xCCB4; &#xC785;&#xB825;&#xB41C; &#xB77C;&#xC778;&#xC218;&#xC640; &#xAC19;&#xB2E4;.</span>
+  <span class="hljs-number">9619</span> x1
+ <span class="hljs-number">10381</span> x2
+ <span class="hljs-number">20000</span> total
+
+$ less x1     <span class="hljs-comment"># &#xD30C;&#xC77C;&#xC744; &#xC5F4;&#xC5B4;&#xBCF4;&#xBA74; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xB370;&#xC774;&#xD130; &#xC77D;&#xAE30;&#xAC00; &#xB418;&#xC9C0; &#xC54A;&#xB294;&#xAC83;&#xC744; &#xC54C;&#xC218;&#xC788;&#xB2E4;.</span>
+....
+....
+<span class="hljs-number">16904</span>
+<span class="hljs-number">616907</span>
+<span class="hljs-number">160</span>
+<span class="hljs-number">16910</span>
+<span class="hljs-number">61</span>
+<span class="hljs-number">19416915</span>
+<span class="hljs-number">616917</span>
+<span class="hljs-number">161816919</span>
+<span class="hljs-number">16921</span>
+<span class="hljs-number">16923</span>
+
+<span class="hljs-number">16926</span>
+<span class="hljs-number">16928</span>
+....
+....
 </code></pre>
 <h3 id="pipe-buffer-size">Pipe buffer size</h3>
 <p>Reader &#xAC00; &#xC5C6;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; writer &#xAC00; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74; &#xCEE4;&#xB110;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; pipe buffer size &#xB97C; &#xC54C;&#xC544;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.  <code>ulimit -a</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC870;&#xD68C;&#xD574; &#xBCF4;&#xBA74; pipe size &#xAC00; 8 * 512 bytes = 4096 &#xB85C; &#xB098;&#xC624;&#xC9C0;&#xB9CC; &#xB9AC;&#xB205;&#xC2A4;&#xC758; &#xACBD;&#xC6B0; 16 &#xAC1C;&#xAE4C;&#xC9C0; &#xBC84;&#xD37C;&#xB97C; &#xD560;&#xB2F9;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xBBC0;&#xB85C; 4096 * 16 = 65,536 &#xAE4C;&#xC9C0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C; 4096 &#xC740; &#xC5EC;&#xB7EC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xAC19;&#xC740; &#xD30C;&#xC77C;&#xC5D0; write &#xD560;&#xB54C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC11C;&#xB85C; &#xACB9;&#xCE58;&#xC9C0; &#xC54A;&#xACE0; atomic &#xD558;&#xAC8C; &#xC4F8; &#xC218; &#xC788;&#xB294; &#xD06C;&#xAE30;&#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. </p>
@@ -1724,16 +1756,11 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> &gt;&amp;<span class="hljs-number">3</span>
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-number">333</span> &gt;&amp;<span class="hljs-number">3</span>
-
 $ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
 <span class="hljs-number">111</span>
 
 $ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
 <span class="hljs-number">222</span>
-
-$ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
-<span class="hljs-number">333</span>
 </code></pre>
 <p>2 . named pipe &#xD30C;&#xC77C; &#xC0AD;&#xC81C;</p>
 <p>&#xD30C;&#xC77C;&#xC774; &#xC0AD;&#xC81C;&#xB418;&#xC5B4;&#xB3C4; FD &#xB294; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.<br><code>ls -l /dev/fd</code> &#xCD9C;&#xB825;&#xC744; &#xBCF4;&#xBA74; <a href="here_document.html">here document</a> &#xC640; &#xAC19;&#xC740; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
@@ -1751,16 +1778,11 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> &gt;&amp;<span class="hljs-number">3</span>
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-number">333</span> &gt;&amp;<span class="hljs-number">3</span>
-
 $ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
 <span class="hljs-number">111</span>
 
 $ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
 <span class="hljs-number">222</span>
-
-$ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
-<span class="hljs-number">333</span>
 </code></pre>
 <p>3 . FD &#xC0AD;&#xC81C;</p>
 <p><code>/tmp/tmp.dlgHS1PEgV (deleted)</code> &#xD56D;&#xBAA9;&#xC774; &#xC81C;&#xAC70; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
@@ -1807,16 +1829,11 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> &
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> &gt;&amp;<span class="hljs-number">4</span>
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-number">333</span> &gt;&amp;<span class="hljs-number">4</span>
-
 $ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
 <span class="hljs-number">111</span>
 
 $ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
 <span class="hljs-number">222</span>
-
-$ <span class="hljs-built_in">read</span> line &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>
-<span class="hljs-number">333</span>
 
 $ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;- <span class="hljs-number">4</span>&gt;&amp;-
 
