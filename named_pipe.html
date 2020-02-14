@@ -1478,33 +1478,6 @@ fifo_even, fifo_odd &#xB85C; &#xAC01;&#xAC01; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#
 <pre><code class="lang-bash">$ awk <span class="hljs-string">&apos;@load &quot;time&quot;; { gsub(/^|$/,&quot;#&quot;); print; sleep(0.01) }
     END { print &quot;end...&quot; }&apos;</span> fifo_even
 </code></pre>
-<h3 id="pipe-buffer-size">Pipe buffer size</h3>
-<p>Reader &#xAC00; &#xC5C6;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; writer &#xAC00; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74; &#xCEE4;&#xB110;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; pipe buffer size &#xB97C; &#xC54C;&#xC544;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.  <code>ulimit -a</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC870;&#xD68C;&#xD574; &#xBCF4;&#xBA74; pipe size &#xAC00; 8 * 512 bytes = 4096 &#xB85C; &#xB098;&#xC624;&#xC9C0;&#xB9CC; &#xB9AC;&#xB205;&#xC2A4;&#xC758; &#xACBD;&#xC6B0; 16 &#xAC1C;&#xAE4C;&#xC9C0; &#xBC84;&#xD37C;&#xB97C; &#xD560;&#xB2F9;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xBBC0;&#xB85C; 4096 * 16 = 65,536 &#xAE4C;&#xC9C0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C; 4096 &#xC740; &#xC5EC;&#xB7EC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xAC19;&#xC740; &#xD30C;&#xC77C;&#xC5D0; write &#xD560;&#xB54C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC11C;&#xB85C; &#xACB9;&#xCE58;&#xC9C0; &#xC54A;&#xACE0; atomic &#xD558;&#xAC8C; &#xC4F8; &#xC218; &#xC788;&#xB294; &#xD06C;&#xAE30;&#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. </p>
-<pre><code class="lang-bash">$ grep PIPE_BUF /usr/include/linux/limits.h 
-<span class="hljs-comment">#define PIPE_BUF        4096    /* # bytes in atomic write to a pipe */</span>
-
-----------------------------------------
-
-$ grep PIPE_DEF_BUFFERS /usr/src/linux-headers-`uname -r`/include/linux/pipe_fs_i.h
-<span class="hljs-comment">#define PIPE_DEF_BUFFERS        16</span>
-
-----------------------------------------
-
-$ mkfifo mypipe
-$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; mypipe
-
-<span class="hljs-comment"># ctrl-c &#xB85C; &#xC885;&#xB8CC; ( &#xBC84;&#xD37C;&#xAC00; &#xCC28;&#xAC8C;&#xB418;&#xBA74; &#xBE14;&#xB85D;&#xB418;&#xBBC0;&#xB85C; )</span>
-$ <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&apos;1&apos;</span>; <span class="hljs-keyword">done</span> &gt; mypipe     
-^Cbash: <span class="hljs-built_in">echo</span>: write error: Interrupted system call
-
-<span class="hljs-comment"># outfile &#xB85C; &#xBC84;&#xD37C; &#xB0B4;&#xC6A9;&#xC744; &#xCD9C;&#xB825;&#xD6C4; ctrl-c &#xB85C; &#xC885;&#xB8CC;</span>
-$ cat mypipe &gt; outfile
-^C
-
-<span class="hljs-comment"># outfile &#xD30C;&#xC77C; &#xC0AC;&#xC774;&#xC988;&#xAC00; 65,536 &#xC73C;&#xB85C; &#xB098;&#xC634;</span>
-$ ls <span class="hljs-operator">-l</span> outfile
--rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">65536</span> <span class="hljs-number">08.03</span>.<span class="hljs-number">2015</span> <span class="hljs-number">15</span>:<span class="hljs-number">33</span> outfile
-</code></pre>
 <h3 id="multiple-writers-and-readers">Multiple writers and readers</h3>
 <p>Pipe &#xB294; &#xB370;&#xC774;&#xD130; &#xC190;&#xC2E4; &#xC5C6;&#xC774; multiple writers, multiple readers &#xB97C; &#xAC00;&#xC9C8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC774;&#xB54C; &#xC785;&#xB825;&#xB418;&#xB294; &#xC21C;&#xC11C;, &#xCD9C;&#xB825;&#xB418;&#xB294; &#xC21C;&#xC11C;&#xB294; &#xC608;&#xCE21;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
@@ -1554,6 +1527,33 @@ $ wc <span class="hljs-operator">-l</span> x1 x2
  <span class="hljs-number">44354</span> x1
  <span class="hljs-number">55646</span> x2
 <span class="hljs-number">100000</span> total         <span class="hljs-comment"># &#xC804;&#xCCB4; &#xC785;&#xB825;&#xB41C; &#xB77C;&#xC778;&#xC218;&#xC640; &#xAC19;&#xB2E4;.</span>
+</code></pre>
+<h3 id="pipe-buffer-size">Pipe buffer size</h3>
+<p>Reader &#xAC00; &#xC5C6;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; writer &#xAC00; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74; &#xCEE4;&#xB110;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; pipe buffer size &#xB97C; &#xC54C;&#xC544;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.  <code>ulimit -a</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC870;&#xD68C;&#xD574; &#xBCF4;&#xBA74; pipe size &#xAC00; 8 * 512 bytes = 4096 &#xB85C; &#xB098;&#xC624;&#xC9C0;&#xB9CC; &#xB9AC;&#xB205;&#xC2A4;&#xC758; &#xACBD;&#xC6B0; 16 &#xAC1C;&#xAE4C;&#xC9C0; &#xBC84;&#xD37C;&#xB97C; &#xD560;&#xB2F9;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xBBC0;&#xB85C; 4096 * 16 = 65,536 &#xAE4C;&#xC9C0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C; 4096 &#xC740; &#xC5EC;&#xB7EC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xAC19;&#xC740; &#xD30C;&#xC77C;&#xC5D0; write &#xD560;&#xB54C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC11C;&#xB85C; &#xACB9;&#xCE58;&#xC9C0; &#xC54A;&#xACE0; atomic &#xD558;&#xAC8C; &#xC4F8; &#xC218; &#xC788;&#xB294; &#xD06C;&#xAE30;&#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. </p>
+<pre><code class="lang-bash">$ grep PIPE_BUF /usr/include/linux/limits.h 
+<span class="hljs-comment">#define PIPE_BUF        4096    /* # bytes in atomic write to a pipe */</span>
+
+----------------------------------------
+
+$ grep PIPE_DEF_BUFFERS /usr/src/linux-headers-`uname -r`/include/linux/pipe_fs_i.h
+<span class="hljs-comment">#define PIPE_DEF_BUFFERS        16</span>
+
+----------------------------------------
+
+$ mkfifo mypipe
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; mypipe
+
+<span class="hljs-comment"># ctrl-c &#xB85C; &#xC885;&#xB8CC; ( &#xBC84;&#xD37C;&#xAC00; &#xCC28;&#xAC8C;&#xB418;&#xBA74; &#xBE14;&#xB85D;&#xB418;&#xBBC0;&#xB85C; )</span>
+$ <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&apos;1&apos;</span>; <span class="hljs-keyword">done</span> &gt; mypipe     
+^Cbash: <span class="hljs-built_in">echo</span>: write error: Interrupted system call
+
+<span class="hljs-comment"># outfile &#xB85C; &#xBC84;&#xD37C; &#xB0B4;&#xC6A9;&#xC744; &#xCD9C;&#xB825;&#xD6C4; ctrl-c &#xB85C; &#xC885;&#xB8CC;</span>
+$ cat mypipe &gt; outfile
+^C
+
+<span class="hljs-comment"># outfile &#xD30C;&#xC77C; &#xC0AC;&#xC774;&#xC988;&#xAC00; 65,536 &#xC73C;&#xB85C; &#xB098;&#xC634;</span>
+$ ls <span class="hljs-operator">-l</span> outfile
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">65536</span> <span class="hljs-number">08.03</span>.<span class="hljs-number">2015</span> <span class="hljs-number">15</span>:<span class="hljs-number">33</span> outfile
 </code></pre>
 <h2 id="&#xC591;&#xBC29;&#xD5A5;-&#xD1B5;&#xC2E0;">&#xC591;&#xBC29;&#xD5A5; &#xD1B5;&#xC2E0;</h2>
 <p>&#xD30C;&#xC774;&#xD504;&#xB294; &#xB2E8;&#xBC29;&#xD5A5;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB450; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC11C;&#xB85C; &#xB300;&#xD654;&#xB97C; &#xB098;&#xB204;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xB450;&#xAC1C;&#xC758; &#xD30C;&#xC774;&#xD504;&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.

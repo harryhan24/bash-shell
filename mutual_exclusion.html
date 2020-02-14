@@ -1481,6 +1481,26 @@ flock <span class="hljs-number">9</span>
 
 [ <span class="hljs-string">&quot;<span class="hljs-variable">${FLOCKER}</span>&quot;</span> != <span class="hljs-string">&quot;<span class="hljs-variable">$0</span>&quot;</span> ] &amp;&amp; <span class="hljs-built_in">exec</span> env FLOCKER=<span class="hljs-variable">$0</span> flock -n <span class="hljs-string">&quot;<span class="hljs-variable">$0</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$0</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> || :
 </code></pre>
+<h1 id="quiz">Quiz</h1>
+<p>Shell &#xC5D0;&#xC11C; &#xD2B9;&#xC815; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xAC1C;&#xC218;&#xB97C; &#xC720;&#xC9C0;&#xD558;&#xBA74;&#xC11C; &#xB3D9;&#xC2DC;&#xC5D0; &#xC791;&#xC5C5;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5A4; &#xBC29;&#xBC95;&#xC774; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<p>xargs &#xBA85;&#xB839;&#xC758; <code>--max-procs</code> &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD2B9;&#xC815; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xAC1C;&#xC218;&#xB97C; &#xC720;&#xC9C0;&#xD558;&#xBA74;&#xC11C;
+&#xB3D9;&#xC2DC;&#xC5D0; &#xC791;&#xC5C5;&#xC744; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xC74C; &#xC608;&#xC81C;&#xC758; &#xACBD;&#xC6B0; mycommand &#xD504;&#xB85C;&#xC138;&#xC2A4; 4 &#xAC1C;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xC5EC; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xD558;&#xB294;&#xB370;
+&#xC774;&#xB54C; args.txt &#xC5D0; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB294; &#xC778;&#xC218; &#xAC12;&#xC774; &#xC804;&#xB2EC;&#xB418;&#xC5B4; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.
+&#xD558;&#xB098;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC791;&#xC5C5;&#xC744; &#xB9C8;&#xCE58;&#xACE0; &#xC885;&#xB8CC;&#xD558;&#xBA74; &#xC0C8;&#xB85C; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC0DD;&#xC131;&#xB418;&#xC5B4; 4 &#xAC1C;&#xB97C; &#xC720;&#xC9C0;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># args.txt &#xB77C;&#xC778;&#xB2F9; mycommand &#xBA85;&#xB839;&#xC5D0; &#xC804;&#xB2EC;&#xD558;&#xB824;&#xB294; &#xC778;&#xC218;&#xAC00; 1 &#xAC1C;&#xB9CC; &#xC874;&#xC7AC;&#xD560; &#xACBD;&#xC6B0;</span>
+$ cat args.txt | xargs --max-procs=<span class="hljs-number">4</span> -I ARG mycommand ARG
+
+<span class="hljs-comment"># args.txt &#xB77C;&#xC778;&#xB2F9; mycommand &#xBA85;&#xB839;&#xC5D0; &#xC804;&#xB2EC;&#xD558;&#xB824;&#xB294; &#xC778;&#xC218;&#xAC00; 2 &#xAC1C; &#xC774;&#xC0C1;&#xC77C; &#xACBD;&#xC6B0;</span>
+$ cat args.txt | xargs --max-procs=<span class="hljs-number">4</span> -I ARGS sh -c <span class="hljs-string">&quot;mycommand ARGS&quot;</span>
+<span class="hljs-comment"># &#xC778;&#xC218;&#xAC12;&#xC5D0; &quot;aaa bbb&quot; &#xC640; &#xAC19;&#xC774; quotes &#xC774; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;</span>
+$ cat args.txt | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;%q\n&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>; <span class="hljs-keyword">done</span> |
+    xargs --max-procs=<span class="hljs-number">4</span> -I ARGS sh -c <span class="hljs-string">&quot;mycommand ARGS&quot;</span>
+
+<span class="hljs-comment"># &#xC9C1;&#xC811; shell script &#xBA85;&#xB839; &#xB77C;&#xC778;&#xC744; &#xC778;&#xC218;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xC5EC; &#xC2E4;&#xD589;&#xD560; &#xACBD;&#xC6B0;</span>
+$ cat commands.txt | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;%q\n&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>; <span class="hljs-keyword">done</span> |
+    xargs --max-procs=<span class="hljs-number">4</span> -I CMD sh -c CMD
+</code></pre>
 
                     
                     </section>
