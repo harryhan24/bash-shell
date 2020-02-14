@@ -1299,11 +1299,11 @@ KILL(9) &#xC2E0;&#xD638;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xBC14;&#xB85
 ...
 myhandler  <span class="hljs-comment"># &#xC815;&#xC0C1;&#xC885;&#xB8CC;&#xC2DC; &#xCC98;&#xB9AC;&#xB97C; &#xC704;&#xD574;</span>
 </code></pre>
-<p>&#xC774;&#xC640; &#xAC19;&#xC740; &#xBD88;&#xD3B8;&#xC744; &#xC5C6;&#xC560;&#xAE30; &#xC704;&#xD574; shell &#xC5D0;&#xC11C;&#xB294; EXIT pseudo-signal &#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.
+<p>&#xC774;&#xC640; &#xAC19;&#xC740; &#xBD88;&#xD3B8;&#xC744; &#xC5C6;&#xC560;&#xAE30; &#xC704;&#xD574; bash &#xC5D0;&#xC11C;&#xB294; EXIT pseudo-signal &#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.
 trap &#xC5D0; EXIT &#xC2E0;&#xD638;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC5B4;&#xB5A4; &#xC885;&#xB8CC; &#xC0C1;&#xD669;&#xC5D0;&#xC11C;&#xB3C4; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; handler &#xAC00; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.
 &#xB2E4;&#xC2DC;&#xB9D0;&#xD574; &#xC815;&#xC0C1;&#xC885;&#xB8CC;, Ctrl-c &#xC5D0;&#xC758;&#xD55C; &#xC885;&#xB8CC;, &#xD130;&#xBBF8;&#xB110; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC758; &#xC885;&#xB8CC;, &#xC2DC;&#xC2A4;&#xD15C; shutdown &#xC5D0;&#xC758;&#xD55C; &#xC885;&#xB8CC; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; 
 &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; exit &#xB420;&#xB54C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.
-&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xC704;&#xC758; &#xC608;&#xB97C; EXIT &#xC2E0;&#xD638;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xB2E4;&#xC2DC; &#xC791;&#xC131;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xC704;&#xC758; &#xC608;&#xB97C; EXIT pseudo &#xC2E0;&#xD638;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xB2E4;&#xC2DC; &#xC791;&#xC131;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
 </span>
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;myhandler&apos;</span> EXIT
