@@ -1430,8 +1430,8 @@ $(tput sgr0)$(tput setaf <span class="hljs-number">1</span>) ...
 COLUMNS=`tput cols`   <span class="hljs-comment"># &#xD604;&#xC7AC; &#xD130;&#xBBF8;&#xB110; &#xD654;&#xBA74;&#xC758; lines, columns &#xC218;&#xB97C; &#xAD6C;&#xD569;&#xB2C8;&#xB2E4;.</span>
 LINES=`tput lines`
 
-line=$(( ( LINES - <span class="hljs-number">5</span> ) / <span class="hljs-number">2</span> ))
-column=$(( ( COLUMNS - <span class="hljs-number">36</span> ) / <span class="hljs-number">2</span> ))
+line=$(( ( LINES - <span class="hljs-number">5</span> ) / <span class="hljs-number">2</span> ))          <span class="hljs-comment"># 5 &#xB294; &#xBA54;&#xC2DC;&#xC9C0; &#xBC15;&#xC2A4; &#xB192;&#xC774;</span>
+column=$(( ( COLUMNS - <span class="hljs-number">36</span> ) / <span class="hljs-number">2</span> ))     <span class="hljs-comment"># 36 &#xC740; &#xBA54;&#xC2DC;&#xC9C0; &#xBC15;&#xC2A4; &#xB113;&#xC774;</span>
 
 <span class="hljs-comment"># &#xBA54;&#xC2DC;&#xC9C0; &#xCD9C;&#xB825; &#xD6C4; &#xAE30;&#xC874; &#xC704;&#xCE58;&#xB85C; &#xB3CC;&#xC544;&#xC624;&#xAE30; &#xC704;&#xD574; &#xD604;&#xC7AC; &#xCEE4;&#xC11C; &#xC704;&#xCE58;&#xB97C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.</span>
 tput sc   <span class="hljs-comment"># sc : save current cursor position </span>
