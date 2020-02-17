@@ -1425,7 +1425,14 @@ unset &#xD560;&#xACBD;&#xC6B0; &#xAE30;&#xB2A5;&#xC744; &#xC0C1;&#xC2E4;&#xD558;
 <h4 id="env">ENV</h4>
 <p> <code>$BASH_ENV</code> &#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;. shell &#xC774; POSIX &#xBAA8;&#xB4DC;&#xB85C; &#xC2E4;&#xD589;&#xB420;&#xB54C; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <h4 id="euid">EUID</h4>
-<p>numeric effective user id &#xB85C; readonly &#xC785;&#xB2C8;&#xB2E4;. set uid &#xBE44;&#xD2B8;&#xAC00; &#xC124;&#xC815;&#xB41C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC2E4;&#xD589;&#xD588;&#xC744;&#xB54C; &#xBC14;&#xB00C;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4; </p>
+<p>numeric effective user id &#xB85C; readonly &#xC785;&#xB2C8;&#xB2E4;.
+set uid &#xBE44;&#xD2B8;&#xAC00; &#xC124;&#xC815;&#xB41C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC2E4;&#xD589;&#xD588;&#xC744;&#xB54C; &#xBC14;&#xB00C;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+<code>sh</code> &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xB370; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$(id -u)</span>&quot;</span> != <span class="hljs-number">0</span> ]; <span class="hljs-keyword">then</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;This script must be run as root&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+   <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">fi</span>
+</code></pre>
 <h4 id="fcedit">FCEDIT</h4>
 <p> <code>fc -e</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560;&#xB54C; &#xC801;&#xC6A9;&#xB418;&#xB294; &#xAE30;&#xBCF8; &#xC5D0;&#xB514;&#xD130; &#xC785;&#xB2C8;&#xB2E4;.</p>
 <h4 id="fignore">FIGNORE</h4>
