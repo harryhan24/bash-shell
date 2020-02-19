@@ -1816,7 +1816,7 @@ $ clang -std=c++[tab]
 
     <span class="hljs-comment"># bash &#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; tab &#xD0A4;&#xB97C; &#xB204;&#xB974;&#xBA74; &#xC790;&#xB3D9;&#xC644;&#xC131; &#xB2E8;&#xC5B4;&#xB97C; &#xC785;&#xB825;&#xD558;&#xACE0; space &#xB97C; &#xB744;&#xC6B0;&#xB294;&#xB370;</span>
     <span class="hljs-comment"># &#xC644;&#xC131;&#xD560; &#xB2E8;&#xC5B4;&#xAC00; &apos;string=&apos; &#xD615;&#xC2DD;&#xC77C;&#xACBD;&#xC6B0; space &#xB97C; &#xB744;&#xC6B0;&#xC9C0; &#xC54A;&#xAC8C;&#xD569;&#xB2C8;&#xB2E4;.</span>
-    [ <span class="hljs-string">&quot;<span class="hljs-variable">${WORDS: -1}</span>&quot;</span> == <span class="hljs-string">&apos;=&apos;</span> ] &amp;&amp; compopt -o nospace
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$WORDS</span>&quot;</span> | grep -q -- <span class="hljs-variable">$CUR</span><span class="hljs-string">&apos;[^[:space:]]*=&apos;</span> &amp;&amp; compopt -o nospace
     COMPREPLY=( $(compgen -W <span class="hljs-string">&quot;<span class="hljs-variable">$WORDS</span>&quot;</span> -- <span class="hljs-variable">$CUR</span>) )
 }
 
