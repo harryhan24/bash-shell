@@ -1479,6 +1479,14 @@ $ readlink <span class="hljs-operator">-e</span> /lib64/ld-linux-x86-<span class
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;It&apos;s not an integer&quot;</span>
 <span class="hljs-keyword">fi</span>
 </code></pre>
+<p>&#xC22B;&#xC790;&#xB294; &#xC2A4;&#xD2B8;&#xB9C1;&#xC73C;&#xB85C; &#xCDE8;&#xAE09;&#xD574;&#xC11C; <code>=</code> &#xC5F0;&#xC0B0;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xACE0; 
+<code>-eq</code> &#xC5F0;&#xC0B0;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xB294;&#xB370; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xCC28;&#xC774;&#xC810;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ [ <span class="hljs-number">001</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">1</span> ]; <span class="hljs-built_in">echo</span> $?      <span class="hljs-comment"># &apos;-eq&apos; &#xC5F0;&#xC0B0;&#xC790;&#xB294; &#xCC38;&#xC774;&#xB41C;&#xB2E4;.</span>
+<span class="hljs-number">0</span>
+
+$ [ <span class="hljs-number">001</span> = <span class="hljs-number">1</span> ]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+</code></pre>
 <h3 id="misc-syntax">Misc Syntax</h3>
 <table>
 <thead>
