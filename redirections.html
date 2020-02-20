@@ -1849,6 +1849,10 @@ $ ps -ef | tee &gt;(awk <span class="hljs-string">&apos;$1 == &quot;tom&quot;&ap
                &gt;(awk <span class="hljs-string">&apos;$1 == &quot;root&quot;&apos;</span> &gt; roots-procs.txt) \
                &gt;(awk <span class="hljs-string">&apos;$1 == &quot;httpd&quot;&apos;</span> &gt; httpd-procs.txt)
 
+$ AA=$( <span class="hljs-built_in">echo</span> hello | tee &gt;(sed <span class="hljs-string">&apos;s/^\|$/@/g&apos;</span>) &gt;(sed <span class="hljs-string">&apos;s/^\|$/%/g&apos;</span>) &gt; /dev/null )
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
+%hello% @hello@
+
 <span class="hljs-comment"># tee &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xAE30;&#xC874; crontab &#xC124;&#xC815;&#xC744; &#xBC31;&#xC5C5;</span>
 $ crontab <span class="hljs-operator">-l</span> | tee crontab-backup.txt | sed <span class="hljs-string">&apos;s/old/new/&apos;</span> | crontab &#x2013;
 
