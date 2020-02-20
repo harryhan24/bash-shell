@@ -1708,6 +1708,41 @@ $ od -j32 -N4 -tu2 binary
 <span class="hljs-number">0000040</span>      <span class="hljs-number">7</span>      <span class="hljs-number">8</span>
 <span class="hljs-number">0000044</span>
 </code></pre>
+<h1 id="3">3.</h1>
+<p>&#xD30C;&#xC77C; A &#xC758; &#xD2B9;&#xC815; &#xC704;&#xCE58;&#xC5D0;&#xC11C; &#xBC14;&#xC774;&#xD2B8;&#xB97C; &#xCD94;&#xCD9C;&#xD574;&#xC11C; &#xD30C;&#xC77C; B &#xC758; &#xD2B9;&#xC815; &#xC704;&#xCE58;&#xC5D0; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
+<p>&#xC774;&#xB54C;&#xB294; <code>dd</code> &#xBA85;&#xB839;&#xACFC; <code>conv=notruc</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ cat infile                      $ cat outfile 
+<span class="hljs-number">1111111111</span>                        aaaaaaaaaaaaaaaaaaaa
+<span class="hljs-number">2222222222</span>                        bbbbbbbbbbbbbbbbbbbb
+<span class="hljs-number">3333333333</span>                        cccccccccccccccccccc
+<span class="hljs-number">1234567890</span>                        dddddddddddddddddddd
+                                  eeeeeeeeeeeeeeeeeeee
+
+<span class="hljs-comment"># 1. infile &#xC5D0;&#xC11C; 11 * 3 bytes &#xB97C; skip &#xD55C; &#xC704;&#xCE58;&#xC5D0;&#xC11C; &#xBC14;&#xC774;&#xD2B8;&#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC785;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># 2. outfile &#xC5D0;&#xC11C; 21 * 2 bytes &#xAC74;&#xB108;&#xB6F4;( seek ) &#xC704;&#xCE58;&#xC5D0; &#xBC14;&#xC774;&#xD2B8;&#xB97C; &#xC4F0;&#xAE30; &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># 3. &#xC77D;&#xAE30;, &#xC4F0;&#xAE30; &#xD560;&#xB54C; block size &#xB294; 1 byte &#xB85C; &#xD558;&#xACE0; 10 &#xD68C; &#xC4F0;&#xAE30; &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># 4. conv=notrunc &#xC635;&#xC158;&#xC740; &#xD30C;&#xC77C;&#xC5D0; &#xC4F0;&#xAE30;&#xB97C; &#xD560;&#xB54C; &#xD30C;&#xC77C;&#xC774; truncate &#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;.</span>
+$ dd <span class="hljs-keyword">if</span>=infile skip=$(( <span class="hljs-number">11</span>*<span class="hljs-number">3</span> )) of=outfile seek=$(( <span class="hljs-number">21</span>*<span class="hljs-number">2</span> )) bs=<span class="hljs-number">1</span> count=<span class="hljs-number">10</span> conv=notrunc
+<span class="hljs-number">10</span>+<span class="hljs-number">0</span> records <span class="hljs-keyword">in</span>
+<span class="hljs-number">10</span>+<span class="hljs-number">0</span> records out
+<span class="hljs-number">10</span> bytes copied, <span class="hljs-number">0.000742817</span> s, <span class="hljs-number">13.5</span> kB/s
+
+$ cat outfile 
+aaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbb
+<span class="hljs-number">1234567890</span>cccccccccc
+dddddddddddddddddddd
+eeeeeeeeeeeeeeeeeeee
+</code></pre>
+<p><code>dd</code> &#xBA85;&#xB839;&#xC740; &#xD30C;&#xC77C;&#xBFD0;&#xB9CC; &#xC544;&#xB2C8;&#xB77C; device &#xC7A5;&#xCE58; &#xD30C;&#xC77C;&#xC5D0;&#xB3C4; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xC801;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># /dev/sda &#xB514;&#xC2A4;&#xD06C;&#xC758; MBR &#xB97C; sdambr.img &#xD30C;&#xC77C;&#xB85C; &#xBC31;&#xC5C5;</span>
+$ sudo dd <span class="hljs-keyword">if</span>=/dev/sda of=sdambr.img bs=<span class="hljs-number">512</span> count=<span class="hljs-number">1</span>
+<span class="hljs-comment"># sdambr.img &#xD30C;&#xC77C;&#xB85C; &#xBD80;&#xD130; MBR &#xBCF5;&#xAD6C;</span>
+$ sub dd <span class="hljs-keyword">if</span>=sdambr.img of=/dev/sda
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD558;&#xBA74; &#xBD80;&#xD305; &#xAC00;&#xB2A5;&#xD55C; &#xC6B0;&#xBD84;&#xD22C; USB &#xAC00; &#xB9CC;&#xB4E4;&#xC5B4;&#xC9D1;&#xB2C8;&#xB2E4;. ( usb &#xB294; /dev/sdb )</span>
+$ sudo dd <span class="hljs-keyword">if</span>=ubuntu-desktop-amd64.iso of=/dev/sdb bs=<span class="hljs-number">1</span>M oflag=direct status=progress
+</code></pre>
 
                     
                     </section>
