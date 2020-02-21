@@ -1244,6 +1244,8 @@
 <p>login shell &#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0;&#xB294;  <code>shopt -q login_shell; echo $?</code> &#xC744; &#xD1B5;&#xD574; &#xC54C;&#xC544;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <h3 id="login-shell">Login Shell</h3>
 <ul>
+<li><p>&#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C; <code>echo $0</code> &#xB97C; &#xC2E4;&#xD589;&#xD588;&#xC744;&#xB54C; <code>-bash</code> &#xC640;&#xAC19;&#xC774; &#xCCAB; &#xBB38;&#xC790;&#xAC00; <code>-</code> &#xC774;&#xBA74; login shell &#xC744; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
+</li>
 <li><p>&#xC2DC;&#xC791;&#xC2DC;  /etc/profile,  ~/.bash_profile, ~/.bash_login, ~/.profile &#xC21C;&#xC11C;&#xB85C; &#xD30C;&#xC77C;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC5EC; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. (<code>bash -l -c</code> &#xC640; &#xAC19;&#xC740; login shell &#xC5D0;&#xB3C4; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4; ). &#xBCF4;&#xD1B5; /etc/profile &#xC5D0;&#xC11C;&#xB294; <code>.</code> ( source &#xBA85;&#xB839; ) &#xC744; &#xC774;&#xC6A9;&#xD574; /etc/bash.bashrc &#xB97C; &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xACE0; ~/.profile &#xC5D0;&#xC11C;&#xB294; ~/.bashrc &#xD30C;&#xC77C;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC785;&#xB2C8;&#xB2E4;.</p>
 </li>
 <li><p>logout ( &#xB610;&#xB294; exit ) &#xC2DC;&#xC5D0;  ~/.bash_logout &#xD30C;&#xC77C;&#xC744; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
@@ -1251,8 +1253,6 @@
 <li><p><code>shopt -s huponexit</code> &#xC635;&#xC158; &#xC124;&#xC815;&#xC744; &#xD1B5;&#xD574; logout &#xC2DC;&#xC5D0; background &#xB85C; &#xC2E4;&#xD589;&#xB418;&#xB294; job &#xB4E4;&#xC5D0;&#xAC8C; HUP &#xC2DC;&#xADF8;&#xB110;&#xC744; &#xBCF4;&#xB0B4; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 </li>
 <li><p>logout builtin &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-</li>
-<li><p>group membership &#xC124;&#xC815;( /etc/group ) &#xC740; login &#xB610;&#xB294; ssh &#xC2DC;&#xC5D0;&#xB9CC; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
 </li>
 </ul>
 <h3 id="nonlogin-shell">Non-Login Shell</h3>
