@@ -1461,8 +1461,10 @@ $ AA=<span class="hljs-string">&apos;../&apos;</span>
 $ [[ <span class="hljs-variable">$AA</span> = @(./|../|/) ]]; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 
-$ AA=<span class="hljs-string">&apos;./&apos;</span> 
+$ AA=<span class="hljs-string">&apos;./../&apos;</span> 
 $ [[ <span class="hljs-variable">$AA</span> = @(./|../|/) ]]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+$ [[ <span class="hljs-variable">$AA</span> = +(./|../|/) ]]; <span class="hljs-built_in">echo</span> $?     <span class="hljs-comment"># +(   )</span>
 <span class="hljs-number">0</span>
 
 $ AA=<span class="hljs-string">&apos;../../&apos;</span>
