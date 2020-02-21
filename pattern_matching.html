@@ -1456,6 +1456,28 @@ $ AA=<span class="hljs-variable">${AA##+([[:blank:]])}</span>; AA=<span class="h
 
 ---------------------------------------------------
 
+$ AA=<span class="hljs-string">&apos;../&apos;</span>                        
+$ [[ <span class="hljs-variable">$AA</span> = @(./|../|/) ]]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+
+$ AA=<span class="hljs-string">&apos;./&apos;</span> 
+$ [[ <span class="hljs-variable">$AA</span> = @(./|../|/) ]]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+
+$ AA=<span class="hljs-string">&apos;../../&apos;</span>
+$ [[ <span class="hljs-variable">$AA</span> = @(./|../|/) ]]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+$ [[ <span class="hljs-variable">$AA</span> = +(./|../|/) ]]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+
+$ AA=<span class="hljs-string">&apos;../..//./&apos;</span>
+$ [[ <span class="hljs-variable">$AA</span> = @(./|../|/) ]]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+$ [[ <span class="hljs-variable">$AA</span> = +(./|../|/) ]]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+
+---------------------------------------------------
+
 $ AA=apple
 
 $ [[ <span class="hljs-variable">$AA</span> = @(ba*(na)|a+(p)le) ]]; <span class="hljs-built_in">echo</span> $?
