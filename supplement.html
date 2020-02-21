@@ -1853,7 +1853,7 @@ $ grep vdso /proc/$$/maps
 <span class="hljs-comment"># gdb &#xC758; dump memory &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; vdso.dump &#xD30C;&#xC77C;&#xB85C; &#xB364;&#xD504;</span>
 $ gdb -p $$ -batch -ex <span class="hljs-string">&quot;dump memory vdso.dump 0x7ffebb5ce000 0x7ffebb5cf000&quot;</span> &amp;&gt; /dev/null  
 
-<span class="hljs-comment"># &#xB610;&#xB294; /proc/$$/mem &#xC744; &#xC774;&#xC6A9;</span>
+<span class="hljs-comment"># &#xB610;&#xB294; /proc/$$/mem &#xC744; &#xC774;&#xC6A9;&#xD574; &#xB364;&#xD504;</span>
 $ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">0</span>x7ffebb5ce000 - <span class="hljs-number">0</span>x7ffebb5cf000 ))
 -<span class="hljs-number">4096</span>
 $ dd skip=$((<span class="hljs-number">0</span>x7ffebb5ce000)) bs=<span class="hljs-number">1</span> count=<span class="hljs-number">4096</span> &lt; /proc/$$/mem &gt; vdso.dump
