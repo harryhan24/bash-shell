@@ -1411,15 +1411,8 @@ $ AA=(<span class="hljs-string">&quot;&quot;</span>)
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[@]:-44 55 66}</span>    <span class="hljs-comment"># &apos;:-&apos; &#xB294; null &#xC740; &#xAC12;&#xC774; &#xC5C6;&#xB294;&#xAC83;&#xC73C;&#xB85C; &#xBCF4;&#xACE0; 44 55 66 &#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;</span>
 <span class="hljs-number">44</span> <span class="hljs-number">55</span> <span class="hljs-number">66</span>
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[@]-44 55 66}</span>     <span class="hljs-comment"># &apos;-&apos; &#xB294; null &#xB3C4; &#xAC12;&#xC73C;&#xB85C; &#xCDE8;&#xAE09;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;</span>
-                             <span class="hljs-comment"># &#xC544;&#xBB34;&#xAC83;&#xB3C4; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
-
-$ AA=(<span class="hljs-string">&quot;&quot;</span> <span class="hljs-number">77</span> <span class="hljs-number">88</span>)
-
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[@]:-44 55 66}</span>
-<span class="hljs-number">77</span> <span class="hljs-number">88</span>
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[@]-44 55 66}</span>
-<span class="hljs-number">77</span> <span class="hljs-number">88</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[@]-44 55 66}</span>     <span class="hljs-comment"># &apos;-&apos; &#xB294; &#xBCC0;&#xC218;&#xB9CC; &#xC874;&#xC7AC;&#xD558;&#xBA74; &#xB418;&#xBBC0;&#xB85C; &#xC544;&#xBB34;&#xAC83;&#xB3C4; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+$
 </code></pre>
 <h3 id="assign-a-default-value">Assign a default value</h3>
 <blockquote>
@@ -1431,6 +1424,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[@]-44
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA:-linux}</span>
 linux
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>             <span class="hljs-comment"># &apos;:-&apos; &#xB294; AA &#xBCC0;&#xC218;&#xC5D0; &#xAC12;&#xC744; &#xB300;&#xC785;&#xD558;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+$
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA:=linux}</span>
 linux
@@ -1440,7 +1434,6 @@ linux
 
 <span class="hljs-comment"># $TMPDIR &#xAC12;&#xC774; &#xC5C6;&#xC73C;&#xBA74; /tmp &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; TMPDIR &#xBCC0;&#xC218;&#xC5D0; &#xB300;&#xC785;</span>
 $ cp myfile <span class="hljs-variable">${TMPDIR:=/tmp}</span>
-
 <span class="hljs-comment"># $TMPDIR &#xBCC0;&#xC218; &#xC124;&#xC815;&#xC774; &#xBCF4;&#xC7A5;&#xB418;&#xBBC0;&#xB85C; cd &#xD560; &#xC218; &#xC788;&#xB2E4;.</span>
 $ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$TMPDIR</span>
 
@@ -1455,12 +1448,11 @@ $ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$TMPDIR</spa
 <span class="hljs-comment"># &#xD604;&#xC7AC; FOO &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xC0C1;&#xD0DC;&#xB85C; &#xBCC0;&#xACBD;&#xB41C;&#xB2E4;.</span>
 : <span class="hljs-variable">${FOO=}</span>
 </code></pre>
-<p>Array[@] &#xAC12;&#xC740; &#xB300;&#xC785;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ AA=()
+<p><code>Array[@]</code> &#xAC12;&#xC740; &#xB300;&#xC785;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ AA=(<span class="hljs-string">&quot;&quot;</span>)
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[@]:=11 22 33}</span>
 bash: AA[@]: bad array subscript
-<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>
 </code></pre>
 <h3 id="use-an-alternate-value">Use an alternate value</h3>
 <blockquote>
