@@ -1632,6 +1632,22 @@ XXX Arch Ubuntu Linux Suse Linux XXX Fedora
 <span class="hljs-comment"># &apos;Linux&apos; &#xAC00; &#xB9E8;&#xB4A4;&#xC5D0; &#xC704;&#xCE58;&#xD55C; &#xACBD;&#xC6B0;&#xB9CC; &#xBCC0;&#xACBD;&#xB428;</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[@]/%Linux/XXX}</span>&quot;</span> 
 Linux Arch Ubuntu XXX Suse XXX Linux Fedora
+
+<span class="hljs-comment"># &#xAC01; &#xC6D0;&#xC18C;&#xC758; &#xB9E8;&#xC55E;&#xC5D0; &apos;::&apos; &#xAC00; &#xCD94;&#xAC00;&#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[@]/#/::}</span>&quot;</span> 
+::Linux Arch ::Ubuntu Linux ::Suse Linux ::Linux Fedora
+
+<span class="hljs-comment"># &#xAC01; &#xC6D0;&#xC18C;&#xC758; &#xB9E8;&#xB4A4;&#xC5D0; &apos;::&apos; &#xAC00; &#xCD94;&#xAC00;&#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[@]/%/::}</span>&quot;</span> 
+Linux Arch:: Ubuntu Linux:: Suse Linux:: Linux Fedora::
+
+<span class="hljs-comment"># &#xAC01; &#xC6D0;&#xC18C;&#xC758; &#xB9E8;&#xC55E; 2 &#xBB38;&#xC790;&#xAC00; &#xC0AD;&#xC81C;&#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[@]/#??/}</span>&quot;</span> 
+nux Arch untu Linux se Linux nux Fedora
+
+<span class="hljs-comment"># &#xAC01; &#xC6D0;&#xC18C;&#xC758; &#xB9E8;&#xB4A4; 2 &#xBB38;&#xC790;&#xAC00; &#xC0AD;&#xC81C;&#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[@]/%??/}</span>&quot;</span> 
+Linux Ar Ubuntu L<span class="hljs-keyword">in</span> Suse L<span class="hljs-keyword">in</span> Linux Fedo
 </code></pre>
 <h4 id="&#xC2A4;&#xD2B8;&#xB9C1;&#xC5D0;&#xC11C;-&#xD2B9;&#xC815;-&#xBB38;&#xC790;&#xB97C;-&#xAD6C;&#xBD84;&#xC790;&#xB85C;-&#xD558;&#xC5EC;-&#xD544;&#xB4DC;-&#xBD84;&#xB9AC;&#xD558;&#xAE30;">&#xC2A4;&#xD2B8;&#xB9C1;&#xC5D0;&#xC11C; &#xD2B9;&#xC815; &#xBB38;&#xC790;&#xB97C; &#xAD6C;&#xBD84;&#xC790;&#xB85C; &#xD558;&#xC5EC; &#xD544;&#xB4DC; &#xBD84;&#xB9AC;&#xD558;&#xAE30;.</h4>
 <pre><code class="lang-bash">$ AA=<span class="hljs-string">&quot;Arch Linux:Ubuntu Linux:Suse Linux:Fedora Linux&quot;</span>
