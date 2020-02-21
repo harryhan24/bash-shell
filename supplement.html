@@ -1848,32 +1848,34 @@ shared library &#xD615;&#xD0DC;&#xB85C; &#xC81C;&#xACF5;&#xD558;&#xC5EC; &#xC624
 <p>vDSO &#xB294; ELF &#xD615;&#xC2DD;&#xC758; &#xC774;&#xBBF8;&#xC9C0; &#xC774;&#xBBC0;&#xB85C; binutils &#xD328;&#xD0A4;&#xC9C0;&#xC5D0; &#xD3EC;&#xD568;&#xB41C; &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xC870;&#xD68C;&#xD574; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xBA3C;&#xC800; &#xD604;&#xC7AC; bash &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xBA54;&#xBAA8;&#xB9AC; &#xB9F5;&#xC744; &#xC870;&#xD68C;&#xD574; &#xB364;&#xD504;&#xD560; &#xC8FC;&#xC18C;&#xB97C; &#xAD6C;&#xD569;&#xB2C8;&#xB2E4;.</span>
 $ grep vdso /proc/$$/maps
-<span class="hljs-number">7</span>ffc33de3000-<span class="hljs-number">7</span>ffc33de5000 r-xp <span class="hljs-number">00000000</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-number">0</span>                          [vdso]
+<span class="hljs-number">7</span>ffebb5ce000-<span class="hljs-number">7</span>ffebb5cf000 r-xp <span class="hljs-number">00000000</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-number">0</span>                          [vdso]
 
 <span class="hljs-comment"># gdb &#xC758; dump memory &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; vdso.dump &#xD30C;&#xC77C;&#xB85C; &#xB364;&#xD504;</span>
-$ gdb -p $$ -batch -ex <span class="hljs-string">&quot;dump memory vdso.dump 0x7ffc33de3000 0x7ffc33de5000&quot;</span> &amp;&gt; /dev/null  
-<span class="hljs-comment"># &#xB610;&#xB294; /proc/$pid/mem &#xC744; &#xC774;&#xC6A9;</span>
-$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">0</span>x7ffc33de3000 - <span class="hljs-number">0</span>x7ffc33de5000 ))
--<span class="hljs-number">8192</span>
-$ dd skip=$((<span class="hljs-number">0</span>x7ffc33de3000)) bs=<span class="hljs-number">1</span> count=<span class="hljs-number">8192</span> <span class="hljs-keyword">if</span>=/proc/$$/mem of=vdso.dump <span class="hljs-number">2</span>&gt; /dev/null
+$ gdb -p $$ -batch -ex <span class="hljs-string">&quot;dump memory vdso.dump 0x7ffebb5ce000 0x7ffebb5cf000&quot;</span> &amp;&gt; /dev/null  
+
+<span class="hljs-comment"># &#xB610;&#xB294; /proc/$$/mem &#xC744; &#xC774;&#xC6A9;</span>
+$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">0</span>x7ffebb5ce000 - <span class="hljs-number">0</span>x7ffebb5cf000 ))
+-<span class="hljs-number">4096</span>
+$ dd skip=$((<span class="hljs-number">0</span>x7ffebb5ce000)) bs=<span class="hljs-number">1</span> count=<span class="hljs-number">4096</span> &lt; /proc/$$/mem &gt; vdso.dump
 
 <span class="hljs-comment"># &#xB364;&#xD504;&#xD55C; &#xC774;&#xBBF8;&#xC9C0;&#xB294; ELF64 shared object &#xD615;&#xC2DD;&#xC778; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ file vdso.dump
-vdso.dump: ELF <span class="hljs-number">64</span>-bit LSB shared object, x86-<span class="hljs-number">64</span>, version <span class="hljs-number">1</span> (SYSV), dynamically linked,
-BuildID[sha1]=<span class="hljs-number">2101</span>c1a4fa3c753961aeaf5f9a736262b7f86ccb, stripped
+vdso.dump: ELF <span class="hljs-number">64</span>-bit LSB shared object, x86-<span class="hljs-number">64</span>, version <span class="hljs-number">1</span> (SYSV), dynamically linked, BuildID[sha1]=<span class="hljs-number">3</span>c0ad65980305f977b70a29f7fbf8c71798d79b9, stripped
 
 <span class="hljs-comment"># &#xD568;&#xC218; &#xC774;&#xB984; &#xC55E;&#xC5D0; __vdso_ &#xAC00; &#xBD99;&#xC740;&#xAC8C; &#xC788;&#xACE0; &#xC5C6;&#xB294;&#xAC8C; &#xC788;&#xB294;&#xB370; &#xC55E;&#xC758; &#xC8FC;&#xC18C;&#xAC12;&#xC744; &#xBE44;&#xAD50;&#xD574;&#xBCF4;&#xBA74; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># &#xB2E4;&#xC2DC; &#xB9D0;&#xD574;&#xC11C; clock_gettime &#xC740; __vdso_clock_gettime &#xC758; alias &#xAC00; &#xB418;&#xB294; &#xC148;&#xC785;&#xB2C8;&#xB2E4;.</span>
-$ nm -D vdso.dump
-<span class="hljs-number">0000000000000</span>a00 W clock_gettime
-<span class="hljs-number">0000000000000</span>ef0 W getcpu
-<span class="hljs-number">0000000000000</span>d30 W gettimeofday
+$ nm -D vdso.dump 
+<span class="hljs-number">0000000000000990</span> W clock_getres
+<span class="hljs-number">00000000000008</span>e0 W clock_gettime
+<span class="hljs-number">00000000000009</span>a0 W getcpu
+<span class="hljs-number">0000000000000840</span> W gettimeofday
 <span class="hljs-number">0000000000000000</span> A LINUX_2.<span class="hljs-number">6</span>
-<span class="hljs-number">0000000000000</span>ee0 W time
-<span class="hljs-number">0000000000000</span>a00 T __vdso_clock_gettime
-<span class="hljs-number">0000000000000</span>ef0 T __vdso_getcpu
-<span class="hljs-number">0000000000000</span>d30 T __vdso_gettimeofday
-<span class="hljs-number">0000000000000</span>ee0 T __vdso_time
+<span class="hljs-number">00000000000008</span>d0 W time
+<span class="hljs-number">0000000000000990</span> T __vdso_clock_getres
+<span class="hljs-number">00000000000008</span>e0 T __vdso_clock_gettime
+<span class="hljs-number">00000000000009</span>a0 T __vdso_getcpu
+<span class="hljs-number">0000000000000840</span> T __vdso_gettimeofday
+<span class="hljs-number">00000000000008</span>d0 T __vdso_time
 </code></pre>
 <h1 id="3">3.</h1>
 <p>&#xBA85;&#xB839;&#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xC778;&#xC218;&#xC758; &#xD06C;&#xAE30;&#xB294; &#xC5BC;&#xB9C8;&#xAE4C;&#xC9C0; &#xAC00;&#xB2A5;&#xD560;&#xAE4C;&#xC694;?</p>
