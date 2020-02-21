@@ -1535,8 +1535,10 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA?not s
 bash: AA: not <span class="hljs-built_in">set</span>
 $ <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">1</span>
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA?}</span>                        <span class="hljs-comment"># error message &#xB294; &#xC0DD;&#xB7B5;&#xD560; &#xC218; &#xC788;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA:?}</span>                       <span class="hljs-comment"># error message &#xB294; &#xC0DD;&#xB7B5;&#xD560; &#xC218; &#xC788;&#xB2E4;.</span>
 bash: AA: parameter null or not <span class="hljs-built_in">set</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA?}</span>
+bash: AA: parameter not <span class="hljs-built_in">set</span>
 
 
 <span class="hljs-comment"># &#xC608;&#xC81C;</span>
