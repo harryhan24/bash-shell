@@ -1604,23 +1604,6 @@ Ubuntu Linux
                                    <span class="hljs-comment"># index 2 &#xB294; &#xACF5;&#xBC31;&#xC73C;&#xB85C; &#xB098;&#xC628;&#xB2E4;.</span>
 Fedora Linux
 </code></pre>
-<p>&#xD328;&#xD134;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xC6D0;&#xC18C; &#xC0AD;&#xC81C;&#xD558;&#xAE30;</p>
-<pre><code class="lang-bash">$ AA=( <span class="hljs-string">&quot;Arch Linux&quot;</span> <span class="hljs-string">&quot;Ubuntu Linux&quot;</span> <span class="hljs-string">&quot;Suse Linux&quot;</span> <span class="hljs-string">&quot;Fedora Linux&quot;</span> )
-
-<span class="hljs-comment"># &quot;${AA[*]}&quot; &#xB294; &quot;elem1Xelem2Xelem3X...&quot; &#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-<span class="hljs-comment"># &#xADF8;&#xB7EC;&#xBBC0;&#xB85C; IFS &#xAC12;&#xC744; &apos;\n&apos; &#xBC14;&#xAFB8;&#xACE0; echo &#xD55C;&#xAC83;&#xC744; &#xBA85;&#xB839;&#xCE58;&#xD658; &#xAC12;&#xC73C;&#xB85C; &#xBCF4;&#xB0B4;&#xBA74; </span>
-<span class="hljs-comment"># &apos;\n&apos; &#xC5D0;&#xC758;&#xD574; &#xC6D0;&#xC18C;&#xB4E4;&#xC774; &#xBD84;&#xB9AC;&#xB418;&#xC5B4; array &#xC5D0; &#xC800;&#xC7A5;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</span>
-
-$ <span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>; IFS=$<span class="hljs-string">&apos;\n&apos;</span>
-$ AA=( $(<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[*]/Su*/}</span>&quot;</span>) )
-$ <span class="hljs-built_in">set</span> +f; IFS=$<span class="hljs-string">&apos; \t\n&apos;</span>            <span class="hljs-comment"># array &#xC785;&#xB825;&#xC774; &#xC644;&#xB8CC;&#xB418;&#xC5C8;&#xC73C;&#xBBC0;&#xB85C; IFS &#xAC12; &#xBCF5;&#xAD6C;</span>
-
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${#AA[@]}</span>                  <span class="hljs-comment"># &#xC0AD;&#xC81C;&#xAC00; &#xBC18;&#xC601;&#xB418;&#xC5B4; &#xC6D0;&#xC18C;&#xAC1C;&#xC218;&#xAC00; 3 &#xAC1C;&#xB85C; &#xB098;&#xC628;&#xB2E4;</span>
-<span class="hljs-number">3</span>
-
-$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[1]}</span>,<span class="hljs-variable">${AA[2]}</span>&quot;</span>        <span class="hljs-comment"># index &#xB3C4; &#xC815;&#xB82C;&#xB418;&#xC5C8;&#xB2E4;.</span>
-Ubuntu Linux,Fedora Linux
-</code></pre>
 <p>&#xB9E8;&#xC55E;&#xC744; &#xAC00;&#xB9AC;&#xD0A4;&#xB294; <code>#</code>, &#xB9E8;&#xB4A4;&#xB97C; &#xAC00;&#xB9AC;&#xD0A4;&#xB294; <code>%</code> anchor &#xC758; &#xC0AC;&#xC6A9;</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xAC01; &#xC6D0;&#xC18C;&#xC5D0;&#xC11C; &apos;Linux&apos; &#xC758; &#xC704;&#xCE58;&#xAC00; &#xB2E4;&#xB974;&#xB2E4;.</span>
 $ AA=( <span class="hljs-string">&quot;Linux Arch&quot;</span> <span class="hljs-string">&quot;Ubuntu Linux&quot;</span> <span class="hljs-string">&quot;Suse Linux&quot;</span> <span class="hljs-string">&quot;Linux Fedora&quot;</span> )
@@ -1648,6 +1631,23 @@ nux Arch untu Linux se Linux nux Fedora
 <span class="hljs-comment"># &#xAC01; &#xC6D0;&#xC18C;&#xC758; &#xB9E8;&#xB4A4; 2 &#xBB38;&#xC790;&#xAC00; &#xC0AD;&#xC81C;&#xB41C;&#xB2E4;.</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[@]/%??/}</span>&quot;</span> 
 Linux Ar Ubuntu L<span class="hljs-keyword">in</span> Suse L<span class="hljs-keyword">in</span> Linux Fedo
+</code></pre>
+<p>&#xD328;&#xD134;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xC6D0;&#xC18C; &#xC0AD;&#xC81C;&#xD558;&#xAE30;</p>
+<pre><code class="lang-bash">$ AA=( <span class="hljs-string">&quot;Arch Linux&quot;</span> <span class="hljs-string">&quot;Ubuntu Linux&quot;</span> <span class="hljs-string">&quot;Suse Linux&quot;</span> <span class="hljs-string">&quot;Fedora Linux&quot;</span> )
+
+<span class="hljs-comment"># &quot;${AA[*]}&quot; &#xB294; &quot;elem1Xelem2Xelem3X...&quot; &#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xADF8;&#xB7EC;&#xBBC0;&#xB85C; IFS &#xAC12;&#xC744; &apos;\n&apos; &#xBC14;&#xAFB8;&#xACE0; echo &#xD55C;&#xAC83;&#xC744; &#xBA85;&#xB839;&#xCE58;&#xD658; &#xAC12;&#xC73C;&#xB85C; &#xBCF4;&#xB0B4;&#xBA74; </span>
+<span class="hljs-comment"># &apos;\n&apos; &#xC5D0;&#xC758;&#xD574; &#xC6D0;&#xC18C;&#xB4E4;&#xC774; &#xBD84;&#xB9AC;&#xB418;&#xC5B4; array &#xC5D0; &#xC800;&#xC7A5;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</span>
+
+$ <span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>; IFS=$<span class="hljs-string">&apos;\n&apos;</span>
+$ AA=( $(<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[*]/Su*/}</span>&quot;</span>) )
+$ <span class="hljs-built_in">set</span> +f; IFS=$<span class="hljs-string">&apos; \t\n&apos;</span>            <span class="hljs-comment"># array &#xC785;&#xB825;&#xC774; &#xC644;&#xB8CC;&#xB418;&#xC5C8;&#xC73C;&#xBBC0;&#xB85C; IFS &#xAC12; &#xBCF5;&#xAD6C;</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${#AA[@]}</span>                  <span class="hljs-comment"># &#xC0AD;&#xC81C;&#xAC00; &#xBC18;&#xC601;&#xB418;&#xC5B4; &#xC6D0;&#xC18C;&#xAC1C;&#xC218;&#xAC00; 3 &#xAC1C;&#xB85C; &#xB098;&#xC628;&#xB2E4;</span>
+<span class="hljs-number">3</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[1]}</span>,<span class="hljs-variable">${AA[2]}</span>&quot;</span>        <span class="hljs-comment"># index &#xB3C4; &#xC815;&#xB82C;&#xB418;&#xC5C8;&#xB2E4;.</span>
+Ubuntu Linux,Fedora Linux
 </code></pre>
 <h4 id="&#xC2A4;&#xD2B8;&#xB9C1;&#xC5D0;&#xC11C;-&#xD2B9;&#xC815;-&#xBB38;&#xC790;&#xB97C;-&#xAD6C;&#xBD84;&#xC790;&#xB85C;-&#xD558;&#xC5EC;-&#xD544;&#xB4DC;-&#xBD84;&#xB9AC;&#xD558;&#xAE30;">&#xC2A4;&#xD2B8;&#xB9C1;&#xC5D0;&#xC11C; &#xD2B9;&#xC815; &#xBB38;&#xC790;&#xB97C; &#xAD6C;&#xBD84;&#xC790;&#xB85C; &#xD558;&#xC5EC; &#xD544;&#xB4DC; &#xBD84;&#xB9AC;&#xD558;&#xAE30;.</h4>
 <pre><code class="lang-bash">$ AA=<span class="hljs-string">&quot;Arch Linux:Ubuntu Linux:Suse Linux:Fedora Linux&quot;</span>
