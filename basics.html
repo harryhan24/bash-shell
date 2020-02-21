@@ -1622,10 +1622,8 @@ rm -rf *
 <pre><code class="lang-bash"><span class="hljs-built_in">cd</span> ~/tempdir &amp;&amp; rm -rf *
 
 <span class="hljs-comment"># &#xB4A4;&#xC5D0; &#xC774;&#xC5B4;&#xC9C0;&#xB294; &#xBA85;&#xB839;&#xC774; &#xB9CE;&#xC744; &#xACBD;&#xC6B0;</span>
-<span class="hljs-built_in">cd</span> ~/tempdir || <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
-...
-<span class="hljs-built_in">cd</span> ~/tempdir || { <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;cd ~/tempdir failed&quot;</span>; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>; }
-...
+<span class="hljs-built_in">cd</span> ~/tempdir || { <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;cd ~/tempdir failed&quot;</span>; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span> ;}
+. . .
 </code></pre>
 <h3 id="shell-&#xC5D0;&#xC11C;--&#xBB38;&#xC790;&#xB97C;-&#xC774;&#xC6A9;&#xD558;&#xB294;-&#xD655;&#xC7A5;">Shell &#xC5D0;&#xC11C; <code>$</code> &#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xD655;&#xC7A5;</h3>
 <p>Shell &#xC5D0;&#xC11C;&#xB294; <code>$</code> &#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xD655;&#xC7A5;&#xC774; 3 &#xAC00;&#xC9C0; &#xD615;&#xD0DC;&#xB85C; &#xC874;&#xC7AC;&#xD569;&#xB2C8;&#xB2E4;.  </p>
