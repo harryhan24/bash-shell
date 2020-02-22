@@ -1328,7 +1328,15 @@ $ <span class="hljs-built_in">echo</span> $?
 
 <span class="hljs-function"><span class="hljs-title">f1</span></span>() { error_<span class="hljs-built_in">command</span> ... &amp;&amp; <span class="hljs-built_in">command</span>2 ... ;}
 </code></pre>
-<p>read &#xBA85;&#xB839;&#xC5D0;&#xC11C; <code>-d</code> &#xC635;&#xC158; &#xAC12;&#xC73C;&#xB85C; null &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098; end-of-file &#xC0C1;&#xD0DC;&#xB97C;  &#xB9CC;&#xB0AC;&#xC744;&#xB54C; &#xC5D0;&#xB7EC;&#xB97C; &#xB9AC;&#xD134;&#xD55C;&#xB2E4;.</p>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; read &#xBA85;&#xB839;&#xC774; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0; &#xC5D0;&#xB7EC;&#xB97C; &#xB9AC;&#xD134;&#xD55C;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">read</span> -r <span class="hljs-operator">-d</span> <span class="hljs-string">&apos;&apos;</span> whole &lt; somefile.txt
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+
+$ <span class="hljs-built_in">read</span> -r var     <span class="hljs-comment"># &#xC785;&#xB825;&#xB300;&#xAE30; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; ctrl-d &#xC785;&#xB825;</span>
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
+</code></pre>
 <h3 id="trapping-err">Trapping ERR</h3>
 <p><code>errexit</code> &#xC635;&#xC158;&#xC758; &#xD55C;&#xAC00;&#xC9C0; &#xB2E8;&#xC810;&#xC740; &#xBA85;&#xB839;&#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xC5EC; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; exit &#xB410;&#xC744; &#xB54C;
 &#xC544;&#xBB34;&#xB7F0; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xB294; &#xC810;&#xC785;&#xB2C8;&#xB2E4;.
