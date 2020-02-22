@@ -1490,8 +1490,8 @@ $ <span class="hljs-built_in">command</span> <span class="hljs-operator">-a</spa
             [ <span class="hljs-string">&quot;<span class="hljs-variable">$s</span>&quot;</span> = <span class="hljs-number">45</span> ] || [ <span class="hljs-string">&quot;<span class="hljs-variable">$s</span>&quot;</span> = <span class="hljs-number">90</span> ] || { err_msg_s; usage ;}
             ;;
         p)
-            p=<span class="hljs-variable">$OPTARG</span>
-            [ <span class="hljs-string">&quot;<span class="hljs-variable">$p</span>&quot;</span> = <span class="hljs-string">&quot;-s&quot;</span> -o <span class="hljs-string">&quot;<span class="hljs-variable">$p</span>&quot;</span> = <span class="hljs-string">&quot;s&quot;</span> ] &amp;&amp; { err_msg_p; usage ;}
+            p=<span class="hljs-variable">$OPTARG</span>    <span class="hljs-comment"># -p -s 45 &#xB610;&#xB294; -p -s45 &#xC77C;&#xACBD;&#xC6B0;</span>
+            [[ <span class="hljs-variable">$p</span> =~ ^<span class="hljs-operator">-s</span> ]] &amp;&amp; { err_msg_p; usage ;}
             ;;
         :)
             <span class="hljs-keyword">case</span> <span class="hljs-variable">$OPTARG</span> <span class="hljs-keyword">in</span>
