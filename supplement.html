@@ -1856,7 +1856,7 @@ $ gdb -p $$ -batch -ex <span class="hljs-string">&quot;dump memory vdso.dump 0x7
 <span class="hljs-comment"># &#xB610;&#xB294; /proc/$$/mem &#xC744; &#xC774;&#xC6A9;&#xD574; &#xB364;&#xD504;</span>
 $ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">0</span>x7ffebb5ce000 - <span class="hljs-number">0</span>x7ffebb5cf000 ))
 -<span class="hljs-number">4096</span>
-$ dd skip=$((<span class="hljs-number">0</span>x7ffebb5ce000)) bs=<span class="hljs-number">1</span> count=<span class="hljs-number">4096</span> &lt; /proc/$$/mem &gt; vdso.dump
+$ dd skip=$((<span class="hljs-number">0</span>x7ffebb5ce000)) bs=<span class="hljs-number">1</span> count=<span class="hljs-number">4096</span> <span class="hljs-keyword">if</span>=/proc/$$/mem &gt; vdso.dump
 
 <span class="hljs-comment"># &#xB364;&#xD504;&#xD55C; &#xC774;&#xBBF8;&#xC9C0;&#xB294; ELF64 shared object &#xD615;&#xC2DD;&#xC778; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ file vdso.dump
