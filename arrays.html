@@ -1748,43 +1748,73 @@ $
 AA=<span class="hljs-string">&quot;400 500&quot;</span>
 array[<span class="hljs-number">12</span>]=<span class="hljs-variable">$AA</span>                    array[<span class="hljs-number">12</span>]=*abc*
 </code></pre>
-<h3 id="indirection">Indirection</h3>
-<p>array &#xC6D0;&#xC18C;&#xB97C; &#xB098;&#xD0C0;&#xB0B4;&#xB294; &#xC2A4;&#xD2B8;&#xB9C1;&#xC744; &#xBCC0;&#xC218;&#xC5D0; &#xB123;&#xC5B4;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xC774;&#xB54C;&#xB294; <code>${$var}</code> &#xB300;&#xC2E0;&#xC5D0; <code>${!var}</code> &#xD615;&#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ arr=( <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span> )
+<h1 id="quiz">Quiz</h1>
+<p>&#xBCC0;&#xC218;&#xAC00; array &#xC778;&#xC9C0; &#xC544;&#xB2CC;&#xC9C0;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xCCB4;&#xD06C;&#xD560; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<p><code>declare -p &#xBCC0;&#xC218;&#xBA85;</code> &#xC758; &#xCD9C;&#xB825;&#xAC12;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xD310;&#xB2E8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ AA=<span class="hljs-number">100</span>
+$ <span class="hljs-built_in">declare</span> -p AA
+<span class="hljs-built_in">declare</span> -- AA=<span class="hljs-string">&quot;100&quot;</span>                                <span class="hljs-comment"># &#xC77C;&#xBC18; &#xBCC0;&#xC218;&#xB294; &apos;--&apos;</span>
 
-$ AA=arr[<span class="hljs-number">2</span>]
+$ BB=( <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> )
+$ <span class="hljs-built_in">declare</span> -p BB
+<span class="hljs-built_in">declare</span> <span class="hljs-operator">-a</span> BB=([<span class="hljs-number">0</span>]=<span class="hljs-string">&quot;1&quot;</span> [<span class="hljs-number">1</span>]=<span class="hljs-string">&quot;2&quot;</span> [<span class="hljs-number">2</span>]=<span class="hljs-string">&quot;3&quot;</span>)            <span class="hljs-comment"># indexed array &#xB294; &apos;-a&apos;</span>
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>
-arr[<span class="hljs-number">2</span>]
+$ <span class="hljs-built_in">declare</span> -A CC
+$ CC=( [ab]=<span class="hljs-number">100</span> [<span class="hljs-built_in">cd</span>]=<span class="hljs-number">200</span> [ef]=<span class="hljs-number">300</span> )
+$ <span class="hljs-built_in">declare</span> -p CC
+<span class="hljs-built_in">declare</span> -A CC=([ab]=<span class="hljs-string">&quot;100&quot;</span> [<span class="hljs-built_in">cd</span>]=<span class="hljs-string">&quot;200&quot;</span> [ef]=<span class="hljs-string">&quot;300&quot;</span> )  <span class="hljs-comment"># associative array &#xB294; &apos;-A&apos;</span>
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${$AA}</span>&quot;</span>     <span class="hljs-comment"># &#xC624;&#xB958;</span>
-bash: <span class="hljs-variable">${$AA}</span>: bad substitution
+$ <span class="hljs-built_in">declare</span> -i DD=<span class="hljs-number">100</span>
+$ <span class="hljs-built_in">declare</span> -p DD
+<span class="hljs-built_in">declare</span> -i DD=<span class="hljs-string">&quot;100&quot;</span>                                <span class="hljs-comment"># integer &#xC18D;&#xC131; &#xBCC0;&#xC218;&#xB294; &apos;-i&apos;</span>
+----------------------------------------------------------------------------
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${!AA}</span>&quot;</span>
-<span class="hljs-number">33</span>
---------------------------------------------------
-
-<span class="hljs-shebang">#!/bin/bash
-</span>
-<span class="hljs-function"><span class="hljs-title">func</span></span>() {
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
-
-    <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">${!2}</span>&quot;</span>; <span class="hljs-keyword">do</span>       <span class="hljs-comment"># !2 -&gt; $2 -&gt; AA[@]</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>
-    <span class="hljs-keyword">done</span>
-
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$3</span>&quot;</span>
+$ <span class="hljs-function"><span class="hljs-title">type_check</span></span>() {
+    [[ `<span class="hljs-built_in">declare</span> -p <span class="hljs-variable">$1</span>` =~ ^<span class="hljs-built_in">declare</span>\ (..) ]] &amp;&amp;
+    <span class="hljs-keyword">case</span> <span class="hljs-variable">${BASH_REMATCH[1]}</span> <span class="hljs-keyword">in</span>
+        --) <span class="hljs-built_in">echo</span> normal variable ;;
+        <span class="hljs-operator">-a</span>) <span class="hljs-built_in">echo</span> indexed array ;;
+        -A) <span class="hljs-built_in">echo</span> associative array ;;
+        -i) <span class="hljs-built_in">echo</span> <span class="hljs-built_in">integer</span> variable ;;
+        *) <span class="hljs-built_in">echo</span> other ... ;;
+    <span class="hljs-keyword">esac</span>
 }
 
-AA=(<span class="hljs-number">22</span> <span class="hljs-string">&quot;33 44&quot;</span> <span class="hljs-number">55</span>)
-func <span class="hljs-number">11</span> <span class="hljs-string">&apos;AA[@]&apos;</span> <span class="hljs-number">66</span>
+$ <span class="hljs-built_in">type</span>_check AA 
+normal variable
 
-<span class="hljs-comment">################ output ###############</span>
-<span class="hljs-number">11</span>
-<span class="hljs-number">22</span>
-<span class="hljs-number">33</span> <span class="hljs-number">44</span>
-<span class="hljs-number">55</span>
-<span class="hljs-number">66</span>
+$ <span class="hljs-built_in">type</span>_check BB
+indexed array
+</code></pre>
+<p>&#xADF8;&#xB7F0;&#xB370;... bash 4.3 &#xBD80;&#xD130;&#xB294; <a href="functions.html#named_reference">named reference</a> &#xAE30;&#xB2A5;&#xC774; &#xCD94;&#xAC00;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; named reference &#xC77C; &#xACBD;&#xC6B0; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC6D0;&#xBCF8; &#xBCC0;&#xC218;&#xAE4C;&#xC9C0; loop &#xCC98;&#xB9AC;&#xB97C; &#xD574;&#xC8FC;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">declare</span> AA=( <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> )
+$ <span class="hljs-built_in">declare</span> -n AA2=AA
+$ <span class="hljs-built_in">declare</span> -n AA3=AA2
+
+$ <span class="hljs-built_in">declare</span> -p AA3
+<span class="hljs-built_in">declare</span> -n AA3=<span class="hljs-string">&quot;AA2&quot;</span>
+$ <span class="hljs-built_in">declare</span> -p AA2
+<span class="hljs-built_in">declare</span> -n AA2=<span class="hljs-string">&quot;AA&quot;</span>
+$ <span class="hljs-built_in">declare</span> -p AA
+<span class="hljs-built_in">declare</span> <span class="hljs-operator">-a</span> AA=([<span class="hljs-number">0</span>]=<span class="hljs-string">&quot;1&quot;</span> [<span class="hljs-number">1</span>]=<span class="hljs-string">&quot;2&quot;</span> [<span class="hljs-number">2</span>]=<span class="hljs-string">&quot;3&quot;</span>)
+-------------------------------------------------
+
+<span class="hljs-function"><span class="hljs-title">type_check</span></span>() {
+    <span class="hljs-built_in">local</span> var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-variable">$1</span> )
+    <span class="hljs-built_in">local</span> reg=<span class="hljs-string">&apos;^declare -n [^=]+=\&quot;([^\&quot;]+)\&quot;$&apos;</span>
+    <span class="hljs-keyword">while</span> [[ <span class="hljs-variable">$var</span> =~ <span class="hljs-variable">$reg</span> ]]; <span class="hljs-keyword">do</span>
+        var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-variable">${BASH_REMATCH[1]}</span> )
+    <span class="hljs-keyword">done</span>
+
+    <span class="hljs-keyword">case</span> <span class="hljs-variable">${var#declare -}</span> <span class="hljs-keyword">in</span>
+        -*) <span class="hljs-built_in">echo</span> normal variable ;;
+        a*) <span class="hljs-built_in">echo</span> indexed array ;;
+        A*) <span class="hljs-built_in">echo</span> associative array ;;
+        i*) <span class="hljs-built_in">echo</span> <span class="hljs-built_in">integer</span> variable ;;
+        *)  <span class="hljs-built_in">echo</span> other ... ;;
+    <span class="hljs-keyword">esac</span>
+}
 </code></pre>
 
                     
