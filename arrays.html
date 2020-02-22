@@ -1766,7 +1766,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
 
 <span class="hljs-shebang">#!/bin/bash
 </span>
-<span class="hljs-function"><span class="hljs-title">f2</span></span>() {
+<span class="hljs-function"><span class="hljs-title">func</span></span>() {
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
 
     <span class="hljs-built_in">local</span> ARR=( <span class="hljs-string">&quot;<span class="hljs-variable">${!2}</span>&quot;</span> )      <span class="hljs-comment"># !2 -&gt; $2 -&gt; AA[@]</span>
@@ -1778,12 +1778,9 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$3</span>&quot;</span>
 }
 
-<span class="hljs-function"><span class="hljs-title">f1</span></span>() {
-    <span class="hljs-built_in">local</span> AA=(<span class="hljs-number">22</span> <span class="hljs-string">&quot;33 44&quot;</span> <span class="hljs-number">55</span>)
-    f2 <span class="hljs-number">11</span> <span class="hljs-string">&apos;AA[@]&apos;</span> <span class="hljs-number">66</span>
-}
+AA=(<span class="hljs-number">22</span> <span class="hljs-string">&quot;33 44&quot;</span> <span class="hljs-number">55</span>)
 
-f1
+func <span class="hljs-number">11</span> <span class="hljs-string">&apos;AA[@]&apos;</span> <span class="hljs-number">66</span>
 
 <span class="hljs-comment">################ output ###############</span>
 <span class="hljs-number">11</span>
