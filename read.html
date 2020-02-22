@@ -1523,7 +1523,14 @@ $ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span
 <h2 id="&#xC885;&#xB8CC;-&#xC0C1;&#xD0DC;-&#xAC12;">&#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;</h2>
 <p>&#xB2E4;&#xC74C;&#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC624;&#xB958;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xACE0; 0 &#xC774; &#xC544;&#xB2CC;&#xAC12;&#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <ul>
-<li>end-of-file &#xC0C1;&#xD0DC;&#xB97C;  &#xB9CC;&#xB0AC;&#xC744;&#xB54C;</li>
+<li><p>read times out    ( &#xC774;&#xB54C;&#xB294; 128 &#xC774;&#xC0C1;&#xC758; &#xAC12;&#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;. ) </p>
+</li>
+<li><p>&#xBCC0;&#xC218;&#xC5D0; &#xAC12;&#xC744; &#xD560;&#xB2F9;&#xD560; &#xB54C; &#xC624;&#xB958; &#xBC1C;&#xC0DD;</p>
+</li>
+<li><p><code>-u</code> &#xC635;&#xC158;&#xC5D0; &#xC0AC;&#xC6A9;&#xB41C; &#xC720;&#xD6A8;&#xD558;&#xC9C0; &#xC54A;&#xC740; FD </p>
+</li>
+<li><p>end-of-file &#xC0C1;&#xD0DC;&#xB97C;  &#xB9CC;&#xB0AC;&#xC744; &#xB54C;</p>
+</li>
 </ul>
 <pre><code class="lang-bash">$ cat infile
 <span class="hljs-number">111</span>
@@ -1541,13 +1548,7 @@ status: <span class="hljs-number">0</span>, value: <span class="hljs-number">222
 $ <span class="hljs-built_in">read</span> -r v &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> status: $?, value: <span class="hljs-variable">$v</span>
 status: <span class="hljs-number">1</span>, value:
 </code></pre>
-<ul>
-<li>read times out    (&#xC774;&#xB54C;&#xB294; 128 &#xC774;&#xC0C1;&#xC758; &#xAC12;&#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.) </li>
-<li>&#xBCC0;&#xC218;&#xC5D0; &#xAC12;&#xC744; &#xD560;&#xB2F9;&#xD560;&#xB54C; &#xC624;&#xB958;&#xBC1C;&#xC0DD;</li>
-<li><code>-u</code> &#xC635;&#xC158;&#xC5D0; &#xC0AC;&#xC6A9;&#xB41C; &#xC720;&#xD6A8;&#xD558;&#xC9C0; &#xC54A;&#xC740; FD (file descriptor)</li>
-</ul>
-<p>&#xC5EC;&#xAE30;&#xC11C; &#xCCAB; &#xBC88;&#xC9F8; &#xACBD;&#xC6B0; end-of-file &#xC0C1;&#xD0DC;&#xB97C; &#xB9CC;&#xB0AC;&#xC744; &#xB54C;&#xB97C; &#xC0B4;&#xD3B4;&#xBCFC; &#xD544;&#xC694;&#xAC00; &#xC788;&#xB294;&#xB370;&#xC694;.
-&#xD30C;&#xC77C; &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778;&#xC5D0; newline &#xC774; &#xC5C6;&#xC73C;&#xBA74; value &#xAC12;&#xC740; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xB418;&#xB294;&#xB370;&#xB3C4;
+<p>&#xD30C;&#xC77C; &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778;&#xC5D0; newline &#xC774; &#xC5C6;&#xC73C;&#xBA74; value &#xAC12;&#xC740; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xB418;&#xB294;&#xB370;&#xB3C4;
 &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; 1 &#xC774; &#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC774;&#xAC83;&#xC740; <code>-d</code> &#xC635;&#xC158; &#xAC12;&#xC73C;&#xB85C; null &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xB54C;&#xB3C4; &#xD574;&#xB2F9;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> -en <span class="hljs-string">&quot;111\n222&quot;</span> &gt; file
@@ -1565,6 +1566,7 @@ status: <span class="hljs-number">0</span>, value: <span class="hljs-number">111
 $ <span class="hljs-built_in">read</span> -r v &lt;&amp;<span class="hljs-number">3</span>; <span class="hljs-built_in">echo</span> status: $?, value: <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>              
 status: <span class="hljs-number">1</span>, value: <span class="hljs-number">222</span>
 </code></pre>
+<p>loop &#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;&#xB294; &#xBAA8;&#xB450; &#xC885;&#xB8CC;&#xC0C1;&#xD0DC; &#xAC12;&#xC740; <code>0</code> &#xC774; &#xB418;&#xACE0; &#xC704;&#xC758; &#xACBD;&#xC6B0; &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778; 222 &#xB294; &#xCD9C;&#xB825;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <h1 id="quiz">Quiz</h1>
 <p>&#xD30C;&#xC77C;&#xC744; while &#xBB38;&#xC73C;&#xB85C; &#xC77D;&#xC5B4;&#xB4E4;&#xC77C; &#xB54C; &#xD30C;&#xC77C; &#xB05D;&#xC5D0; newline &#xC774; &#xC5C6;&#xC73C;&#xBA74;
 &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778;&#xC774; &#xC624;&#xB958;&#xB85C; &#xC778;&#xC2DD;&#xC774; &#xB418;&#xC5B4; value &#xAC12;&#xC740; &#xC124;&#xC815;&#xB418;&#xC9C0;&#xB9CC; &#xD504;&#xB9B0;&#xD2B8;&#xAC00; &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
