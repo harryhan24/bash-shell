@@ -1463,6 +1463,10 @@ $ AA=$( readlink <span class="hljs-operator">-e</span> asdfg ); <span class="hlj
 <span class="hljs-number">1</span>
 $ <span class="hljs-built_in">declare</span> AA=$( readlink <span class="hljs-operator">-e</span> asdfg ); <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
+<span class="hljs-comment"># &#xC774;&#xB54C;&#xB294; &#xBA3C;&#xC800; local, declare &#xB85C; &#xBCC0;&#xC218;&#xB97C; &#xC120;&#xC5B8;&#xD558;&#xBA74; &#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">declare</span> AA
+$ AA=$( readlink <span class="hljs-operator">-e</span> asdfg ); <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>
 </code></pre>
 <h1 id="quiz">Quiz</h1>
 <p>ftp &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xBCF4;&#xBA74; &#xC791;&#xC5C5; &#xC131;&#xACF5;&#xC5D0; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; &#xD56D;&#xC0C1; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC73C;&#xB85C; <code>0</code> &#xC744; &#xBC18;&#xD658;&#xD558;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.

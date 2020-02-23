@@ -1801,19 +1801,22 @@ $ <span class="hljs-built_in">declare</span> -p AA
 -------------------------------------------------
 
 <span class="hljs-function"><span class="hljs-title">type_check</span></span>() {
-    <span class="hljs-built_in">local</span> var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-variable">$1</span> )
-    <span class="hljs-built_in">local</span> reg=<span class="hljs-string">&apos;^declare -n [^=]+=\&quot;([^\&quot;]+)\&quot;$&apos;</span>
-    <span class="hljs-keyword">while</span> [[ <span class="hljs-variable">$var</span> =~ <span class="hljs-variable">$reg</span> ]]; <span class="hljs-keyword">do</span>
-        var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-variable">${BASH_REMATCH[1]}</span> )
-    <span class="hljs-keyword">done</span>
+    <span class="hljs-built_in">local</span> var reg 
 
-    <span class="hljs-keyword">case</span> <span class="hljs-variable">${var#declare -}</span> <span class="hljs-keyword">in</span>
-        -*) <span class="hljs-built_in">echo</span> normal variable ;;
-        a*) <span class="hljs-built_in">echo</span> indexed array ;;
-        A*) <span class="hljs-built_in">echo</span> associative array ;;
-        i*) <span class="hljs-built_in">echo</span> <span class="hljs-built_in">integer</span> variable ;;
-        *)  <span class="hljs-built_in">echo</span> other ... ;;
-    <span class="hljs-keyword">esac</span>
+    var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-variable">$1</span> ) &amp;&amp; {
+        reg=<span class="hljs-string">&apos;^declare -n [^=]+=\&quot;([^\&quot;]+)\&quot;$&apos;</span>
+        <span class="hljs-keyword">while</span> [[ <span class="hljs-variable">$var</span> =~ <span class="hljs-variable">$reg</span> ]]; <span class="hljs-keyword">do</span>
+            var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-variable">${BASH_REMATCH[1]}</span> )
+        <span class="hljs-keyword">done</span>
+
+        <span class="hljs-keyword">case</span> <span class="hljs-variable">${var#declare -}</span> <span class="hljs-keyword">in</span>
+            -*) <span class="hljs-built_in">echo</span> normal variable ;;
+            a*) <span class="hljs-built_in">echo</span> indexed array ;;
+            A*) <span class="hljs-built_in">echo</span> associative array ;;
+            i*) <span class="hljs-built_in">echo</span> <span class="hljs-built_in">integer</span> variable ;;
+            *)  <span class="hljs-built_in">echo</span> other ... ;;
+        <span class="hljs-keyword">esac</span>
+    }
 }
 </code></pre>
 
