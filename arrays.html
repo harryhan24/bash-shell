@@ -1839,10 +1839,10 @@ $ <span class="hljs-built_in">declare</span> -p AA
 
 <span class="hljs-function"><span class="hljs-title">type_check</span></span>() {
     <span class="hljs-built_in">local</span> var reg 
-    var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-variable">$1</span> ) &amp;&amp; {
+    var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> ) &amp;&amp; {
         reg=<span class="hljs-string">&apos;^declare -n [^=]+=\&quot;([^\&quot;]+)\&quot;$&apos;</span>
         <span class="hljs-keyword">while</span> [[ <span class="hljs-variable">$var</span> =~ <span class="hljs-variable">$reg</span> ]]; <span class="hljs-keyword">do</span>
-            var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-variable">${BASH_REMATCH[1]}</span> )
+            var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-string">&quot;<span class="hljs-variable">${BASH_REMATCH[1]}</span>&quot;</span> )
         <span class="hljs-keyword">done</span>
 
         <span class="hljs-keyword">case</span> <span class="hljs-variable">${var#declare -}</span> <span class="hljs-keyword">in</span>
