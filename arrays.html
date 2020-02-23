@@ -1802,7 +1802,6 @@ $ <span class="hljs-built_in">declare</span> -p AA
 
 <span class="hljs-function"><span class="hljs-title">type_check</span></span>() {
     <span class="hljs-built_in">local</span> var reg 
-
     var=$( <span class="hljs-built_in">declare</span> -p <span class="hljs-variable">$1</span> ) &amp;&amp; {
         reg=<span class="hljs-string">&apos;^declare -n [^=]+=\&quot;([^\&quot;]+)\&quot;$&apos;</span>
         <span class="hljs-keyword">while</span> [[ <span class="hljs-variable">$var</span> =~ <span class="hljs-variable">$reg</span> ]]; <span class="hljs-keyword">do</span>
