@@ -1440,6 +1440,93 @@ $ sudo cat /dev/input/mice | od -tx1
 <p>NUL &#xBB38;&#xC790;&#xB294; <a href="http://en.cppreference.com/w/cpp/language/ascii" target="_blank">ascii table</a> &#xC0C1;&#xC5D0; \x00 &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294; A (\x41), B (\x42) &#xC640; &#xAC19;&#xC740; &#xAC12;&#xC785;&#xB2C8;&#xB2E4;.
 &#xBC18;&#xBA74;&#xC5D0; &#xBCF8;&#xBB38;&#xC5D0; &#xC0AC;&#xC6A9;&#xB41C; null &#xAC12;&#xC740; empty &#xAC12;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
+<hr>
+<h3 id="&#xC774;&#xD6C4;&#xBD80;&#xD130;&#xB294;-bash-&#xC804;&#xC6A9;">&#xC774;&#xD6C4;&#xBD80;&#xD130;&#xB294; Bash &#xC804;&#xC6A9;</h3>
+<p>&#xBCC0;&#xC218; &#xC774;&#xB984;&#xC758; indirection &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ AA=<span class="hljs-number">100</span>
+$ BB=AA
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>, <span class="hljs-variable">$BB</span>
+<span class="hljs-number">100</span>, AA
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${$BB}</span>          <span class="hljs-comment"># &#xC624;&#xB958;</span>
+bash: <span class="hljs-variable">${$BB}</span>: bad substitution
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${!BB}</span>                 <span class="hljs-comment"># !BB -&gt; $BB -&gt; AA</span>
+<span class="hljs-number">100</span>
+--------------------------------------------------
+
+$ arr=( <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span> )
+$ AA=arr[<span class="hljs-number">2</span>]
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${!AA}</span>&quot;</span>               <span class="hljs-comment"># !AA -&gt; $AA -&gt; arr[2]</span>
+<span class="hljs-number">33</span>
+--------------------------------------------------
+
+<span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-function"><span class="hljs-title">func</span></span>() {
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
+    <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">${!2}</span>&quot;</span>; <span class="hljs-keyword">do</span>       <span class="hljs-comment"># !2 -&gt; $2 -&gt; AA[@]</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>
+    <span class="hljs-keyword">done</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$3</span>&quot;</span>
+}
+
+AA=(<span class="hljs-number">22</span> <span class="hljs-string">&quot;33 44&quot;</span> <span class="hljs-number">55</span>)
+func <span class="hljs-number">11</span> <span class="hljs-string">&apos;AA[@]&apos;</span> <span class="hljs-number">66</span>
+
+<span class="hljs-comment">################ output ###############</span>
+<span class="hljs-number">11</span>
+<span class="hljs-number">22</span>
+<span class="hljs-number">33</span> <span class="hljs-number">44</span>
+<span class="hljs-number">55</span>
+<span class="hljs-number">66</span>
+</code></pre>
+<p><a name="named_reference"></a>
+Bash version 4.3+ &#xBD80;&#xD130;&#xB294; named reference &#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xC6D0;&#xBCF8; &#xBCC0;&#xC218;&#xC758; reference &#xC774;&#xBBC0;&#xB85C; &#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD558;&#xAC8C; &#xB418;&#xBA74; &#xC6D0;&#xBCF8; &#xAC12;&#xC774; &#xBCC0;&#xACBD;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>declare -n refname<br>local -n refname</p>
+</blockquote>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-function"><span class="hljs-title">f2</span></span>() {
+    <span class="hljs-built_in">declare</span> -n RVAR=<span class="hljs-variable">$1</span>    <span class="hljs-comment"># declare &#xB294; &#xD568;&#xC218;&#xB0B4;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xBA74; local &#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+    RVAR=<span class="hljs-number">200</span>
+}
+
+<span class="hljs-function"><span class="hljs-title">f1</span></span>() {
+    <span class="hljs-built_in">local</span> VAR=<span class="hljs-number">100</span>
+    <span class="hljs-built_in">echo</span> f1 : <span class="hljs-built_in">local</span> VAR = <span class="hljs-variable">$VAR</span>
+    f2 VAR
+    <span class="hljs-built_in">echo</span> f1 : <span class="hljs-built_in">local</span> VAR after f2 call = <span class="hljs-variable">$VAR</span>
+}
+
+f1
+
+<span class="hljs-comment">############# output ##############</span>
+f1 : <span class="hljs-built_in">local</span> VAR = <span class="hljs-number">100</span>
+f1 : <span class="hljs-built_in">local</span> VAR after f2 call = <span class="hljs-number">200</span>
+
+-------------------------------------------------------------
+<span class="hljs-shebang">#!/bin/bash 
+</span>
+<span class="hljs-function"><span class="hljs-title">func</span></span>() {
+    <span class="hljs-built_in">local</span> -n ARR=<span class="hljs-variable">$1</span>
+    ARR[<span class="hljs-number">1</span>]=<span class="hljs-number">100</span>
+}
+
+AA=(<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span>)
+func AA
+
+<span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[@]}</span>&quot;</span>; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>
+<span class="hljs-keyword">done</span>
+
+<span class="hljs-comment">############# output ##############</span>
+<span class="hljs-number">11</span>
+<span class="hljs-number">100</span>     <span class="hljs-comment"># 22 &#xAC00; 100 &#xC73C;&#xB85C; &#xBCC0;&#xACBD;&#xB428;</span>
+<span class="hljs-number">33</span>
+<span class="hljs-number">44</span>
+</code></pre>
 <h1 id="quiz">Quiz</h1>
 <p>1 . &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC744; &#xD558;&#xAC8C; &#xB418;&#xBA74; &#xBCC0;&#xC218;&#xC640; value &#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xAD6C;&#xBD84;&#xB420;&#xAE4C;&#xC694; ?</p>
 <pre><code class="lang-bash">$ AA=BB=CC
