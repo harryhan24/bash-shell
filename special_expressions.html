@@ -1434,11 +1434,11 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$res</span
 bash: <span class="hljs-built_in">let</span>: =: syntax error: operand expected (error token is <span class="hljs-string">&quot;=&quot;</span>)
 $ <span class="hljs-built_in">let</span> var += <span class="hljs-number">1</span>
 bash: <span class="hljs-built_in">let</span>: +=: syntax error: operand expected (error token is <span class="hljs-string">&quot;+=&quot;</span>)
-$ <span class="hljs-built_in">let</span> var=<span class="hljs-number">1</span>+<span class="hljs-number">2</span>      <span class="hljs-comment"># &#xC2DD;&#xC744; &#xC4F8;&#xB550; &#xACF5;&#xBC31;&#xC5C6;&#xC774; &#xBD99;&#xC5EC;&#xC368;&#xC57C; &#xD55C;&#xB2E4;</span>
+$ <span class="hljs-built_in">let</span> var=<span class="hljs-number">1</span>+<span class="hljs-number">2</span>      <span class="hljs-comment"># &#xC2DD;&#xC744; &#xC4F8;&#xB550; &#xACF5;&#xBC31;&#xC5C6;&#xC774; &#xBD99;&#xC5EC;&#xC11C; &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xAC00; &#xB418;&#xC5B4;&#xC57C;&#xD55C;&#xB2E4;.</span>
 OK
 
 $ i=<span class="hljs-number">2</span> val=<span class="hljs-number">200</span>
-$ <span class="hljs-built_in">let</span> aa1=<span class="hljs-number">100</span> aa<span class="hljs-variable">$i</span>=<span class="hljs-variable">$val</span> res=aa1+aa<span class="hljs-variable">$i</span>         <span class="hljs-comment"># &#xD55C;&#xC904;&#xC5D0; &#xC5EC;&#xB7EC;&#xAC1C;&#xC758; &#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.</span>
+$ <span class="hljs-built_in">let</span> aa1=<span class="hljs-number">100</span> aa<span class="hljs-variable">$i</span>=val res=aa1+aa<span class="hljs-variable">$i</span>          <span class="hljs-comment"># &#xD55C;&#xC904;&#xC5D0; &#xC5EC;&#xB7EC;&#xAC1C;&#xC758; &#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$res</span>
 <span class="hljs-number">300</span>
 
