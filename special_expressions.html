@@ -1504,6 +1504,11 @@ $ [[ <span class="hljs-variable">$AA</span> =~ delete[^\ ]*\ \&lt;uuid\|vmname\&
 $ [[ <span class="hljs-variable">$AA</span> =~ delete[^\ ]*<span class="hljs-string">&quot; &lt;uuid|vmname&gt;&quot;</span> ]]; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 
+<span class="hljs-comment"># regexp &#xC744; &#xBCC0;&#xC218;&#xC5D0; &#xC800;&#xC7A5;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB354; &#xAC04;&#xB2E8;&#xD574;&#xC9C4;&#xB2E4;.</span>
+$ reg=<span class="hljs-string">&apos;delete[^ ]* &lt;uuid|vmname&gt;&apos;</span>
+$ [[ <span class="hljs-variable">$AA</span> =~ <span class="hljs-variable">$reg</span> ]]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+
 <span class="hljs-comment"># Extended Regular Expressions &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBBC0;&#xB85C; ( ) { } &#xB97C; escape &#xD558;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
 $ [[ <span class="hljs-string">&quot;123123&quot;</span> =~ (<span class="hljs-number">123</span>){<span class="hljs-number">2</span>} ]]; <span class="hljs-built_in">echo</span> $? 
 <span class="hljs-number">0</span>
