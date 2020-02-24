@@ -1345,21 +1345,6 @@ winter     and     snow
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(echo &quot;$(echo &quot;$(date)</span>&quot;</span>)<span class="hljs-string">&quot;)&quot;</span>       
 Thu Jul <span class="hljs-number">23</span> <span class="hljs-number">18</span>:<span class="hljs-number">34</span>:<span class="hljs-number">33</span> KST <span class="hljs-number">2015</span>
 </code></pre>
-<h3 id="nul-&#xBB38;&#xC790;&#xB97C;-&#xBCF4;&#xB0BC;-&#xC218;-&#xC5C6;&#xB2E4;">NUL &#xBB38;&#xC790;&#xB97C; &#xBCF4;&#xB0BC; &#xC218; &#xC5C6;&#xB2E4;</h3>
-<p>&#xBCC0;&#xC218;&#xAC12;&#xC73C;&#xB85C; NUL &#xBB38;&#xC790;&#xB97C; &#xC800;&#xC7A5;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xBA85;&#xB839;&#xCE58;&#xD658; &#xAC12;&#xC73C;&#xB85C; NUL &#xBB38;&#xC790;&#xB97C; &#xC804;&#xB2EC;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ ls          <span class="hljs-comment"># aaa, bbb, ccc  3&#xAC1C;&#xC758; &#xD30C;&#xC77C;&#xC774; &#xC874;&#xC7AC;</span>
-aaa  bbb  ccc
-
-<span class="hljs-comment"># &#xD30C;&#xC774;&#xD504;, redirection &#xC740; NUL &#xBB38;&#xC790;&#xAC00; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xB2E4;.</span>
-$ find * -print0 | od <span class="hljs-operator">-a</span>
-<span class="hljs-number">0000000</span>   a   a   a nul   b   b   b nul   c   c   c nul
-<span class="hljs-number">0000014</span>
-
-<span class="hljs-comment"># &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC740; NUL &#xBB38;&#xC790;&#xAC00; &#xBAA8;&#xB450; &#xC81C;&#xAC70;&#xB429;&#xB2C8;&#xB2E4;.</span>
-$ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$(find * -print0)</span>&quot;</span> | od <span class="hljs-operator">-a</span>
-<span class="hljs-number">0000000</span>   a   a   a   b   b   b   c   c   c
-<span class="hljs-number">0000011</span>
-</code></pre>
 <h3 id="&#xBCC0;&#xC218;&#xC5D0;-&#xAC12;&#xC744;-&#xB300;&#xC785;&#xD560;&#xB54C;-&#xB9C8;&#xC9C0;&#xB9C9;-newline-&#xB4E4;&#xC740;-&#xC81C;&#xAC70;&#xB41C;&#xB2E4;">&#xBCC0;&#xC218;&#xC5D0; &#xAC12;&#xC744; &#xB300;&#xC785;&#xD560;&#xB54C; &#xB9C8;&#xC9C0;&#xB9C9; newline &#xB4E4;&#xC740; &#xC81C;&#xAC70;&#xB41C;&#xB2E4;.</h3>
 <pre><code class="lang-bash">$ AA=$<span class="hljs-string">&apos;hello\n\n\n&apos;</span>
 $ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span> | od <span class="hljs-operator">-a</span>
@@ -1394,6 +1379,26 @@ Host: 127.0.0.1:80
 .&quot;</span>)
 
 $ GET=<span class="hljs-variable">${GET%.}</span>   <span class="hljs-comment"># remove period</span>
+</code></pre>
+<h3 id="nul-&#xBB38;&#xC790;&#xB97C;-&#xBCF4;&#xB0BC;-&#xC218;-&#xC5C6;&#xB2E4;">NUL &#xBB38;&#xC790;&#xB97C; &#xBCF4;&#xB0BC; &#xC218; &#xC5C6;&#xB2E4;</h3>
+<p>&#xBCC0;&#xC218;&#xAC12;&#xC73C;&#xB85C; NUL &#xBB38;&#xC790;&#xB97C; &#xC800;&#xC7A5;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xAC83;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xBA85;&#xB839;&#xCE58;&#xD658; &#xAC12;&#xC73C;&#xB85C; NUL &#xBB38;&#xC790;&#xB97C; &#xC804;&#xB2EC;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ ls          <span class="hljs-comment"># aaa, bbb, ccc  3&#xAC1C;&#xC758; &#xD30C;&#xC77C;&#xC774; &#xC874;&#xC7AC;</span>
+aaa  bbb  ccc
+
+<span class="hljs-comment"># &#xD30C;&#xC774;&#xD504;, redirection &#xC740; NUL &#xBB38;&#xC790;&#xAC00; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xB2E4;.</span>
+$ find * -print0 | od <span class="hljs-operator">-a</span>
+<span class="hljs-number">0000000</span>   a   a   a nul   b   b   b nul   c   c   c nul
+<span class="hljs-number">0000014</span>
+
+$ find * -print0 &gt; file
+$ od <span class="hljs-operator">-a</span> file
+<span class="hljs-number">0000000</span>   a   a   a nul   b   b   b nul   c   c   c nul
+<span class="hljs-number">0000014</span>
+
+<span class="hljs-comment"># &#xBA85;&#xB839;&#xCE58;&#xD658;&#xC740; NUL &#xBB38;&#xC790;&#xAC00; &#xBAA8;&#xB450; &#xC81C;&#xAC70;&#xB429;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$(find * -print0)</span>&quot;</span> | od <span class="hljs-operator">-a</span>
+<span class="hljs-number">0000000</span>   a   a   a   b   b   b   c   c   c
+<span class="hljs-number">0000011</span>
 </code></pre>
 <h3 id="&#xBA85;&#xB839;&#xBB38;&#xC5D0;&#xC11C;-redirection-&#xBB38;&#xC790;&#xBCF4;&#xB2E4;&#xB3C4;-&#xBA3C;&#xC800;-&#xCC98;&#xB9AC;&#xB41C;&#xB2E4;">&#xBA85;&#xB839;&#xBB38;&#xC5D0;&#xC11C; redirection &#xBB38;&#xC790;&#xBCF4;&#xB2E4;&#xB3C4; &#xBA3C;&#xC800; &#xCC98;&#xB9AC;&#xB41C;&#xB2E4;.</h3>
 <p>redirection &#xBB38;&#xC790;&#xB294; shell &#xBA54;&#xD0C0;&#xBB38;&#xC790; &#xC911;&#xC5D0;&#xC11C; &#xCC98;&#xB9AC;&#xB418;&#xB294; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xC81C;&#xC77C; &#xB192;&#xC740;&#xB370;
