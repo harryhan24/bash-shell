@@ -1249,9 +1249,17 @@
 &#xBE44;&#xAD50;&#xC801; &#xAC04;&#xB2E8;&#xD55C; &#xBA85;&#xB839;&#xC744; &#xC791;&#xC131;&#xD560; &#xB54C; &#xB9CE;&#xC774; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB7F0;&#xB370; &#xD45C;&#xD604;&#xC2DD;&#xC744; &#xC5F4;&#xACE0; &#xB2EB;&#xB294; &#xBB38;&#xC790;&#xAC00; &#xAC19;&#xC740; &#xAD00;&#xACC4;&#xB85C; nesting &#xD558;&#xC5EC; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xAC00; &#xC5C6;&#xACE0;
 escape sequence &#xAC00; &#xB2E4;&#xB974;&#xAC8C; &#xCC98;&#xB9AC;&#xB429;&#xB2C8;&#xB2E4;.
-&#xADF8;&#xB798;&#xC11C; &#xBCF5;&#xC7A1;&#xD55C; &#xBA85;&#xB839;&#xC744; &#xC791;&#xC131;&#xD558;&#xAC70;&#xB098; nesting &#xC774; &#xD544;&#xC694;&#xD560; &#xB54C;&#xB294; &#xAD04;&#xD638;&#xD615;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xBCF5;&#xC7A1;&#xD55C; &#xBA85;&#xB839;&#xC744; &#xC791;&#xC131;&#xD558;&#xAC70;&#xB098; nesting &#xC774; &#xD544;&#xC694;&#xD560; &#xB54C;&#xB294; &#xAD04;&#xD638;&#xD615;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p>stdout &#xC774; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC5F0;&#xACB0;&#xB41C; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 <img src="images/command_substitution.png" alt=""></p>
+<p>&#xBA85;&#xB839;&#xCE58;&#xD658;&#xC740; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(echo &quot;$(echo &quot;$(ps jf -s $$)</span>&quot;</span>)<span class="hljs-string">&quot;)&quot;</span>
+ PPID   PID  PGID   SID TTY      TPGID STAT   UID   TIME COMMAND
+ <span class="hljs-number">2396</span> <span class="hljs-number">20482</span> <span class="hljs-number">20482</span> <span class="hljs-number">20482</span> pts/<span class="hljs-number">13</span>   <span class="hljs-number">20482</span> Ss+   <span class="hljs-number">1000</span>   <span class="hljs-number">0</span>:<span class="hljs-number">02</span> /bin/bash
+<span class="hljs-number">20482</span>   <span class="hljs-number">708</span> <span class="hljs-number">20482</span> <span class="hljs-number">20482</span> pts/<span class="hljs-number">13</span>   <span class="hljs-number">20482</span> S+    <span class="hljs-number">1000</span>   <span class="hljs-number">0</span>:<span class="hljs-number">00</span>  \_ /bin/bash
+  <span class="hljs-number">708</span>   <span class="hljs-number">709</span> <span class="hljs-number">20482</span> <span class="hljs-number">20482</span> pts/<span class="hljs-number">13</span>   <span class="hljs-number">20482</span> S+    <span class="hljs-number">1000</span>   <span class="hljs-number">0</span>:<span class="hljs-number">00</span>      \_ /bin/bash
+  <span class="hljs-number">709</span>   <span class="hljs-number">710</span> <span class="hljs-number">20482</span> <span class="hljs-number">20482</span> pts/<span class="hljs-number">13</span>   <span class="hljs-number">20482</span> R+    <span class="hljs-number">1000</span>   <span class="hljs-number">0</span>:<span class="hljs-number">00</span>          \_ ps jf <span class="hljs-operator">-s</span> <span class="hljs-number">20482</span>
+</code></pre>
 <pre><code class="lang-bash">$ AA=$( pgrep <span class="hljs-operator">-d</span>, -x ibus )
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <span class="hljs-number">17516</span>,<span class="hljs-number">17529</span>,<span class="hljs-number">17530</span>,<span class="hljs-number">17538</span>,<span class="hljs-number">17541</span>
