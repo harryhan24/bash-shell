@@ -1332,19 +1332,19 @@ index &#xC5D0;&#xC11C; globbing &#xC740; &#xBC1C;&#xC0DD;&#xD558;&#xC9C0; &#xC54
 
 $ BB[aaa]=<span class="hljs-number">100</span>
 $ BB[ aaa]=<span class="hljs-number">200</span>
-$ BB[ aaa ]=<span class="hljs-number">300</span>               <span class="hljs-comment"># &#xACF5;&#xBC31;&#xC73C;&#xB85C; &#xC778;&#xD574; &#xAC01;&#xAC01; &#xB2E4;&#xB978; &#xAC12;&#xC73C;&#xB85C; &#xC778;&#xC2DD;</span>
+$ BB[ aaa ]=<span class="hljs-number">300</span>
 $ BB[aaa   bbb]=<span class="hljs-number">400</span>
 
-$ <span class="hljs-built_in">declare</span> -p BB
+$ <span class="hljs-built_in">declare</span> -p BB         <span class="hljs-comment"># &#xACF5;&#xBC31;&#xC73C;&#xB85C; &#xC778;&#xD574; &#xAC01;&#xAC01; &#xB2E4;&#xB978; &#xAC12;&#xC73C;&#xB85C; &#xC778;&#xC2DD;</span>
 <span class="hljs-built_in">declare</span> -A BB=([aaa]=<span class="hljs-string">&quot;100&quot;</span> [<span class="hljs-string">&quot;aaa   bbb&quot;</span>]=<span class="hljs-string">&quot;400&quot;</span> [<span class="hljs-string">&quot; aaa &quot;</span>]=<span class="hljs-string">&quot;300&quot;</span> [<span class="hljs-string">&quot; aaa&quot;</span>]=<span class="hljs-string">&quot;200&quot;</span> )
 
 $ <span class="hljs-built_in">declare</span> -A CC
 
 $ CC[$(<span class="hljs-built_in">echo</span> aaa)]=<span class="hljs-number">100</span>
 $ CC[ $(<span class="hljs-built_in">echo</span> aaa)]=<span class="hljs-number">200</span>
-$ CC[ $(<span class="hljs-built_in">echo</span> aaa) ]=<span class="hljs-number">300</span>       <span class="hljs-comment"># &#xACF5;&#xBC31;&#xC73C;&#xB85C; &#xC778;&#xD574; &#xAC01;&#xAC01; &#xB2E4;&#xB978; &#xAC12;&#xC73C;&#xB85C; &#xC778;&#xC2DD;</span>
+$ CC[ $(<span class="hljs-built_in">echo</span> aaa) ]=<span class="hljs-number">300</span>
 
-$ <span class="hljs-built_in">declare</span> -p CC
+$ <span class="hljs-built_in">declare</span> -p CC         <span class="hljs-comment"># &#xACF5;&#xBC31;&#xC73C;&#xB85C; &#xC778;&#xD574; &#xAC01;&#xAC01; &#xB2E4;&#xB978; &#xAC12;&#xC73C;&#xB85C; &#xC778;&#xC2DD;</span>
 <span class="hljs-built_in">declare</span> -A CC=([aaa]=<span class="hljs-string">&quot;100&quot;</span> [<span class="hljs-string">&quot; aaa &quot;</span>]=<span class="hljs-string">&quot;300&quot;</span> [<span class="hljs-string">&quot; aaa&quot;</span>]=<span class="hljs-string">&quot;200&quot;</span> )
 </code></pre>
 <h3 id="--&#xCC28;&#xC774;&#xC810;">@ , * &#xCC28;&#xC774;&#xC810;</h3>
