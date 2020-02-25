@@ -1299,8 +1299,9 @@ BASH_FUNC_list_descendants%%=() {  <span class="hljs-built_in">local</span> chil
 </code></pre>
 <h4 id="&#xD568;&#xC218;&#xB97C;-&#xC815;&#xC758;&#xD558;&#xB294;-&#xBC29;&#xBC95;">&#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD558;&#xB294; &#xBC29;&#xBC95;</h4>
 <p>&#xD568;&#xC218;&#xBA85;&#xC740; &#xC678;&#xBD80; &#xBA85;&#xB839;&#xCC98;&#xB7FC; &#xD2B9;&#xBCC4;&#xD788; &#xC81C;&#xD55C;&#xC774; &#xC5C6;&#xACE0;
-&#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560; &#xB54C; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5B8;&#xC5B4;&#xC5D0;&#xC11C;&#xCC98;&#xB7FC; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB97C; &#xC801;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xC804;&#xB2EC;&#xB41C; &#xC778;&#xC218; &#xAC12;&#xC740; &#xD568;&#xC218; &#xB0B4;&#xC5D0;&#xC11C; <code>$1 $2 $3 ...</code> &#xD2B9;&#xC218; &#xBCC0;&#xC218;&#xC5D0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xD560;&#xB2F9;&#xB429;&#xB2C8;&#xB2E4;.</p>
-<p>function &#xD0A4;&#xC6CC;&#xB4DC;&#xB294; bash &#xC5D0;&#xC11C;&#xB9CC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xACE0; sh &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xB370;
+&#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560; &#xB54C; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5B8;&#xC5B4;&#xC5D0;&#xC11C;&#xCC98;&#xB7FC; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB97C; &#xC801;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC804;&#xB2EC;&#xB41C; &#xC778;&#xC218; &#xAC12;&#xC740; &#xD568;&#xC218; &#xB0B4;&#xC5D0;&#xC11C; <code>$1 $2 $3 ...</code> &#xD2B9;&#xC218; &#xBCC0;&#xC218;&#xC5D0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xD560;&#xB2F9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>function &#xD0A4;&#xC6CC;&#xB4DC;&#xB294; <code>bash</code> &#xC5D0;&#xC11C;&#xB9CC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xACE0; <code>sh</code> &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB294;&#xB370;
 &#xAC00;&#xB839; grep &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC744; grep() &#xD568;&#xC218;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC7AC;&#xC815;&#xC758;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB824;&#xACE0; &#xD560;&#xACBD;&#xC6B0;
 &#xC774;&#xB984;&#xC774; &#xC911;&#xBCF5;&#xB418;&#xC5B4; syntax error &#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xB294;&#xB370; &#xC774;&#xB54C; &#xC55E;&#xC5D0; function
 &#xD0A4;&#xC6CC;&#xB4DC;&#xB97C; &#xBD99;&#xC774;&#xBA74; &#xC624;&#xB958;&#xB97C; &#xBC29;&#xC9C0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
@@ -1325,9 +1326,9 @@ $ func <span class="hljs-number">111</span> <span class="hljs-number">222</span>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">declare</span> <span class="hljs-operator">-f</span> &#xD568;&#xC218;&#xBA85;
 </code></pre>
 <p>&#xD604;&#xC7AC; shell &#xC5D0; &#xC815;&#xC758;&#xB41C; &#xBAA8;&#xB4E0; &#xD568;&#xC218;&#xBA85; &#xBCF4;&#xAE30;</p>
-<pre><code class="lang-bash">$ compgen -A <span class="hljs-keyword">function</span> 
+<pre><code class="lang-bash">$ <span class="hljs-built_in">declare</span> -F
 
-$ <span class="hljs-built_in">declare</span> -F
+$ compgen -A <span class="hljs-keyword">function</span>
 </code></pre>
 <p>&#xC815;&#xC758;&#xB41C; &#xD568;&#xC218; &#xC0AD;&#xC81C;&#xD558;&#xAE30;</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">unset</span> <span class="hljs-operator">-f</span> &#xD568;&#xC218;&#xBA85;
