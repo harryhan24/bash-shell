@@ -1691,7 +1691,7 @@ $ BB=<span class="hljs-variable">${AA[@]/#/common/}</span>               <span c
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${#BB[@]}</span> : <span class="hljs-variable">${BB[1]}</span> : <span class="hljs-variable">$BB</span>
 <span class="hljs-number">1</span> : : common/aaa.c common/bbb.c common/ccc.c
 
-$ BB=( <span class="hljs-variable">${AA[@]/#/common/}</span> )           <span class="hljs-comment"># &#xB300;&#xC785;&#xC2DC; `=( )` &#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; array &#xAC00; &#xB41C;&#xB2E4;.</span>
+$ BB=( <span class="hljs-string">&quot;<span class="hljs-variable">${AA[@]/#/common/}</span>&quot;</span> )         <span class="hljs-comment"># &#xB300;&#xC785;&#xC2DC; `=( )` &#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; array &#xAC00; &#xB41C;&#xB2E4;.</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${#BB[@]}</span> : <span class="hljs-variable">${BB[1]}</span> : <span class="hljs-variable">$BB</span>
 <span class="hljs-number">3</span> : common/bbb.c : common/aaa.c
