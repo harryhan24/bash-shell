@@ -1279,10 +1279,10 @@ foo          bar
 
 -----------------------
 
-$ ARR=(<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>)
+$ ARR=(<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-string">&quot;33     44&quot;</span> <span class="hljs-number">55</span>)
 $ AA=<span class="hljs-variable">${ARR[*]}</span>    <span class="hljs-comment"># array &#xC6D0;&#xC18C;&#xB4E4;&#xC774; &#xACF5;&#xBC31;&#xC73C;&#xB85C; &#xBD84;&#xB9AC;&#xB3FC; &#xC788;&#xC9C0;&#xB9CC; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xB300;&#xC785;&#xB41C;&#xB2E4;.</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>
-<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>
+<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>     <span class="hljs-number">44</span> <span class="hljs-number">55</span>
 
 -----------------------
 
