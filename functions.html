@@ -1310,6 +1310,16 @@ X. &#xD568;&#xC218;&#xBA85; ( p1 p2 p3 ) { ... ;}
 <span class="hljs-number">1</span>. &#xD568;&#xC218;&#xBA85; () { ... ;}
 
 <span class="hljs-number">2</span>. <span class="hljs-keyword">function</span> &#xD568;&#xC218;&#xBA85; () { ... ;}      <span class="hljs-comment"># bash &#xC5D0;&#xC11C;&#xB9CC; &#xAC00;&#xB2A5;</span>
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; { } &#xD0A4;&#xC6CC;&#xB4DC; &#xC5C6;&#xC774; &#xBC14;&#xB85C; compound command &#xD0A4;&#xC6CC;&#xB4DC;&#xAC00; &#xC640;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;.</span>
+$ func() <span class="hljs-keyword">for</span> arg; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$arg</span>&quot;</span>
+<span class="hljs-keyword">done</span>
+
+$ func <span class="hljs-number">111</span> <span class="hljs-number">222</span> <span class="hljs-number">333</span>
+<span class="hljs-number">111</span>
+<span class="hljs-number">222</span>
+<span class="hljs-number">333</span>
 </code></pre>
 <p>&#xC815;&#xC758;&#xB41C; &#xD568;&#xC218; &#xB0B4;&#xC6A9; &#xBCF4;&#xAE30;</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">declare</span> <span class="hljs-operator">-f</span> &#xD568;&#xC218;&#xBA85;
