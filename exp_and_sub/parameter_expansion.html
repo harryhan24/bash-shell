@@ -1725,7 +1725,7 @@ $ <span class="hljs-built_in">eval</span> <span class="hljs-built_in">echo</span
 <span class="hljs-number">123</span>
 ----------------------
 
-<span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">$hello</span>&quot;</span> <span class="hljs-operator">-eq</span>  <span class="hljs-string">&quot;<span class="hljs-variable">$(eval echo &apos;$&apos;$linux)</span>&quot;</span>; <span class="hljs-keyword">then</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">$hello</span>&quot;</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$(eval echo &apos;$&apos;$linux)</span>&quot;</span>; <span class="hljs-keyword">then</span>
 ...
 <span class="hljs-keyword">fi</span>
 </code></pre>
@@ -1751,14 +1751,11 @@ $ args.sh <span class="hljs-number">11</span> <span class="hljs-number">22</span
 </span>
 <span class="hljs-function"><span class="hljs-title">foo</span></span>() {
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
-
     <span class="hljs-built_in">local</span> ARR=( <span class="hljs-string">&quot;<span class="hljs-variable">${!2}</span>&quot;</span> )      <span class="hljs-comment"># &apos;!2&apos; &#xBD80;&#xBD84;&#xC774; &apos;AA[@]&apos; &#xB85C; &#xBC14;&#xB010;&#xB2E4;.</span>
                                <span class="hljs-comment"># !2 -&gt; $2 -&gt; AA[@]</span>
-
     <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">${ARR[@]}</span>&quot;</span>; <span class="hljs-keyword">do</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>
     <span class="hljs-keyword">done</span>
-
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$3</span>&quot;</span>
 }
 
