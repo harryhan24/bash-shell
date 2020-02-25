@@ -1406,12 +1406,12 @@ BB : <span class="hljs-number">200</span>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xC790;&#xC190; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xD504;&#xB9B0;&#xD2B8;&#xD558;&#xAE30;</span>
 <span class="hljs-function"><span class="hljs-title">list_descendants</span></span> ()
 {
-  <span class="hljs-built_in">local</span> children=$(ps -o pid= --ppid <span class="hljs-variable">$1</span>)
-  <span class="hljs-keyword">for</span> pid <span class="hljs-keyword">in</span> <span class="hljs-variable">$children</span>
-  <span class="hljs-keyword">do</span>
-    list_descendants <span class="hljs-variable">$pid</span>
-  <span class="hljs-keyword">done</span>
-  <span class="hljs-built_in">echo</span> <span class="hljs-variable">$children</span>
+    <span class="hljs-built_in">local</span> children=$( ps -o pid= --ppid <span class="hljs-variable">$1</span> )
+    <span class="hljs-keyword">for</span> pid <span class="hljs-keyword">in</span> <span class="hljs-variable">$children</span>
+    <span class="hljs-keyword">do</span>
+        list_descendants <span class="hljs-variable">$pid</span>
+    <span class="hljs-keyword">done</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$children</span>
 }
 
 $ ps f <span class="hljs-variable">$PID</span> $(list_descendants <span class="hljs-variable">$PID</span>)
