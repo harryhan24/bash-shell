@@ -1309,6 +1309,22 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA#~}</s
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA#\~}</span>
 temp
 </code></pre>
+<p>Array[@] &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC804;&#xCCB4; &#xC6D0;&#xC18C;&#xC5D0; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ \ls /usr/bin/bas*
+/usr/bin/base32  /usr/bin/base64  /usr/bin/basename  /usr/bin/bashbug
+
+$ AA=( /usr/bin/bas* )
+
+$ <span class="hljs-built_in">declare</span> -p AA
+<span class="hljs-built_in">declare</span> <span class="hljs-operator">-a</span> AA=([<span class="hljs-number">0</span>]=<span class="hljs-string">&quot;/usr/bin/base32&quot;</span> [<span class="hljs-number">1</span>]=<span class="hljs-string">&quot;/usr/bin/base64&quot;</span> [<span class="hljs-number">2</span>]=<span class="hljs-string">&quot;/usr/bin/basename&quot;</span> 
+[<span class="hljs-number">3</span>]=<span class="hljs-string">&quot;/usr/bin/bashbug&quot;</span>)
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[@]##*/}</span>              <span class="hljs-comment"># ${AA[@]}</span>
+base32 base64 basename bashbug
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA[1]##*/}</span>              <span class="hljs-comment"># ${AA[1]}</span>
+base64
+</code></pre>
 <p><a href="../pattern_matching.html#extended_pattern">&#xD655;&#xC7A5; &#xD328;&#xD134;</a>  &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC;
 AA &#xBCC0;&#xC218;&#xAC12;&#xC758; leading space &#xC640; trailing space &#xB97C; &#xC81C;&#xAC70;</p>
 <pre><code class="lang-bash">$ AA=<span class="hljs-string">&apos;     123&apos;</span>
