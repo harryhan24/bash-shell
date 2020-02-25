@@ -1519,10 +1519,6 @@ $ <span class="hljs-built_in">declare</span> -p BB
 <span class="hljs-built_in">declare</span> -A BB=([ab]=<span class="hljs-string">&quot;11&quot;</span> [<span class="hljs-built_in">cd</span>]=<span class="hljs-string">&quot;hello       world&quot;</span> [ef]=<span class="hljs-string">&quot;22&quot;</span> )
 </code></pre>
 <h4 id="array-&#xC6D0;&#xC18C;-&#xC0AD;&#xC81C;&#xD558;&#xAE30;">Array &#xC6D0;&#xC18C; &#xC0AD;&#xC81C;&#xD558;&#xAE30;</h4>
-<p><code>array=()</code> &#xD615;&#xD0DC;&#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC804;&#xCCB4; &#xC6D0;&#xC18C;&#xAC00; &#xC0AD;&#xC81C;&#xB418;&#xC9C0;&#xB9CC; &#xBCC0;&#xC218;&#xB294; &#xB0A8;&#xC544;&#xC788;&#xB294; &#xC0C1;&#xD0DC;&#xC774;&#xBBC0;&#xB85C; 
-associative array &#xAC19;&#xC740; &#xBCC0;&#xC218; &#xD0C0;&#xC785;&#xC740; &#xC720;&#xC9C0;&#xB429;&#xB2C8;&#xB2E4;.
-&#xD558;&#xC9C0;&#xB9CC; unset &#xC740; &#xBCC0;&#xC218; &#xC790;&#xCCB4;&#xAC00; &#xC5C6;&#xC5B4;&#xC9C0;&#xB294; &#xAC83;&#xC73C;&#xB85C; &#xBAA8;&#xB450; &#xC81C;&#xAC70;&#xB429;&#xB2C8;&#xB2E4;.
-array &#xC6D0;&#xC18C;&#xB97C; &#xB098;&#xD0C0;&#xB0B4;&#xB294; &#xB370;&#xB294; <code>[ ]</code> glob &#xBB38;&#xC790;&#xAC00; &#xC0AC;&#xC6A9;&#xB418;&#xBBC0;&#xB85C; globbing &#xC774; &#xBC1C;&#xC0DD;&#xD558;&#xC9C0; &#xC54A;&#xAC8C; &#xD56D;&#xC0C1; quote &#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <table>
 <thead>
 <tr>
@@ -1545,7 +1541,33 @@ array &#xC6D0;&#xC18C;&#xB97C; &#xB098;&#xD0C0;&#xB0B4;&#xB294; &#xB370;&#xB294;
 </tr>
 </tbody>
 </table>
-<p>array &#xC6D0;&#xC18C;&#xB97C; &#xC0AD;&#xC81C;&#xD558;&#xBA74; &#xC790;&#xB3D9;&#xC73C;&#xB85C; ${#array[@]} &#xAC12;&#xC5D0;&#xB3C4; &#xBC18;&#xC601;&#xC774; &#xB418;&#xACE0; for &#xBB38;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xB3C4; &#xC0AD;&#xC81C;&#xB41C; &#xC6D0;&#xC18C;&#xB294; &#xB098;&#xD0C0;&#xB098;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098; &#xC0AD;&#xC81C;&#xB41C; &#xC6D0;&#xC18C;&#xC758; index &#xB294; &#xADF8;&#xB300;&#xB85C; &#xB0A8;&#xC544;&#xC788;&#xACE0; &#xB4A4;&#xC5D0;&#xC624;&#xB294; &#xC6D0;&#xC18C;&#xB4E4;&#xC758; index &#xAC12;&#xB4E4;&#xB3C4; &#xBC14;&#xB00C;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC2DC; array &#xB97C; &#xC7AC;&#xD560;&#xB2F9;&#xD558;&#xBA74; index &#xAC00; &#xC815;&#xB82C;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>array &#xC6D0;&#xC18C; &#xC804;&#xCCB4;&#xB97C; &#xC0AD;&#xC81C;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC5D0;&#xB294; <code>array=()</code> &#xC640; <code>unset</code> &#xB450; &#xAC00;&#xC9C0;&#xAC00; &#xC788;&#xB294;&#xB370; &#xC5B4;&#xB5A4; &#xACBD;&#xC6B0;&#xC774;&#xAC74; 
+&#xC2E4;&#xD589;&#xC774; &#xB418;&#xBA74; &#xBCC0;&#xC218;&#xB294; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xC0C1;&#xD0DC;&#xB85C; &#xB418;&#xACE0; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xD655;&#xC7A5;&#xB3C4; &#xADF8;&#xC5D0; &#xB530;&#xB77C; &#xCC98;&#xB9AC;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># array=() &#xC758; &#xACBD;&#xC6B0;                            # unset &#xC758; &#xACBD;&#xC6B0;</span>
+$ AA=( <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> )                               $ BB=( <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> )
+$ [ -v AA ]; <span class="hljs-built_in">echo</span> $?                         $ [ -v BB ]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>                                            <span class="hljs-number">0</span>
+$ AA=()                                      $ <span class="hljs-built_in">unset</span> BB
+$ [ -v AA ]; <span class="hljs-built_in">echo</span> $?                         $ [ -v BB ]; <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>                                            <span class="hljs-number">1</span>
+</code></pre>
+<p>&#xD558;&#xC9C0;&#xB9CC; &#xCC28;&#xC774;&#xC810;&#xC774; &#xC788;&#xB294;&#xB370; <code>array=()</code> &#xB294; &#xC804;&#xCCB4; &#xC6D0;&#xC18C;&#xAC00; &#xC0AD;&#xC81C;&#xB418;&#xC9C0;&#xB9CC; 
+&#xBCC0;&#xC218;&#xB294; &#xB0A8;&#xC544;&#xC788;&#xB294; &#xC0C1;&#xD0DC;&#xAC00; &#xB418;&#xC5B4; associative array &#xAC19;&#xC740; &#xBCC0;&#xC218; &#xD0C0;&#xC785;&#xC774; &#xC720;&#xC9C0;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.
+&#xBC18;&#xBA74;&#xC5D0; unset &#xC740; &#xBCC0;&#xC218;&#xAC00; &#xC644;&#xC804;&#xD788; &#xC5C6;&#xC5B4;&#xC9C0;&#xB294; &#xAC83;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># array=() &#xC758; &#xACBD;&#xC6B0;                             # unset &#xC758; &#xACBD;&#xC6B0;</span>
+$ <span class="hljs-built_in">declare</span> -A CC=( [ab]=<span class="hljs-number">11</span> )                   $ <span class="hljs-built_in">declare</span> -A DD=( [ab]=<span class="hljs-number">11</span> )
+$ CC=()                                       $ <span class="hljs-built_in">unset</span> DD
+$ <span class="hljs-built_in">declare</span> -p CC                               $ <span class="hljs-built_in">declare</span> -p DD
+<span class="hljs-built_in">declare</span> -A CC=()                              bash: <span class="hljs-built_in">declare</span>: DD: not found
+$ CC+=( <span class="hljs-number">22</span> )                                  $ DD+=( <span class="hljs-number">22</span> )
+bash: CC: <span class="hljs-number">22</span>: must use subscript              $
+when assigning associative array
+<span class="hljs-comment"># associative array &#xC18D;&#xC815;&#xC774; &#xB0A8;&#xC544; &#xC788;&#xC5B4;&#xC11C; &#xC624;&#xB958;&#xAC00; &#xB41C;&#xB2E4;.</span>
+</code></pre>
+<h5 id="index-&#xC815;&#xB82C;-&#xD558;&#xAE30;">index &#xC815;&#xB82C; &#xD558;&#xAE30;</h5>
+<p>array &#xC6D0;&#xC18C;&#xB97C; &#xC0AD;&#xC81C;&#xD558;&#xBA74; &#xC790;&#xB3D9;&#xC73C;&#xB85C; <code>${#array[@]}</code> &#xAC12;&#xC5D0;&#xB3C4; &#xBC18;&#xC601;&#xC774; &#xB418;&#xACE0; for &#xBB38;&#xC744; &#xB3CC;&#xB824;&#xB3C4; &#xC0AD;&#xC81C;&#xB41C; &#xC6D0;&#xC18C;&#xB294; &#xB098;&#xD0C0;&#xB098;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. 
+&#xADF8;&#xB7EC;&#xB098; &#xC0AD;&#xC81C;&#xB41C; &#xC6D0;&#xC18C;&#xC758; index &#xB294; &#xADF8;&#xB300;&#xB85C; &#xB0A8;&#xC544;&#xC788;&#xACE0; &#xB4A4;&#xC5D0;&#xC624;&#xB294; &#xC6D0;&#xC18C;&#xB4E4;&#xC758; index &#xAC12;&#xB4E4;&#xB3C4; &#xBC14;&#xB00C;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. 
+&#xC774;&#xB54C;&#xB294; &#xB2E4;&#xC2DC; array &#xB97C; &#xC7AC;&#xD560;&#xB2F9;&#xD558;&#xBA74; index &#xAC00; &#xC815;&#xB82C;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ AA=(<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span> <span class="hljs-number">44</span> <span class="hljs-number">55</span>)
 
 $ <span class="hljs-built_in">unset</span> <span class="hljs-string">&quot;AA[2]&quot;</span>
