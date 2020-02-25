@@ -1714,7 +1714,10 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${linux}</
 hello
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${!linux}</span>    <span class="hljs-comment"># &apos;!linux&apos; &#xBD80;&#xBD84;&#xC774; &apos;hello&apos; &#xB85C; &#xBC14;&#xB010;&#xB2E4;&#xACE0; &#xC0DD;&#xAC01;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;. </span>
-<span class="hljs-number">123</span>                 <span class="hljs-comment"># !linux -&gt; $linux -&gt; hello</span>
+<span class="hljs-number">123</span>                 <span class="hljs-comment"># !linux -&gt; $linux -&gt; hello </span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${!linux/2/X}</span>
+<span class="hljs-number">1</span>X3
 </code></pre>
 <p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; eval &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; indirection &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ hello=<span class="hljs-number">123</span>
