@@ -1656,14 +1656,14 @@ internet domain socket
 <li>computer1</li>
 </ul>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xBA3C;&#xC800; tar &#xD30C;&#xC77C;&#xC744; &#xBC1B;&#xB294; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C; &#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</span>
-$ nc <span class="hljs-operator">-l</span> <span class="hljs-number">8080</span> | tar -xvz
+$ nc <span class="hljs-operator">-l</span> <span class="hljs-number">8080</span> | tar xvz
 </code></pre>
 <ul>
 <li>computer2</li>
 </ul>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; tar &#xD558;&#xACE0; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; nc &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xAE30; &#xC704;&#xD574; </span>
 <span class="hljs-comment"># &apos;-f -&apos; &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C; &apos;-&apos; &#xB294; stdout &#xC744; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;.</span>
-$ tar -cvz <span class="hljs-operator">-f</span> - . | nc -N <span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span> <span class="hljs-number">8080</span>
+$ tar cvz <span class="hljs-operator">-f</span> - . | nc -N <span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span> <span class="hljs-number">8080</span>
 ./
 ./socat
 ./ncat
