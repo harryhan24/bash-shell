@@ -1403,7 +1403,7 @@ $ <span class="hljs-built_in">echo</span> $(( ( <span class="hljs-number">2</spa
 -----------------------------------------------------------------------------
 
 $ arr=(<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>) i=<span class="hljs-number">1</span>
-$ <span class="hljs-keyword">for</span> (( j=((i + <span class="hljs-number">1</span>)); j &lt;= ((<span class="hljs-variable">${#arr[@]}</span> - <span class="hljs-number">1</span>)); ++j )) { <span class="hljs-built_in">echo</span> <span class="hljs-variable">$j</span> ;}
+$ <span class="hljs-keyword">for</span> (( j = ((i + <span class="hljs-number">1</span>)); j &lt;= ((<span class="hljs-variable">${#arr[@]}</span> - <span class="hljs-number">1</span>)); ++j )) { <span class="hljs-built_in">echo</span> <span class="hljs-variable">$j</span> ;}
 <span class="hljs-number">2</span>
 <span class="hljs-number">3</span>
 <span class="hljs-number">4</span>
