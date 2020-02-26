@@ -1581,6 +1581,32 @@ status: <span class="hljs-number">1</span>, value: <span class="hljs-number">222
 <span class="hljs-keyword">do</span> 
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>
 <span class="hljs-keyword">done</span> &lt; file.txt
+
+----------------------------------------------------------
+
+$ <span class="hljs-built_in">echo</span> -en <span class="hljs-string">&apos; 111\n  222\n   333\n    444\n     555&apos;</span> &gt; file
+
+<span class="hljs-comment"># &#xACF5;&#xBC31;&#xB3C4; &#xC720;&#xC9C0;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778; 555 &#xB3C4; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>; <span class="hljs-keyword">done</span> &lt; file     
+<span class="hljs-number">111</span>
+<span class="hljs-number">222</span>
+<span class="hljs-number">333</span>
+<span class="hljs-number">444</span>
+
+<span class="hljs-comment"># IFS= &#xB97C; &#xCD94;&#xAC00;&#xD558;&#xC5EC; &#xCD9C;&#xB825;&#xC5D0; &#xACF5;&#xBC31;&#xC774; &#xC720;&#xC9C0;&#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-keyword">while</span> IFS= <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>; <span class="hljs-keyword">done</span> &lt; file
+ <span class="hljs-number">111</span>
+  <span class="hljs-number">222</span>
+   <span class="hljs-number">333</span>
+    <span class="hljs-number">444</span>
+
+<span class="hljs-comment"># || [ -n &quot;$line&quot; ] &#xB97C; &#xCD94;&#xAC00;&#xD558;&#xC5EC; &#xB9C8;&#xC9C0;&#xB9C9; &#xB77C;&#xC778; 555 &#xB3C4; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-keyword">while</span> IFS= <span class="hljs-built_in">read</span> -r line || [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> ]; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>; <span class="hljs-keyword">done</span> &lt; file
+ <span class="hljs-number">111</span>
+  <span class="hljs-number">222</span>
+   <span class="hljs-number">333</span>
+    <span class="hljs-number">444</span>
+     <span class="hljs-number">555</span>     <span class="hljs-comment"># 555</span>
 </code></pre>
 
                     
