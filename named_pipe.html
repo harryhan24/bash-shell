@@ -1668,7 +1668,17 @@ $ tar cvz <span class="hljs-operator">-f</span> - . | nc -N <span class="hljs-nu
 ./socat
 ./ncat
 ./websock.sh
-...
+. . .
+
+----------------------------------------------------
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xC740; bash &#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; socket &#xC5F0;&#xACB0; &#xAE30;&#xB2A5;&#xC744; &#xC0AC;&#xC6A9;</span>
+$ tar cvz mydir &gt; /dev/tcp/<span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span>/<span class="hljs-number">8080</span>
+/bin/
+/bin/dir
+/bin/stty
+/bin/zcmp
+/bin/zforce
+. . .
 </code></pre>
 <h3 id="bash-&#xC5D0;&#xC11C;-&#xC81C;&#xACF5;&#xD558;&#xB294;-socket-&#xC5F0;&#xACB0;-&#xAE30;&#xB2A5;">Bash &#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; socket &#xC5F0;&#xACB0; &#xAE30;&#xB2A5;</h3>
 <p>bash &#xC5D0;&#xC11C;&#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC5D0;&#xC11C; &#xC9C1;&#xC811; socket &#xC5D0; &#xC5F0;&#xACB0;&#xD560; &#xC218; &#xC788;&#xB294; &#xAE30;&#xB2A5;&#xC744; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xD615;&#xC2DD;&#xC744; &#xD1B5;&#xD574; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p>
@@ -1683,6 +1693,15 @@ $ tar cvz <span class="hljs-operator">-f</span> - . | nc -N <span class="hljs-nu
 <span class="hljs-number">57752</span> <span class="hljs-number">16</span>-<span class="hljs-number">12</span>-<span class="hljs-number">30</span> <span class="hljs-number">15</span>:<span class="hljs-number">11</span>:<span class="hljs-number">41</span> <span class="hljs-number">00</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">602.7</span> UTC(NIST) *
 
 $ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; /dev/tcp/www.naver.com/<span class="hljs-number">80</span>
+
+$ ls <span class="hljs-operator">-l</span> /dev/fd/
+total <span class="hljs-number">0</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">26</span> <span class="hljs-number">17</span>:<span class="hljs-number">42</span> <span class="hljs-number">0</span> -&gt; /dev/pts/<span class="hljs-number">13</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">26</span> <span class="hljs-number">17</span>:<span class="hljs-number">42</span> <span class="hljs-number">1</span> -&gt; /dev/pts/<span class="hljs-number">13</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">26</span> <span class="hljs-number">17</span>:<span class="hljs-number">42</span> <span class="hljs-number">2</span> -&gt; /dev/pts/<span class="hljs-number">13</span>
+lrwx------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">26</span> <span class="hljs-number">17</span>:<span class="hljs-number">42</span> <span class="hljs-number">3</span> -&gt; socket:[<span class="hljs-number">4419777</span>]    <span class="hljs-comment"># socket</span>
+lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">26</span> <span class="hljs-number">17</span>:<span class="hljs-number">42</span> <span class="hljs-number">4</span> -&gt; /proc/<span class="hljs-number">8058</span>/fd/
+
 $ <span class="hljs-built_in">echo</span> hello &gt;&amp; <span class="hljs-number">3</span>
 $ cat &lt;&amp; <span class="hljs-number">3</span>
 &lt;!DOCTYPE html PUBLIC <span class="hljs-string">&quot;-//W3C//DTD XHTML ...
@@ -1692,7 +1711,7 @@ $ cat &lt;&amp; <span class="hljs-number">3</span>
 ...
 $ exec 3&gt;&amp;-
 </span></code></pre>
-<h3 id="&#xC0AC;&#xC6A9;&#xC608;-">&#xC0AC;&#xC6A9;&#xC608; )</h3>
+<hr>
 <p>Job Control &#xBA54;&#xB274;&#xC5D0; &#xBCF4;&#xBA74; wait &#xBA85;&#xB839;&#xACFC; &#xD30C;&#xC77C;&#xC744; &#xC774;&#xC6A9;&#xD574; background job &#xB4E4;&#xC758; exit &#xAC12;&#xC744; &#xAD6C;&#xD558;&#xB294; &#xC608;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xAC83;&#xC744; named pipe &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xBC14;&#xAFBC; &#xAC83;&#xC778;&#xB370;&#xC694;. &#xC5EC;&#xAE30;&#xC11C; &#xB208;&#xC5EC;&#xACA8;&#xBCFC; &#xC810;&#xC740; FD &#xB97C; named pipe &#xC5D0; &#xC5F0;&#xACB0;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; <code>while read -r res</code> &#xBB38;&#xC5D0;&#xC11C; &#xC77D;&#xC744; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xC744;&#xACBD;&#xC6B0; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;. &#xC774; &#xBC29;&#xBC95;&#xC758; &#xC7A5;&#xC810;&#xC740;  &#xC885;&#xB8CC;&#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xAD6C;&#xD558;&#xAE30; &#xC704;&#xD574; 10 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xBAA8;&#xB450;  &#xC885;&#xB8CC;&#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xAE30;&#xB2E4;&#xB9AC;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB41C;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
 </span>
