@@ -1679,12 +1679,12 @@ gcc -DMESSAGE=hello foo.c
 <pre><code class="lang-bash">$ gcc -DMESSAGE=\<span class="hljs-string">&quot;hello\&quot; foo.c
 OK
 
-$ gcc -DMESSAGE=&quot;</span>\<span class="hljs-string">&quot;hello world\&quot;&quot;</span> foo.c
+$ gcc -DMESSAGE=&quot;</span>\<span class="hljs-string">&quot;hello world\&quot;&quot;</span> foo.c     <span class="hljs-comment"># &#xACF5;&#xBC31;&#xC774; &#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xD558;&#xB098;&#xB85C; &#xB9CC;&#xB4E4;&#xAE30; &#xC704;&#xD574;</span>
 OK
 
-$ <span class="hljs-built_in">echo</span> gcc -DMESSAGE=\<span class="hljs-string">&quot;hello\&quot; foo.c
-gcc -DMESSAGE=&quot;</span>hello<span class="hljs-string">&quot; foo.c
-</span></code></pre>
+$ <span class="hljs-built_in">echo</span> gcc -DMESSAGE=<span class="hljs-string">&quot;\&quot;hello world\&quot;&quot;</span> foo.c
+gcc -DMESSAGE=<span class="hljs-string">&quot;hello world&quot;</span> foo.c
+</code></pre>
 
                     
                     </section>
