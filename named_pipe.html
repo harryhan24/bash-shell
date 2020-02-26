@@ -1661,20 +1661,20 @@ $ nc <span class="hljs-operator">-l</span> <span class="hljs-number">8080</span>
 <ul>
 <li>computer2</li>
 </ul>
-<pre><code class="lang-bash"><span class="hljs-comment"># mydir &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; tar &#xD558;&#xACE0; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; nc &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.</span>
-$ tar cvz ./mydir | nc -N <span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span> <span class="hljs-number">8080</span>
-./mydir/
-./mydir/socat
-./mydir/ncat
-./mydir/websock.sh
+<pre><code class="lang-bash"><span class="hljs-comment"># dir1 &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; tar &#xD558;&#xACE0; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; nc &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.</span>
+$ tar cvz ./dir1 | nc -N <span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span> <span class="hljs-number">8080</span>
+./dir1/
+./dir1/socat
+./dir1/ncat
+./dir1/websock.sh
 . . .
 ----------------------------------------------------
 <span class="hljs-comment"># &#xB2E4;&#xC74C;&#xC740; bash &#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; socket &#xC5F0;&#xACB0; &#xAE30;&#xB2A5;&#xC744; &#xC0AC;&#xC6A9;</span>
-$ tar cvz ./mydir &gt; /dev/tcp/<span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span>/<span class="hljs-number">8080</span>
-./mydir/
-./mydir/socat
-./mydir/ncat
-./mydir/websock.sh
+$ tar cvz ./dir1 &gt; /dev/tcp/<span class="hljs-number">12.34</span>.<span class="hljs-number">56.78</span>/<span class="hljs-number">8080</span>
+./dir1/
+./dir1/socat
+./dir1/ncat
+./dir1/websock.sh
 . . .
 </code></pre>
 <h3 id="bash-&#xC5D0;&#xC11C;-&#xC81C;&#xACF5;&#xD558;&#xB294;-socket-&#xC5F0;&#xACB0;-&#xAE30;&#xB2A5;">Bash &#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; socket &#xC5F0;&#xACB0; &#xAE30;&#xB2A5;</h3>
