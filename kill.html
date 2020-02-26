@@ -1302,6 +1302,39 @@ shell &#xACFC; &#xAC19;&#xC740; PGID &#xB97C; &#xAC16;&#xAC8C; &#xB429;&#xB2C8;&
 <span class="hljs-comment"># &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC790;&#xC2E0;&#xC758; PGID &#xC5D0; INT &#xC2E0;&#xD638; &#xBCF4;&#xB0B4;&#xAE30;</span>
 <span class="hljs-built_in">kill</span> -INT <span class="hljs-number">0</span>
 </code></pre>
+<pre><code class="lang-bash">$ cat a.sh              $ cat b.sh              $ cat c.sh
+<span class="hljs-shebang">#!/bin/bash             #!/bin/bash             #!/bin/bash
+</span>
+<span class="hljs-built_in">echo</span> start a.sh         <span class="hljs-built_in">echo</span> start b.sh         <span class="hljs-built_in">echo</span> start c.sh 
+
+./b.sh                  ./c.sh                  sleep <span class="hljs-number">100</span> &amp;      <span class="hljs-comment"># background &#xC2E4;&#xD589;</span>
+                                                <span class="hljs-built_in">kill</span> -TERM $$    <span class="hljs-comment"># $$ &#xC0AC;&#xC6A9;</span>
+<span class="hljs-built_in">echo</span> end a.sh           <span class="hljs-built_in">echo</span> end b.sh         
+                                                <span class="hljs-built_in">echo</span> end c.sh
+
+<span class="hljs-comment"># a.sh &#xB97C; &#xC2E4;&#xD589;&#xD574; &#xBCF4;&#xBA74; c.sh &#xB9CC; &#xC885;&#xB8CC;&#xAC00; &#xB418;&#xACE0; &#xB098;&#xBA38;&#xC9C0;&#xB294; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+$ ./a.sh 
+start a.sh
+start b.sh
+start c.sh
+Terminated    <span class="hljs-comment"># c.sh &#xB9CC; &#xC885;&#xB8CC;&#xB418;&#xACE0;</span>
+end b.sh      <span class="hljs-comment"># &#xB098;&#xBA38;&#xC9C0;&#xB294; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+end a.sh
+
+$ ps ax | grep slee[p]    <span class="hljs-comment"># background &#xB85C; &#xC2E4;&#xD589;&#xB41C; sleep &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB3C4; &#xB0A8;&#xC544;&#xC788;&#xB2E4;</span>
+ <span class="hljs-number">4643</span> pts/<span class="hljs-number">14</span>   S      <span class="hljs-number">0</span>:<span class="hljs-number">00</span> sleep <span class="hljs-number">100</span>
+
+<span class="hljs-comment"># &#xC774;&#xBC88;&#xC5D0;&#xB294; c.sh &#xC758; &apos;kill -TERM $$&apos; &#xC744; &apos;kill -TERM 0&apos; &#xB85C; &#xBCC0;&#xACBD;&#xD55C; &#xD6C4; &#xC2E4;&#xD589;&#xD574;&#xBCF4;&#xBA74;</span>
+<span class="hljs-comment"># &#xAC19;&#xC740; PGID &#xAC16;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC774; &#xBAA8;&#xB450; &#xC885;&#xB8CC;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+$ ./a.sh 
+start a.sh
+start b.sh
+start c.sh
+Terminated
+
+$ ps ax | grep slee[p]
+$
+</code></pre>
 
                     
                     </section>
