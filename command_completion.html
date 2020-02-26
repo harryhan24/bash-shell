@@ -1851,7 +1851,7 @@ complete -W $<span class="hljs-string">&apos;&quot;\&apos;</span>BEGIN { }\<span
 <p>&#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0;&#xC11C; &#xD30C;&#xC77C;&#xC740; &#xC81C;&#xC678;&#xD558;&#xACE0; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB9CC; &#xCD9C;&#xB825;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xAD6C;&#xC131;&#xC774; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC744; &#xACBD;&#xC6B0;</span>
 $ ls <span class="hljs-operator">-a</span>
-./  ../  aaa/  bbb/  ccc/  .ddd/  .eee/  .fff/  file1.txt  file2.txt
+./  ../  aaa/  bbb/  ccc/  .ddd/  .eee/  .fff/  file1.txt  file2.txt .hidden.txt
 
 <span class="hljs-comment"># hidden &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB294; &#xD3EC;&#xD568;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
 $ \ls <span class="hljs-operator">-d</span> */
@@ -1867,6 +1867,20 @@ ccc
 .ddd
 .eee
 .fff
+
+$  ls -Al | \grep ^d
+drwxrwxr-x <span class="hljs-number">2</span> mug896 mug896 <span class="hljs-number">4096</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">27</span> <span class="hljs-number">00</span>:<span class="hljs-number">07</span> aaa/
+drwxrwxr-x <span class="hljs-number">2</span> mug896 mug896 <span class="hljs-number">4096</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">27</span> <span class="hljs-number">00</span>:<span class="hljs-number">07</span> bbb/
+drwxrwxr-x <span class="hljs-number">2</span> mug896 mug896 <span class="hljs-number">4096</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">27</span> <span class="hljs-number">00</span>:<span class="hljs-number">08</span> ccc/
+drwxrwxr-x <span class="hljs-number">2</span> mug896 mug896 <span class="hljs-number">4096</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">27</span> <span class="hljs-number">00</span>:<span class="hljs-number">06</span> .ddd/
+drwxrwxr-x <span class="hljs-number">2</span> mug896 mug896 <span class="hljs-number">4096</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">27</span> <span class="hljs-number">00</span>:<span class="hljs-number">06</span> .eee/
+drwxrwxr-x <span class="hljs-number">2</span> mug896 mug896 <span class="hljs-number">4096</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">27</span> <span class="hljs-number">00</span>:<span class="hljs-number">06</span> .fff/
+</code></pre>
+<p>&#xC774;&#xBC88;&#xC5D0;&#xB294; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xC81C;&#xC678;&#xD558;&#xACE0; &#xD30C;&#xC77C;&#xB9CC; &#xCD9C;&#xB825;</p>
+<pre><code class="lang-bash">$ ls -Al | \grep ^[^dt]
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896    <span class="hljs-number">0</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">27</span> <span class="hljs-number">00</span>:<span class="hljs-number">07</span> file1.txt
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896    <span class="hljs-number">0</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">27</span> <span class="hljs-number">00</span>:<span class="hljs-number">07</span> file2.txt
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896    <span class="hljs-number">0</span> <span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">27</span> <span class="hljs-number">00</span>:<span class="hljs-number">07</span> .hidden.txt
 </code></pre>
 
                     
