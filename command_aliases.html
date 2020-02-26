@@ -1266,18 +1266,27 @@ $ geturl http://example.com/excitingstuff.jpg
 </li>
 <li><p>child process &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.<br>( &#xAC00;&#xB839; vi &#xC5D0;&#xB514;&#xD130;&#xC5D0;&#xC11C; &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. )</p>
 </li>
-<li><p>&#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560; &#xB54C;&#xB294; alias &#xAC00; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xD655;&#xC7A5;&#xB418;&#xC5B4; &#xC815;&#xC758;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<li><p>&#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560; &#xB54C;&#xB294; alias &#xAC00; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xD655;&#xC7A5;&#xB418;&#xC5B4; &#xC815;&#xC758;&#xB429;&#xB2C8;&#xB2E4;.<br>&#xAE30;&#xC874; alias &#xAC00; &#xC801;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xD558;&#xB824;&#xBA74; escape &#xD558;&#xBA74;&#xB429;&#xB2C8;&#xB2E4;.</p>
 </li>
 </ul>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">alias</span> ls
-<span class="hljs-built_in">alias</span> ls=<span class="hljs-string">&apos;ls -N -F --color=auto --time-style=long-iso&apos;</span>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">alias</span> ls grep
+<span class="hljs-built_in">alias</span> ls=<span class="hljs-string">&apos;ls -N -F --color=auto --group-directories-first&apos;</span>
+<span class="hljs-built_in">alias</span> grep=<span class="hljs-string">&apos;grep --color=auto&apos;</span>
 
-$ <span class="hljs-function"><span class="hljs-title">myls</span></span>() { ls <span class="hljs-operator">-l</span> ;}
+$ <span class="hljs-function"><span class="hljs-title">lsd</span></span>() { ls -Al <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> | grep ^d ;}    <span class="hljs-comment"># &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB9CC; &#xCD9C;&#xB825;&#xD558;&#xB294; &#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;</span>
 
-$ <span class="hljs-built_in">declare</span> <span class="hljs-operator">-f</span> myls
-<span class="hljs-function"><span class="hljs-title">myls</span></span> () 
+$ <span class="hljs-built_in">declare</span> <span class="hljs-operator">-f</span> lsd  
+<span class="hljs-function"><span class="hljs-title">lsd</span></span> () 
+{            <span class="hljs-comment"># &#xAE30;&#xC874;&#xC5D0; ls, grep &#xBA85;&#xB839;&#xC5D0; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB358; alias &#xAC00; &#xD655;&#xC7A5;&#xB418;&#xC5B4; &#xC815;&#xC758;&#xB41C;&#xB2E4;.</span>
+    ls -N -F --color=auto --group-directories-first -Al <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> | grep --color=auto ^d
+}
+
+$ <span class="hljs-function"><span class="hljs-title">lsd</span></span>() { \ls -N -Al <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> | \grep ^d ;}    <span class="hljs-comment"># alias &#xC801;&#xC6A9;&#xC744; &#xBC29;&#xC9C0;&#xD558;&#xB824;&#xBA74; escape &#xD569;&#xB2C8;&#xB2E4;.</span>
+
+$ <span class="hljs-built_in">declare</span> <span class="hljs-operator">-f</span> lsd
+<span class="hljs-function"><span class="hljs-title">lsd</span></span> () 
 { 
-    ls -N -F --color=auto --time-style=long-iso <span class="hljs-operator">-l</span>
+    \ls -N -Al <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> | \grep ^d
 }
 </code></pre>
 <ul>
