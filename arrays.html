@@ -1432,6 +1432,13 @@ $ args.sh <span class="hljs-string">&quot;aa <span class="hljs-variable">${AA[@]
 $ args.sh <span class="hljs-string">&quot;aa <span class="hljs-variable">${AA[*]}</span> bb&quot;</span>
 <span class="hljs-variable">$1</span> : aa <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> bb
 </code></pre>
+<p>IFS &#xAC12;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xB2E8;&#xC5B4; &#xC0AC;&#xC774;&#xC5D0; &#xAD6C;&#xBD84;&#xC790;&#xB97C; &#xC124;&#xC815;</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> a{b,c,d}
+ab ac ad
+
+$ <span class="hljs-built_in">echo</span> $( words=( a{b,c,d} ); IFS=,; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${words[*]}</span>&quot;</span> )
+ab,ac,ad
+</code></pre>
 <h4 id="&#xD2B9;&#xC218;-&#xD45C;&#xD604;&#xC2DD;">&#xD2B9;&#xC218; &#xD45C;&#xD604;&#xC2DD;</h4>
 <table>
 <thead>
