@@ -1436,7 +1436,7 @@ $ args.sh <span class="hljs-string">&quot;aa <span class="hljs-variable">${AA[*]
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> a{b,c,d}
 ab ac ad
 
-$ <span class="hljs-built_in">echo</span> $( words=( a{b,c,d} ); IFS=,; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${words[*]}</span>&quot;</span> )
+$ <span class="hljs-built_in">echo</span> $( AA=( a{b,c,d} ); IFS=,; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[*]}</span>&quot;</span> )    <span class="hljs-comment"># AA[*] &#xC0AC;&#xC6A9;</span>
 ab,ac,ad
 </code></pre>
 <h4 id="&#xD2B9;&#xC218;-&#xD45C;&#xD604;&#xC2DD;">&#xD2B9;&#xC218; &#xD45C;&#xD604;&#xC2DD;</h4>
